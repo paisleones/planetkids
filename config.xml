@@ -26,12 +26,12 @@
     <preference name="SplashScreen" value="foo" />
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/> 
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+<plugin name="org.apache.cordova.device" source="pgb" spec="0.3.0" />
+<plugin name="org.apache.cordova.dialogs" source="pgb" spec="0.3.0" />
+<plugin name="org.apache.cordova.file" source="pgb" spec="1.3.3" />
+<plugin name="org.apache.cordova.inappbrowser" spec="n/a" />
+<plugin name="org.apache.cordova.network-information" source="pgb" spec="0.2.15" />
+<plugin name="org.apache.cordova.splashscreen" source="pgb" spec="1.0.0" />
     <icon src="images/icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
