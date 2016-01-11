@@ -1,0 +1,39 @@
+
+.dialpad .number
+{position:relative;z-index:2;padding:10px;color:#ff4b42;font-weight:300;font-size:80px;margin: 0px;background:#fff;text-align: center; height:100px}
+
+.dialpad .dials
+{margin:-1px 0 0 -1px;background:#248dc1;cursor:pointer}
+
+.dialpad .dials:before,.dialpad .dials:after
+{content:"\0020";display:block;height:0;overflow:hidden}
+
+.dialpad .dials:after
+{clear:both}
+
+.dialpad .dials .digits
+{float:left;width:33.33%}
+
+.dialpad .dials .digits p
+{font-weight:600;padding:15px;border-top:1px solid #ffffff;border-right:0px solid #000;border-bottom:0px solid #000;border-left:1px solid #ffffff; text-align: center;}
+
+.dialpad .dials .digits p strong
+{font-size:50px;margin-right:8px;color:#fff}
+
+.dialpad .dials .digits:active
+{background:#00caf2;border-top-color:#b2f2ff}
+
+.compact .dials .digits p
+{padding:15px}
+
+.compact .dials .digits p strong
+{font-size:30px}
+
+.compact .dials .digits p sup
+{text-transform:uppercase;color:#c1c1c1}
+
+.compact .dials .pad-action
+{background:#093}
+
+.compact .dials .pad-action:active
+{background:#0c3}

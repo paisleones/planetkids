@@ -1,0 +1,367 @@
+<a name="arriba"></a>
+
+<html>
+<head>
+<title>KIDS PLANET</title>
+
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style5152.css">
+
+<link rel='stylesheet' id='writter-responsive-style-css'  href='css/writter-responsive5152.css?ver=1.0' type='text/css' media='all' />
+<style type="text/css">
+.cssClass { position:absolute; z-index:2; left:0; top:50px; width:100%; height: 100%; overflow:auto;}
+
+.sombra
+{
+-webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+-moz-box-shadow:    0px 2px 10px rgba(0, 0, 0, 0.5);
+box-shadow:         0px 2px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.bordes_redondeados
+{
+border-radius: 6px 6px 6px 6px;
+-moz-border-radius: 6px 6px 6px 6px;
+-webkit-border-radius: 6px 6px 6px 6px;
+border: 0px solid #000000;
+}
+
+.boton {
+box-shadow: 0px 4px 0px 0px #c93028;
+background-color: #ff4b42;
+color: #fff;
+margin: 10px 20px 10px 0px;
+border-radius: 5px;
+padding:10px;
+padding-right: 0px;
+margin: 00px;
+width: 160px;
+cursor: pointer;
+text-align: left;
+font-size: 14px;
+}
+
+.slider-v1 + label {
+  position: relative;
+  display: block;
+  width: 5.5em;
+  height: 3em;
+  cursor: pointer;
+  border-radius: 1.5em;
+  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0)), #ddd;
+  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.4) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7);
+}
+
+.slider-v1 + label::before {
+  position: absolute;
+  content: '';
+  width: 2em;
+  height: 2em;
+  top: 0.5em;
+  left: 0.5em;
+  border-radius: 50%;
+  transition: 250ms ease-in-out;
+  background: linear-gradient(#f5f5f5 10%, #eeeeee);
+  box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0.5em 0.3em -0.1em rgba(0, 0, 0, 0.25);
+}
+
+.slider-v1 + label::after {
+  position: absolute;
+  content: '';
+  width: 1em;
+  height: 1em;
+  top: 1em;
+  left: 6em;
+  border-radius: 50%;
+  transition: 250ms ease-in;
+  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #ddd;
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), -7.25em 0 0 -0.25em rgba(0, 0, 0, 0.3);
+}
+
+.slider-v1:checked + label::after {
+  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #4c6;
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), -7.25em 0 0 -0.25em rgba(0, 0, 0, 0.12);
+}
+
+.slider-v1:checked + label::before {
+  left: 3em;
+}
+
+
+#title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: "lato", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin-top: -60px;
+  padding-left: 10px;
+}
+#title span {
+  background: -webkit-linear-gradient(white, #38495a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.load {
+  position: relative;
+  margin: 50px auto;
+  width: 70px;
+  height: 40px;
+}
+
+.gear {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  z-index: -10;
+  width: 20px;
+  height: 20px;
+  animation: spin 5s infinite;
+}
+
+.two {
+  left: 22px;
+  top: 6px;
+  width: 30px;
+  height: 30px;
+  animation: spin-reverse 5s infinite;
+}
+
+.three {
+  top: 22px;
+  left: 6px;
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes spin {
+  50% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  50% {
+    transform: rotate(-360deg);
+  }
+}
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script>
+function cargardatos(url,div) {
+	document.location.href="#arriba";
+$( "#siteloader" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="images/robot3.png"><div class="load" style="position: relative; top: -189px; left: -28px; z-index: 9999;"><div class="gear one"><svg id="blue" viewbox="0 0 100 100" fill="#94DDFF"><path d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z"></path></svg></div><div class="gear two"><svg id="pink" viewbox="0 0 100 100" fill="#f34b43"><path d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z"></path></svg></div><div class="gear three"><svg id="yellow" viewbox="0 0 100 100" fill="#FFCD5C"><path d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z"></path></svg></div></div></div>');
+ 
+	$.ajax({
+		  crossOrigin: true,
+		  url: "" + url,
+		  proxy: "proxy.php", 
+		  context: {},
+		  success: function(data) {
+			  //alert(data);			  
+			  closeMenu();
+			  $( '#' + div ).html(data);
+		$("#" + div).show();
+			}
+		})
+}
+
+function cargarvideo(url,div) {
+	$.ajax({
+		  crossOrigin: true,
+		  url: "" + url,
+		  proxy: "proxy.php", 
+		  context: {},
+		  success: function(data) {
+			  //alert(data);			  
+			  closeMenu();
+			  $( '#' + div ).html(data);
+		$("#" + div).show();
+			}
+		})
+}
+</script>
+
+
+
+<script type='text/javascript' src='js/jquery.simplemodal-1.4.4.js'></script>
+
+<script type="text/JavaScript">
+function modalbox(ancho,alto,src)
+{
+closeMenu();
+$.modal('<div style="width: "' + ancho + '"px; height: "' + alto + '"px; padding: 00px; max-width: 90%; max-height: 300px; z-index:9999; background: #ffffff; overflow-y: scroll;"><span id="ventana"><div style="margin: 0px; padding: 0px; width: 100%; height: 100%; min-height: 190px; background: url(images/cargando1.gif); background-repeat: no-repeat;background-position: center; position: relative; float: left; margin-bottom: 0px;"></div></span></div>', {
+	closeClass: "modalClose",
+	containerCss:{
+		padding:0,
+		width:ancho,
+		height:alto
+	},
+	overlayClose:true,
+	autoResize:true,
+	autoPosition:true,
+	opacity:60,
+	maxHeight: 700
+	
+});
+
+$("#ventana").load(src); 
+
+}
+
+
+function modalboxvideo(ancho,alto,src)
+{
+closeMenu();
+$.modal('<div style="width: "' + ancho + '"px; height: "' + alto + '"px; padding: 00px; max-width: 90%; max-height: 300px; z-index:9999; background: #ffffff; overflow-y: scroll;"><span id="ventana" style="in-height: 200px;"><div style="margin: 0px; padding: 0px; width: 100%; height: 100%; min-height: 190px; background: url(images/cargando1.gif); background-repeat: no-repeat;background-position: center; position: relative; float: left; margin-bottom: 0px;"></div></span></div>', {
+	closeClass: "modalClose",
+	containerCss:{
+		padding:0,
+		width:ancho,
+	},
+	overlayClose:true,
+	autoResize:true,
+	autoPosition:true,
+	opacity:60,
+	maxHeight: 500,
+	minHeight: 250,
+	onShow: function(dialogo) {
+    $(dialogo.container).css('height','auto');
+}
+	
+});
+
+cargarvideo(src,"ventana");
+
+//$("#ventana").load(src); 
+
+
+}
+</script>
+
+<style>
+#simplemodal-overlay {
+  background: rgba(0, 0, 0, 1);
+}
+#simplemodal-container {
+  border: 10px solid #fff;
+  background: #ffffff;
+  padding: 0px;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+height: auto;
+margin-top: -150px;
+
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+#simplemodal-container a.modalCloseImg {
+  background:url(images/cerrar.png) no-repeat;
+  width:62px;
+  height:62px;
+  display:inline;
+  z-index:3200;
+  position:absolute;
+  top:-20px;
+  right:-20px;
+  cursor:pointer;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<div id="menu_lateral">
+</div>
+
+<script>
+    cargardatos('menu.php','menu_lateral');
+</script>
+
+<div class="content">
+<div id="body" class="page center">
+
+
+<div class="headerBack">
+<div id="header" style="text-align: left;">
+
+<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100">
+<a class="button" href="#" id="menu">
+<div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
+<img src="images/menu.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
+</div>
+</a>
+Kids Planet
+</h1>
+
+</div>
+</div>
+
+<div class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;">
+
+
+
+<div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader">   
+</div>
+
+
+</div>
+
+
+<script>
+    cargardatos('lista_series.php','siteloader');
+</script>
+
+
+
+
+
+</div>
+</div>
+
+
+
+<script type="text/javascript" src="js/menu.js"></script>
+
+
+<script>
+closeMenu();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
