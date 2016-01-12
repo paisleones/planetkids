@@ -124,43 +124,6 @@ font-size: 14px;
   height: 40px;
 }
 
-.gear {
-  position: absolute;
-  top: 5px;
-  left: 4px;
-  z-index: -10;
-  width: 20px;
-  height: 20px;
-  animation: spin 5s infinite;
-}
-
-.two {
-  left: 22px;
-  top: 6px;
-  width: 30px;
-  height: 30px;
-  animation: spin-reverse 5s infinite;
-}
-
-.three {
-  top: 22px;
-  left: 6px;
-  width: 24px;
-  height: 24px;
-}
-
-@keyframes spin {
-  50% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin-reverse {
-  50% {
-    transform: rotate(-360deg);
-  }
-}
-
 </style>
 
 <link rel="stylesheet" type="text/css" href="css/default.css" />
@@ -170,7 +133,7 @@ font-size: 14px;
 <script>
 function cargardatos(url,div) {
 	document.location.href="#arriba";
-$( "#siteloader" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="images/robot3.png" style="width: 190px;"><div class="load" style="position: relative; top: -159px; left: -34px; z-index: 9999;"><img src="images/gears8.gif" style="height: 38px;"></div</div>');
+$( "#siteloader" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="images/robot3.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="images/gears7.gif" style="height: 34px;"></div</div>');
  
 	$.ajax({
 		  crossOrigin: true,
