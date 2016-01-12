@@ -79,22 +79,14 @@ mysql_select_db("kids") or die("Error en la selección de la base de datos");
 
 
 <script>
-    jwplayer("div_video").setup({
-        file: "<?php echo @$video ?>",
-		image: "<?php echo @$fotograma ?>",
-		//logo: {
-		//margin: '10',
-		//file: 'images/logo1.png',
-		//position: 'bottom-right',
-		//link: ''
-	//},
-        primary: "html5",
-        skin: "vapor",
-
-      aspectratio: "16:9",
-	  width: "100%",
-	  stretching: "exactfit",
-	controlbar: "bottom"
-    });
-    jwplayer().onDisplayClick(function() { jwplayer().setFullscreen(true); });
+VideoPlayer.play(
+    "<?php echo $video ?>",
+    {
+        volume: 0.5,
+        scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+    },
+    function (err) {
+        console.log(err);
+    }
+);
 </script>
