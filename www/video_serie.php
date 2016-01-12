@@ -66,7 +66,6 @@ mysql_select_db("kids") or die("Error en la selección de la base de datos");
 
 ?>
 
-<script src="js/videoplayer.js"></script>
 
 <div style="padding: 20px;">
 
