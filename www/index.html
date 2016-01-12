@@ -174,7 +174,7 @@ $( "#siteloader" ).html('<div style="width: 100%; text-align: center; padding-to
  
 	$.ajax({
 		  crossOrigin: true,
-		  url: "" + url,
+		  url: "http://kids.trabajocreativo.com/" + url,
 		  proxy: "proxy.php", 
 		  context: {},
 		  success: function(data) {
@@ -189,7 +189,7 @@ $( "#siteloader" ).html('<div style="width: 100%; text-align: center; padding-to
 function cargarvideo(url,div) {
 	$.ajax({
 		  crossOrigin: true,
-		  url: "" + url,
+		  url: "http://kids.trabajocreativo.com/" + url,
 		  proxy: "proxy.php", 
 		  context: {},
 		  success: function(data) {
@@ -361,7 +361,11 @@ closeMenu();
 
 
 
-<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
 
 </body>
 </html>
