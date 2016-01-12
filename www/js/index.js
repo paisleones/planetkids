@@ -34,6 +34,24 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+
+        function init() {
+  console.log('Device Ready');
+
+  
+
+   // Avisar de que se perdió la conexión.
+  document.addEventListener("offline", function() {
+    $( "#error" ).show();
+    navigator.notification.alert("No tienes conexión a internet. Ten en cuenta que las secciones pueden verse afectadas", null, "Sin conexión", "Aceptar");
+  });
+
+  document.addEventListener("online", function() {
+    $( "#error" ).hide();
+
+  });
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
