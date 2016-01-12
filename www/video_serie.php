@@ -66,7 +66,7 @@ mysql_select_db("kids") or die("Error en la selección de la base de datos");
 
 ?>
 
-<script src="js/video.js"></script>
+<script src="js/videoplayer.js"></script>
 
 <div style="padding: 20px;">
 
@@ -79,14 +79,5 @@ mysql_select_db("kids") or die("Error en la selección de la base de datos");
 
 
 <script>
-VideoPlayer.play(
-    "<?php echo $video ?>",
-    {
-        volume: 0.5,
-        scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
-    },
-    function (err) {
-        console.log(err);
-    }
-);
+VideoPlayer.play("<?php echo @$video ?>");
 </script>
