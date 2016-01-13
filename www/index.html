@@ -129,7 +129,6 @@ font-size: 14px;
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/videoplayer.js"></script>
 
 <script>
 function cargardatos(url,div) {
@@ -261,7 +260,7 @@ box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 
 </head>
 
-<body onload="javascript:init()">
+<body onLoad="javascript:init()">
 
 
 <div id="menu_lateral">
@@ -292,6 +291,11 @@ Kids Planet
 
 <div class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;">
 
+
+
+ <div style="margin: 20px;">
+ <button onclick="playMP4()">PLAY MP4 VIDEO</button>
+ </div>
 
 
 <div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader">   
@@ -327,6 +331,27 @@ closeMenu();
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
+
+<script>
+ function playMP4() {
+ VideoPlayer.play(
+ "http://mvod.lvlt.rtve.es/resources/TE_glead/mp4/9/7/1427710844079.mp4",
+ {
+ volume: 1.0, 
+ scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+ },
+ function () {
+ console.log("video completed");
+ },
+ function (err) {
+ console.log(err);
+ }
+ );
+ }
+ </script>
+ <script type="text/javascript" src="videoplayer.js"></script>
+
 <script type="text/javascript">
 app.initialize();
 </script>
