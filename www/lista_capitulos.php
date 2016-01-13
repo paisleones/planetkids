@@ -151,7 +151,7 @@ if (@$resumen=='')
 }
 </style>
 
-<a href="javascript:modalboxvideo(800,500,'video_serie.php?enlace=<?php echo $enlace ?>&titulo=<?php echo $titulo ?>');">
+<a href="video.php?enlace=<?php echo $enlace ?>&titulo=<?php echo $titulo ?>">
 
 
 <article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized bordes_redondeados" style="border: 0px; background: none;">
