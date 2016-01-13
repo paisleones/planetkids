@@ -293,11 +293,6 @@ Kids Planet
 
 
 
- <div style="margin: 20px;">
- <button onclick="playMP4()">PLAY MP4 VIDEO</button>
- </div>
-
-
 <div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader">   
 </div>
 
@@ -332,25 +327,48 @@ closeMenu();
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
-
 <script>
- function playMP4() {
- VideoPlayer.play(
- "http://mvod.lvlt.rtve.es/resources/TE_glead/mp4/9/7/1427710844079.mp4",
- {
- volume: 1.0, 
- scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
- },
- function () {
- console.log("video completed");
- },
- function (err) {
- console.log(err);
- }
- );
- }
- </script>
- <script type="text/javascript" src="videoplayer.js"></script>
+var videoUrl = "http://mvod.lvlt.rtve.es/resources/TE_glead/mp4/9/7/1427710844079.mp4";
+
+  // Just play a video
+  window.plugins.streamingMedia.playVideo(videoUrl);
+
+  // Play a video with callbacks
+  var options = {
+    successCallback: function() {
+      console.log("Video was closed without error.");
+    },
+    errorCallback: function(errMsg) {
+      console.log("Error! " + errMsg);
+    }
+  };
+  window.plugins.streamingMedia.playVideo(videoUrl, options);
+
+
+  var audioUrl = STREAMING_AUDIO_URL;
+
+  // Play an audio file (not recommended, since the screen will be plain black)
+  window.plugins.streamingMedia.playAudio(audioUrl);
+
+  // Play an audio file with options (all options optional)
+  var options = {
+    bgColor: "#FFFFFF",
+    bgImage: "<SWEET_BACKGROUND_IMAGE>",
+    bgImageScale: "fit",
+    initFullscreen: false, // true(default)/false iOS only
+    successCallback: function() {
+      console.log("Player closed without error.");
+    },
+    errorCallback: function(errMsg) {
+      console.log("Error! " + errMsg);
+    }
+  };
+  window.plugins.streamingMedia.playAudio(audioUrl, options);
+
+
+  // Stop current audio
+  window.plugins.streamingMedia.stopAudio();
+  </script>
 
 <script type="text/javascript">
 app.initialize();
