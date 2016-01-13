@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.trabajocreativo.planetkids" version="1.0.0">
-  <name>PLANETKIDS</name>
+  <name>Kids PLANET</name>
   <description>Las mejores series infantiles</description>
   <author href="http://www.trabajocreativo.com" email="info@trabajocreativo.com">Trabajocreativo.com</author>
   <content src="index.html"/>
@@ -26,6 +26,7 @@
   <gap:plugin name="org.apache.cordova.network-information"/>
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="com.moust.cordova.videoplayer" spec="1.0.0" source="pgb" />
+  <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>
   <icon src="icon.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
