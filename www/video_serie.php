@@ -1,4 +1,4 @@
-<a name="arriba"></a>
+﻿<a name="arriba"></a>
 <script>
 document.location.href="#arriba";
 </script>
@@ -63,7 +63,6 @@ mysql_select_db("kids") or die("Error en la selección de la base de datos");
 @$video = extraer(@$codigo_lista,"http://mvod.lvlt.rtve.e",".mp4");
 @$video = "http://mvod.lvlt.rtve.e" . @$video . ".mp4";
 @$fotograma = extraer(@$codigo_lista,"img src=","width");
-
 ?>
 
 
