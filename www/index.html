@@ -166,6 +166,18 @@ function cargarvideo(url,div) {
 			}
 		})
 }
+
+function guardar_local(id_usuario, clave)
+{
+        storage.setItem("id_usuario", id);
+        storage.setItem("clave", clave);		
+}
+
+function recuperar_local()
+{  
+        id_usuario = storage['id_usuario'];
+        clave = storage['clave'];
+}
 </script>
 
 
