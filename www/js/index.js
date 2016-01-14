@@ -39,7 +39,12 @@ var app = {
         function init() {
   console.log('Device Ready');
 
-  
+
+    // Inicializar variablles de localstorage.
+  var storage;
+    function onDeviceReady() {
+      storage = window.localStorage;
+    }
 
    // Avisar de que se perdió la conexión.
   document.addEventListener("offline", function() {

@@ -154,7 +154,8 @@ $j(function(){
 			valor_clave = $("#clave").html();
 			if (valor_clave == "<?php echo $clave; ?>")
 			{
-            alert("enviando autorizacion: " + valor_clave );
+			$.modal.impl.close();
+            cargardatos('admin.php','siteloader');
 			}
 			else
 			{
