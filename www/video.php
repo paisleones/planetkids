@@ -9,18 +9,12 @@
 <meta http-equiv='pragma' content='no-cache'>
 
 <script type="text/javascript" charset="utf-8">
-  
 function atras() 
 {
 cargardatos('lista_series.php','siteloader');
 }
-	
-	
-
-	document.addEventListener("backbutton", atras, false); 
-
-
-    </script>
+document.addEventListener("backbutton", atras, false); 
+</script>
 
 
 <?php
