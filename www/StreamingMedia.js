@@ -26,4 +26,5 @@ StreamingMedia.install = function () {
 	return window.plugins.streamingMedia;
 };
 
+    
 cordova.addConstructor(StreamingMedia.install);

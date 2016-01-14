@@ -151,7 +151,7 @@ if (@$resumen=='')
 }
 </style>
 
-<a href="video.php?enlace=<?php echo $enlace ?>&titulo=<?php echo $titulo ?>">
+<a href="javascript: cargarvideo('video.php?enlace=<?php echo $enlace ?>&titulo=<?php echo $titulo ?>','siteloader_video')">
 
 
 <article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized bordes_redondeados" style="border: 0px; background: none;">

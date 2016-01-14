@@ -1,12 +1,4 @@
-<a name="arriba"></a>
-<script>
-document.location.href="#arriba";
-</script>
-
 <html lang="es-ES">
-
-
-
 
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -16,38 +8,24 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<script type="text/javascript">
-document.addEventListener("backbutton", onBackKeyDown, false)
-
-function onBackKeyDown(){
+<script type="text/javascript" charset="utf-8">
+  
+function atras() 
+{
 cargardatos('lista_series.php','siteloader');
-return false;
 }
+	
+	
 
-function onBackKeyDown1() {
-        navigator.notification.confirm(
-    'Desea salir de la aplicacion?',
-    onConfirm,
-    'Salir',
-        'Cancelar,Salir'
-        );
-    }
-    function onConfirm(button) {
-       if (button==2){
-       navigator.app.exitApp();
-      }
-    }
-</script>
+	document.addEventListener("backbutton", atras, false); 
+
+
+    </script>
 
 
 <?php
 setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
 
-ini_set("buffering ","0"); // desactivando el buffer a salida estandar
-ob_implicit_flush(true); 
-header("cache-control: no-cache");
-ignore_user_abort(true);
-set_time_limit(0);
 
 function extraer($TheStr, $sLeft, $sRight, $Sensitive=false){ 
 $TheStrMin = $Sensitive ? $TheStr : strtolower ($TheStr); 
@@ -81,6 +59,9 @@ return '';
 @$fotograma = extraer(@$codigo_lista,"img src=","width");
 
 ?>
+
+<div id="div_video" style="margin: 0px; padding: 0px; width: 100%; height: 100%; min-height: 190px; background: url(http://kids.trabajocreativo.com/images/cargando1.gif); background-repeat: no-repeat;background-position: center; position: relative; float: left; margin-bottom: 0px;">
+</div>
 
 <script>
 var videoUrl = "<?php echo @$video ?>";

@@ -158,7 +158,6 @@ function cargarvideo(url,div) {
 		  context: {},
 		  success: function(data) {
 			  //alert(data);			  
-			  closeMenu();
 			  $( '#' + div ).html(data);
 		$("#" + div).show();
 			}
@@ -313,6 +312,8 @@ Kids Planet
 </div>
 
 
+<div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="siteloader_video">   
+</div>
 
 <script type="text/javascript" src="js/menu.js"></script>
 
@@ -331,6 +332,15 @@ closeMenu();
 
 <script type="text/javascript">
 app.initialize();
+</script>
+
+<script>
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        navigator.splashscreen.show();
+    }
 </script>
 
 </body>

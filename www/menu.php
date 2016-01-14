@@ -1,7 +1,7 @@
 
-<div class="menu" style="margin-left: -20px;">
+<div class="menu">
 
-<ul class="ulMenu">
+<ul class="ulMenu" style="margin-left: 24px;">
 
 <li class="visible boton" onclick="cargardatos('lista_series.php','siteloader');">
 
