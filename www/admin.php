@@ -17,68 +17,127 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<!-- The main styles for the checkradios plugin to provide default styles -->
-<link rel="stylesheet" href="css/jquery.checkradios.min.css" type="text/css"/>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-
-<!-- Checkradios plugin -->
-<script src="js/jquery.checkradios.min.js"></script>
 
 <style>
-.custom{   
-vertical-align: middle;
-	font-size:20px;
-    color:#ff4b42;
-	border:2px solid #ff4b42;
-	margin-right: 10px;
-	
-	-webkitbox-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.0);
-	 -moz-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.0);
-	   box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.0);
+@-webkit-keyframes 
+click-wave { 0% {
+ width: 40px;
+ height: 40px;
+ opacity: 0.35;
+ position: relative;
+}
+ 100% {
+ width: 200px;
+ height: 200px;
+ margin-left: -80px;
+ margin-top: -80px;
+ opacity: 0.0;
+}
+}
+@-moz-keyframes 
+click-wave { 0% {
+ width: 40px;
+ height: 40px;
+ opacity: 0.35;
+ position: relative;
+}
+ 100% {
+ width: 200px;
+ height: 200px;
+ margin-left: -80px;
+ margin-top: -80px;
+ opacity: 0.0;
+}
+}
+@-o-keyframes 
+click-wave { 0% {
+ width: 40px;
+ height: 40px;
+ opacity: 0.35;
+ position: relative;
+}
+ 100% {
+ width: 200px;
+ height: 200px;
+ margin-left: -80px;
+ margin-top: -80px;
+ opacity: 0.0;
+}
+}
+@keyframes 
+click-wave { 0% {
+ width: 40px;
+ height: 40px;
+ opacity: 0.35;
+ position: relative;
+}
+ 100% {
+ width: 200px;
+ height: 200px;
+ margin-left: -80px;
+ margin-top: -80px;
+ opacity: 0.0;
+}
 }
 
-.custom.focus{
-	-webkit-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.0), 0px 0px 3px rgba(255,0,132,0.0);
-	-moz-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.0), 0px 0px 3px rgba(255,0,132,0.0);
-	box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.0), 0px 0px 3px rgba(255,0,132,0.0);
-	border-color:#ff4b42;
-	vertical-align: middle;
-	margin-right: 10px;
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  margin-right: 0.5rem;
+  z-index: 1000;
+  vertical-align: middle;
 }
+
+.option-input:hover { background: #9faab7; }
+
+.option-input:checked { background: #40e0d0; }
+
+.option-input:checked::before {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  content: '\2716';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.option-input.radio { border-radius: 50%; }
+
+.option-input.radio::after { border-radius: 50%; }
 </style>
 
 
-<!-- CheckRadios Usage Examples -->
-<script>
-$(document).ready(function(){
-
-    //Default 
-	$('.checkradios').checkradios();
-	
-	//Custom Icon Examples (fontawsome) Different Icons
-	$('.checkradios-fontawesome').checkradios({
-	
-	    checkbox: {		
-		   iconClass:'fa fa-check-circle'		
-		},		
-		radio: {		
-		   iconClass:'fa fa-star'		
-		}
-	});
-	
-
-	$('#callback-checkbox').checkradios({	
-	    onChange: function(checked, $element, $realElement){	
-		   if(checked){
-		       $('.status').html('Checked').css('color', 'green');		   
-		   }else{		   
-		       $('.status').html('Not Checked').css('color', 'red');
-		   }		
-		}
-	});
-});
-</script>
 </head>
 
 
@@ -119,7 +178,7 @@ while( $row = mysql_fetch_array ( $result ))
 
 
 <?php
-@$result = mysql_query ("SELECT * from series where idioma='ES'") or die("Error en la consulta SQL1");
+@$result = mysql_query ("SELECT * from series where idioma='ES' order by edad asc") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
 {
 @$id = $row['ID'];
@@ -129,13 +188,15 @@ while( $row = mysql_fetch_array ( $result ))
 @$enlace = $row['ENLACE'];
 @$thumb = $row['THUMB'];
 ?>
-<div style="width: 100%; height: 50px; padding: 10px; background: #f0f0f0; margin-bottom: 10px;">
-<h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input type="checkbox" class="checkradios custom" checked/> <?php echo $nombre ?></h4>
+<div style="width: 100%; height: 60px; padding: 10px; background: #f0f0f0; margin-bottom: 10px; border-bottom: 1px solid #e1e0e0;">
+<h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input id="<?php echo $id ?>" type="checkbox" class="option-input checkbox" style="float: left;"checked/> <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
 </div>
 <?php
 }
 ?>
+<br><br><br>
 </div>
+
 
 </body>
 </html>
