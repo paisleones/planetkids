@@ -3,7 +3,7 @@
 
 <ul class="ulMenu" style="margin-left: 24px;">
 
-<li class="visible boton" onclick="cargardatos('lista_series.php','siteloader');">
+<li class="visible boton" onclick="closeMenu(); mostrarmenu();">
 
 <img src="images/iconos/video.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-size: 16px;">VIDEOS</font>
 

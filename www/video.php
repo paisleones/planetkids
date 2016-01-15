@@ -8,12 +8,8 @@
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<script type="text/javascript" charset="utf-8">
-function atras() 
-{
-cargardatos('lista_series.php','siteloader');
-}
-document.addEventListener("backbutton", atras, false); 
+<script>
+$.modal.impl.close();
 </script>
 
 
@@ -61,7 +57,7 @@ return '';
 var videoUrl = "<?php echo @$video ?>";
 
   // Just play a video
-  window.plugins.streamingMedia.playVideo(videoUrl);
+  //window.plugins.streamingMedia.playVideo(videoUrl);
 
   // Play a video with callbacks
   var options = {

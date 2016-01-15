@@ -87,7 +87,7 @@ if ($pos === false && $edad>$filtro)
 </style>
 
 
-<a href="javascript: cargardatos('lista_capitulos.php?id_serie=<?php echo @$id ?>','siteloader')">
+<a href="javascript: cargarcapitulos('lista_capitulos.php?id_serie=<?php echo @$id ?>','siteloader_capitulos')">
 <article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized bordes_redondeados" style="border: 0px; background: none;">
 
     <header class="entry-header">

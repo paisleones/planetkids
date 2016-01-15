@@ -7,26 +7,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 
 <?php
-@$id_usuario = "1";
-
-#Conectamos con MySQL
-$conexion = mysql_connect("trabajocreativo.com","root5","garfield") or die ("Fallo en el establecimiento de la conexión");
-
-#Seleccionamos la base de datos a utilizar
-mysql_select_db("kids") or die("Error en la selección de la base de datos");
-
-
-@$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
-while( $row = mysql_fetch_array ( $result ))
-{
-@$clave = $row['CLAVE'];
-@$filtro = $row['FILTRO'];
-@$nombre = $row['NOMBRE'];
-@$series = $row['SERIES'];
-@$email = $row['EMAIL'];
-@$tiempo = $row['TIEMPO'];
-@$tiempo_activo = $row['TIEMPO'];
-}
+@$clave = "1234";
 ?>
 
 <style>
@@ -160,7 +141,7 @@ $j(function(){
 			if (valor_clave == "<?php echo $clave; ?>")
 			{
 			$.modal.impl.close();
-            cargardatos('admin.php','siteloader');
+            cargarcapitulos('admin.php','siteloader_capitulos');
 			}
 			else
 			{

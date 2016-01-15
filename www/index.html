@@ -50,52 +50,6 @@ text-align: left;
 font-size: 14px;
 }
 
-.slider-v1 + label {
-  position: relative;
-  display: block;
-  width: 5.5em;
-  height: 3em;
-  cursor: pointer;
-  border-radius: 1.5em;
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0)), #ddd;
-  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.4) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7);
-}
-
-.slider-v1 + label::before {
-  position: absolute;
-  content: '';
-  width: 2em;
-  height: 2em;
-  top: 0.5em;
-  left: 0.5em;
-  border-radius: 50%;
-  transition: 250ms ease-in-out;
-  background: linear-gradient(#f5f5f5 10%, #eeeeee);
-  box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0.5em 0.3em -0.1em rgba(0, 0, 0, 0.25);
-}
-
-.slider-v1 + label::after {
-  position: absolute;
-  content: '';
-  width: 1em;
-  height: 1em;
-  top: 1em;
-  left: 6em;
-  border-radius: 50%;
-  transition: 250ms ease-in;
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #ddd;
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), -7.25em 0 0 -0.25em rgba(0, 0, 0, 0.3);
-}
-
-.slider-v1:checked + label::after {
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #4c6;
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), -7.25em 0 0 -0.25em rgba(0, 0, 0, 0.12);
-}
-
-.slider-v1:checked + label::before {
-  left: 3em;
-}
-
 
 #title {
   position: absolute;
@@ -132,9 +86,34 @@ font-size: 14px;
 <script type="text/javascript" src="js/jquery.js"></script>
 
 <script>
+function mostrarmenu() {
+document.getElementById("siteloader_capitulos").style.display = "none";
+document.location.href="#arriba";
+document.getElementById("siteloader_menu").style.display = "block";
+}
+
+function cargarcapitulos(url,div) {
+	document.getElementById("siteloader_menu").style.display = "none";
+	document.location.href="#arriba";
+$( "#siteloader_capitulos" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot3.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="images/loading-robot.gif" style="height: 34px;"></div</div>');
+ document.getElementById("siteloader_capitulos").style.display = "block";
+	$.ajax({
+		  crossOrigin: true,
+		  url: "http://kids.trabajocreativo.com/" + url,
+		  proxy: "proxy.php", 
+		  context: {},
+		  success: function(data) {
+			  //alert(data);			  
+		  closeMenu();
+		$( '#' + div ).html(data);			  
+		$("#" + div).show();
+			}
+		})
+}
+
 function cargardatos(url,div) {
 	document.location.href="#arriba";
-$( "#siteloader" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot3.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="images/loading-robot.gif" style="height: 34px;"></div</div>');
+$( "#siteloader_menu" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot3.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="images/loading-robot.gif" style="height: 34px;"></div</div>');
  
 	$.ajax({
 		  crossOrigin: true,
@@ -302,7 +281,11 @@ Kids Planet
 
 
 
-<div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader">   
+<div style="display: block; padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader_menu">   
+</div>
+
+
+<div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader_capitulos"> 
 </div>
 
 
@@ -310,7 +293,7 @@ Kids Planet
 
 
 <script>
-    cargardatos('lista_series.php','siteloader');
+cargardatos('lista_series.php','siteloader_menu');
 </script>
 
 

@@ -91,7 +91,7 @@ while( $row = mysql_fetch_array ( $result ))
 <div id="header" style="text-align: left;">
 
 <h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100">
-<a href="javascript: cargardatos('lista_series.php','siteloader');">
+<a href="javascript: mostrarmenu();">
 <div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
 <img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
 </div>
