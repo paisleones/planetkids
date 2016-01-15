@@ -138,14 +138,14 @@ $j(function(){
         }else if(index == 11){
 
 			valor_clave = $("#clave").html();
-			if (valor_clave == "<?php echo $clave; ?>")
+			if (valor_clave == "<?php echo $clave ?>")
 			{
 			$.modal.impl.close();
             cargarcapitulos('admin.php','siteloader_capitulos');
 			}
 			else
 			{
-				alert("ERROR");
+				alert("ERROR DE VALIDACION");
 			}
 
         }else if(index == 10){	
