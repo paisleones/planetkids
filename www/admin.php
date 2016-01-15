@@ -17,6 +17,29 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
+   <link type="text/css" rel="stylesheet" href="css/jquery.pwstabs.min.css">
+
+   <script src="js/jquery.pwstabs.min.js"></script>
+
+  
+
+    <script>
+    jQuery(document).ready(function ($) {
+        $('.tabset2').pwstabs({
+            effect: 'slideleft',
+            defaultTab: 1,
+            containerWidth: '100%'
+        });      
+
+        // Colors Demo
+        $('.pws_demo_colors a').click(function (e) {
+            e.preventDefault();
+            $('.pws_tabs_container').removeClass('pws_theme_cyan pws_theme_grey pws_theme_violet pws_theme_green pws_theme_yellow pws_theme_gold pws_theme_orange pws_theme_red pws_theme_purple pws_theme_dark_cyan pws_theme_dark_grey pws_theme_dark_violet pws_theme_dark_green pws_theme_dark_yellow pws_theme_dark_gold pws_theme_dark_orange pws_theme_dark_red pws_theme_dark_purple').addClass('pws_theme_'+$(this).attr('data-demo-color') );
+        });
+
+    });
+    </script>
+
 
 
 <style>
@@ -66,66 +89,8 @@ document.location.href="#arriba";
   left: 3em;
 }
 
-@-webkit-keyframes 
-click-wave { 0% {
- width: 40px;
- height: 40px;
- opacity: 0.35;
- position: relative;
-}
- 100% {
- width: 200px;
- height: 200px;
- margin-left: -80px;
- margin-top: -80px;
- opacity: 0.0;
-}
-}
-@-moz-keyframes 
-click-wave { 0% {
- width: 40px;
- height: 40px;
- opacity: 0.35;
- position: relative;
-}
- 100% {
- width: 200px;
- height: 200px;
- margin-left: -80px;
- margin-top: -80px;
- opacity: 0.0;
-}
-}
-@-o-keyframes 
-click-wave { 0% {
- width: 40px;
- height: 40px;
- opacity: 0.35;
- position: relative;
-}
- 100% {
- width: 200px;
- height: 200px;
- margin-left: -80px;
- margin-top: -80px;
- opacity: 0.0;
-}
-}
-@keyframes 
-click-wave { 0% {
- width: 40px;
- height: 40px;
- opacity: 0.35;
- position: relative;
-}
- 100% {
- width: 200px;
- height: 200px;
- margin-left: -80px;
- margin-top: -80px;
- opacity: 0.0;
-}
-}
+
+
 
 .option-input {
   -webkit-appearance: none;
@@ -154,7 +119,7 @@ click-wave { 0% {
 
 .option-input:hover { background: #9faab7; }
 
-.option-input:checked { background: #40e0d0; }
+.option-input:checked { background: #9bd7d5; }
 
 .option-input:checked::before {
   width: 40px;
@@ -181,6 +146,74 @@ click-wave { 0% {
 .option-input.radio { border-radius: 50%; }
 
 .option-input.radio::after { border-radius: 50%; }
+
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+label[for=favcity] {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+label[for=favcity]::after {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 34px;
+  height: 32px;
+  display: block;
+  background: #ff4b42 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOBAMAAAGq7RFVAAAAJ1BMVEX///////////////////////////////////////////////////9Ruv0SAAAADHRSTlMACAoREoKDt7y9zc5qtZoyAAAAcklEQVQIHQXBsQnCUAAFwFOCCKbIABaWERzi1yaFAzmEpHYEC8GUKVQEkbyhvOOkZqdWt0/QYKqLzQeF7dv6y/RLwa2wYtk4Xxxe+t8yd1WuM/rcUc2gYHEeoP02umSgTR50ybBPRuiSZAS6ZAQ4jgCAPyjYJiRH4fymAAAAAElFTkSuQmCC') no-repeat center center;
+  pointer-events: none;
+  margin: 2px;
+}
+
+label[for=favcity] select {
+  border: 0px solid #eeeeee;
+  background: white;
+  padding: 7px 20px 7px 20px;
+  width: 100%;
+  font-size: 14px;
+  color: #666666;
+  font-family: Tahoma;
+  cursor: pointer;
+}
+
+label[for=favcity] select::-ms-expand {
+    display: none;
+}
+
+label[for=favcity] :-moz-any(select) {
+  width: 110%;
+}
+
+label[for=favcity].ie9 select {
+  width: 110%;
+}
+
+label[for=favcity] select:focus {
+  outline: 1px dotted #A9A9A9;
+}
+
+
+.pws_tab_active
+{
+	border: 1px solid #9bd7d5;
+}
+
 </style>
 
 
@@ -189,23 +222,29 @@ click-wave { 0% {
 
 <body>
 
+
+<div class="headerBack" style="position: fixed; top: 0px; left: 0px; z-index: 99999;">
+<div id="header" style="text-align: left;">
+
+<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100">
+<a href="javascript: mostrarmenu();">
+<div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
+<img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
+</div>
+</a>
+Zona Padres
+</h1>
+
+</div>
+</div>
+
 <div style="width: 100%; background: #ffffff; padding: 10px;">
 
 <?php
 setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
 
-ini_set("buffering ","0"); // desactivando el buffer a salida estandar
-ob_implicit_flush(true); 
-header("cache-control: no-cache");
-ignore_user_abort(true);
-set_time_limit(0);
+include("conexion.php");
 
-include("conexion.php")
-?>
-
-
-
-<?php
 
 @$id_usuario = "1";
 
@@ -222,6 +261,22 @@ while( $row = mysql_fetch_array ( $result ))
 }
 ?>
 
+
+      <div class="tabset2" style="padding: 0px; margin: 0px;">
+         <div data-pws-tab="tab11" data-pws-tab-name="Series" style="width: 100%;">
+<hr>
+<label for="favcity" style="margin-top: 6px; width: 200px;">
+    <select id="tipo" name="tipo" style="padding-left: 5px; border: 1px solid #c0c0c0; height: 36px;">
+
+  <option value="3">Hasta 3 años</option>
+  <option value="5">De 3 a 5 años</option>
+  <option value="7" selected>De 5 a 7 años</option>
+  <option value="8">Hasta 8 años</option>
+  <option value="todas">Todas las series</option>
+
+    </select>
+  </label>
+<hr>
 
 <?php
 @$result = mysql_query ("SELECT * from series where idioma='ES' order by edad asc") or die("Error en la consulta SQL1");
@@ -240,6 +295,55 @@ while( $row = mysql_fetch_array ( $result ))
 <?php
 }
 ?>
+         </div>
+         <div data-pws-tab="tab22" data-pws-tab-name="Tiempo" style="text-align: justify; min-height: 400px;">
+         <hr>
+<font style="color: #666666;">         
+La opción "control del tiempo" ayuda a la supervision del uso del telefono. Solo tiene que especificar el tiempo de uso de la aplicación y automaticamente se cerrara la aplicación cuando llegue la hora ( maximo 2 horas ).
+            </font>
+  <br><br>          
+            
+<h4>Activar control de tiempo</h4>
+<br>
+  <input type="checkbox" class="slider-v1" id="s2" checked="" style="display: none;" name="tiempo_activado"/>
+  <label for="s2"></label>
+  <br>
+  <h4>Tiempo de visionado</h4>
+<br>
+
+
+
+<label for="favcity" style="margin-top: 6px; width: 200px;">
+    <select id="tipo" name="tipo" style="padding-left: 5px; border: 1px solid #c0c0c0; height: 36px;">
+
+  <option value="30">30 munutos</option>
+  <option value="45">45 minutos</option>
+  <option value="60" selected>60 minutos</option>
+  <option value="75">1 hora y 15 minutos</option>
+  <option value="90">1 hora y 30 munutos</option>
+  <option value="105">1 hora y 45 muntos</option>
+  <option value="120">2 horas (maximo)</option>
+
+    </select>
+  </label>
+  
+<hr style="padding-bottom: 6px;">
+
+<a href="javascript:menu('2');" class="boton" style="padding-left: 20px; padding-right: 20px;">
+<font style="font-weight: 200; font-size: 16px;">GUARDAR</font>
+</a>
+
+            
+         </div>
+         <div data-pws-tab="tab33" data-pws-tab-name="Seguridad" style="text-align: justify;">
+         <hr>
+         <font style="color: #666666;"> 
+            Donec pellentesque placerat mi, at rutrum metus tempor posuere. Nunc ut pellentesque purus. Nam auctor, magna eget elementum maximus, ligula augue ornare massa, id varius magna mi vel diam. Cras vel pharetra risus. Suspendisse eu varius nisl, a laoreet est. Proin vitae erat metus. Curabitur dictum elit in ante feugiat cursus.
+            </font>
+            
+         </div>
+      </div><!-- tabset2 -->
+
 <br><br><br>
 </div>
 
