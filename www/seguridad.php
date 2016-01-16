@@ -2,13 +2,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/x-component">
-    <title>Jq-dialpad</title>
-
-<script type="text/javascript" src="js/jquery.js"></script>
+    <title>Seguridad</title>
 
 <?php
 @$clave = "1234";
 ?>
+
+
+<script type="text/javascript">
+function addCode(key){
+	var code = document.forms[0].code;
+	if(code.value.length < 4){
+		code.value = code.value + key;
+	}
+}
+
+function submitForm(){
+	document.forms[0].submit();
+}
+
+function emptyCode(){
+	document.forms[0].code.value = "";
+}
+
+function enviar(){
+	var valor_clave=document.getElementById("code").value;
+	if (valor_clave == "1234")
+			{
+			$.modal.impl.close();
+            cargarcapitulos('admin.php','siteloader_capitulos');
+			}
+			else
+			{
+				alert("ERROR DE VALIDACION");
+			}
+}
+</script>
+
 
 <style>
 
@@ -74,181 +104,57 @@ color: #ffffff;
 .compact .dials .digits p sup
 {text-transform:uppercase;color:#c1c1c1}
 
+li{
+list-style-image: none;
+list-style-type: none;
+}
+
+.display {
+	width:100%; 
+	margin:0px; 
+	background-color:#ffffff; 
+	color:#ff4b42; 
+	font-weight: 200;
+	font-size:60px; 
+	border: 0px solid #f0f0f0;
+	text-align: center;
+	padding: 0px;
+}
 </style>
 
 </head>
 <body>
 
 
-
+<form method="get">
 <div id="wrapper" style="padding: 10px;">
 <font style="color: #666666;">
 <h3>INTRODUCE EL PIN:</h3>
 </font>
     <div class="dialpad compact">
-        <div class="number" id="clave" style="margin: 0px; padding: 0px;"></div>
-        <div class="dials">
-            <ol>
-                <li class="digits"><p><strong>1</strong></p></li>
-                <li class="digits"><p><strong>2</strong></p></li>
-                <li class="digits"><p><strong>3</strong></p></li>
-                <li class="digits"><p><strong>4</strong></p></li>
-                <li class="digits"><p><strong>5</strong></p></li>
-                <li class="digits"><p><strong>6</strong></p></li>
-                <li class="digits"><p><strong>7</strong></p></li>
-                <li class="digits"><p><strong>8</strong></p></li>
-                <li class="digits"><p><strong>9</strong></p></li>
-                <li class="digits"><p><strong>0</strong></p></li>
-                <li class="digits"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">BORRAR</p></li>
-                <li class="digits pad-action"><p style="font-size: 16px; color: #ffffff; padding-top: 20px; font-weight: 800">ENTRAR</p></li>
-            </ol>
+        <div class="number" id="clave" style="margin: 0px; padding: 0px;">
+        <input type="text" name="code" id="code" value="" maxlength="4" class="display" readonly />
+        </div>
+        <div class="dials" style="margin: 0px; padding: 0px;">
+            <ul style="margin: 0px; padding: 0px;">
+                <li class="digits" onClick="addCode('1');"><p><strong>1</strong></p></li>
+                <li class="digits" onClick="addCode('2');"><p><strong>2</strong></p></li>
+                <li class="digits" onClick="addCode('3');"><p><strong>3</strong></p></li>
+                <li class="digits" onClick="addCode('4');"><p><strong>4</strong></p></li>
+                <li class="digits" onClick="addCode('5');"><p><strong>5</strong></p></li>
+                <li class="digits" onClick="addCode('6');"><p><strong>6</strong></p></li>
+                <li class="digits" onClick="addCode('7');"><p><strong>7</strong></p></li>
+                <li class="digits" onClick="addCode('8');"><p><strong>8</strong></p></li>
+                <li class="digits" onClick="addCode('9');"><p><strong>9</strong></p></li>
+                <li class="digits" onClick="addCode('0');"><p><strong>0</strong></p></li>
+                <li class="digits" onclick="emptyCode();"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">BORRAR</p></li>
+                <li class="digits pad-action" onclick="enviar();"><p style="font-size: 16px; color: #ffffff; padding-top: 20px; font-weight: 800">ENTRAR</p></li>
+            </ul>
         </div>
     </div>
 </div>
+</form>
 
-<script>
-/* ==========================================================================
-   main.js
-   ========================================================================== */
-var $j = jQuery.noConflict();
-
-$j(function(){
-
-    var dials = $j(".dials ol li");
-    var index;
-    var number = $j(".number");
-    var total;
-	var numero = 0;
-
-    dials.click(function(){
-
-        index = dials.index(this);
-
-        if(index == 9){
-			numero ++;
-			if (numero<=4)
-		{
-            number.append("0");
-		}
-
-        }else if(index == 9){
-
-            number.append("0");
-
-        }else if(index == 11){
-
-			valor_clave = $("#clave").html();
-			if (valor_clave == "<?php echo $clave ?>")
-			{
-			$.modal.impl.close();
-            cargarcapitulos('admin.php','siteloader_capitulos');
-			}
-			else
-			{
-				alert("ERROR DE VALIDACION");
-			}
-
-        }else if(index == 10){	
-		
-			numero = 0;
-            number.empty();
-
-        }else if(index == 13){
-
-            number.append("-");
-
-        }else if(index == 14){
-
-
-        }else{ 
-		numero ++;
-		if (numero<=4)
-		{
-		number.append(index+1);
-		}
-				}
-    });
-
-    $j(document).keydown(function(e){
-
-        switch(e.which){
-
-            case 96:
-				
-				numero ++;
-                number.append("0");
-                break;
-
-
-            case 97:
-		
-				numero ++;
-                number.append("1");
-                break;
-
-            case 98:
-				numero ++;
-                number.append("2");
-                break;
-
-            case 99:
-				numero ++;
-                number.append("3");
-                break;
-
-            case 100:
-				numero ++;
-                number.append("4");
-                break;
-
-            case 101:
-				numero ++;
-                number.append("5");
-                break;
-
-            case 102:
-				numero ++;
-                number.append("6");
-                break;
-
-            case 103:
-				numero ++;
-                number.append("7");
-                break;
-
-            case 104:
-				numero ++;
-                number.append("8");
-                break;
-
-            case 105:
-				numero ++;
-                number.append("9");
-                break;
-
-
-            case 27:
-
-                number.empty();
-                break;
-
-            case 106:
-				numero ++;
-                number.append("0");
-                break;
-
-            case 13:
-
-                $('.pad-action').click();
-                break;
-
-            default: return;
-        }
-
-        e.preventDefault();
-    });
-});
-</script>
 
 </body>
 </html>
