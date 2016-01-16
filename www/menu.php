@@ -28,7 +28,7 @@
 </li>
 
 <li class="visible boton">
-<a href="javascript:modalbox(400,420,'seguridad.php');">
+<a href="javascript:modalbox_seguridad(400,424);">
 <img src="images/iconos/padres.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-weight: 400; font-size: 16px;">ZONA PADRES</font>
 </a>
 </li>
