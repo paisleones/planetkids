@@ -26,7 +26,7 @@ document.location.href="#arriba";
     <script>
     jQuery(document).ready(function ($) {
         $('.tabset2').pwstabs({
-            effect: 'slideleft',
+            effect: 'none',
             defaultTab: 1,
             containerWidth: '100%'
         });      
@@ -203,6 +203,7 @@ label[for=favcity] select:focus {
 .pws_tab_active
 {
 	border: 1px solid #9bd7d5;
+	border-bottom: 0px;
 	background: #ffffff;
 	color: #666666;
 }
