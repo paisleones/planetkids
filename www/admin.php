@@ -132,16 +132,7 @@ document.location.href="#arriba";
   line-height: 40px;
 }
 
-.option-input:checked::after {
-  -webkit-animation: click-wave 0.65s;
-  -moz-animation: click-wave 0.65s;
-  animation: click-wave 0.65s;
-  background: #40e0d0;
-  content: '';
-  display: block;
-  position: relative;
-  z-index: 100;
-}
+
 
 .option-input.radio { border-radius: 50%; }
 
@@ -212,6 +203,8 @@ label[for=favcity] select:focus {
 .pws_tab_active
 {
 	border: 1px solid #9bd7d5;
+	background: #ffffff;
+	color: #666666;
 }
 
 </style>
