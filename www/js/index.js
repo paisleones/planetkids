@@ -57,6 +57,9 @@ var app = {
 
   });
   
+  window.addEventListener('load', function() {
+    new FastClick(document.body);
+}, false);
 
  document.addEventListener("deviceready", onDeviceReady, false);
     // device APIs are available
