@@ -253,6 +253,8 @@ while( $row = mysql_fetch_array ( $result ))
 @$tiempo = $row['TIEMPO'];
 @$tiempo_activo = $row['TIEMPO'];
 }
+
+@$series = "1582,1586,1657,1696,30890,32232,32238,32239,32240,32241,32242,35350,35450,35890,38371,38372,38373,";
 ?>
 
 
@@ -282,9 +284,22 @@ while( $row = mysql_fetch_array ( $result ))
 @$nombre = $row['NOMBRE'];
 @$enlace = $row['ENLACE'];
 @$thumb = $row['THUMB'];
+
+@$cadena_buscada = @$id . ",";
+@$encuentra = strpos(@$series, @$cadena_buscada);
+if ($encuentra === false)
+{
+@$encontrado = "";
+}
+else
+{
+@$encontrado = "checked";
+}
 ?>
 <div style="width: 100%; height: 60px; padding: 10px; background: #f0f0f0; margin-bottom: 10px; border-bottom: 1px solid #e1e0e0;">
-<h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input id="<?php echo $id ?>" type="checkbox" class="option-input checkbox" style="float: left;"checked/> <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
+<h4 style="color: #666666; font-weight: 200; font-size: 15px;">
+<input id="<?php echo $id ?>" type="checkbox" class="option-input checkbox" style="float: left;" <?php echo @$encontrado ?>/> 
+<strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
 </div>
 <?php
 }

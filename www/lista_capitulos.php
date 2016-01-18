@@ -109,6 +109,7 @@ while( $row = mysql_fetch_array ( $result ))
 
 
 <?php
+@$contador = 0;
 
 for($i=1;$i<count($cadena);$i++)
 {
@@ -131,7 +132,7 @@ if (@$resumen=='')
 @$resumen = @$titulo;
 }
 
-
+@$contador ++;
 ?>
 
 <style>
@@ -173,6 +174,13 @@ if (@$resumen=='')
     </a>
 
 
+<?php
+}
+
+if (@$contador == 0)
+{
+?>
+<img src="http://kids.trabajocreativo.com/images/robot-roto.png" style="width: 190px; margin-top: 30px;">
 <?php
 }
 ?>

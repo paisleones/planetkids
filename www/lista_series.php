@@ -54,8 +54,9 @@ while( $row = mysql_fetch_array ( $result ))
 @$email = $row['EMAIL'];
 @$tiempo = $row['TIEMPO'];
 @$tiempo_activo = $row['TIEMPO'];
-
 }
+
+@$series = "1582,1586,1657,1696,30890,32232,32238,32239,32240,32241,32242,35350,35450,35890,38371,38372,38373,";
 
 @$result = mysql_query ("SELECT * from series where idioma='ES'") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
@@ -69,7 +70,9 @@ while( $row = mysql_fetch_array ( $result ))
 
 $pos = strpos(@$excepciones, @$id);
 
-if ($pos === false && $edad>$filtro)
+@$cadena_buscada = @$id . ",";
+@$encuentra = strpos(@$series, @$cadena_buscada);
+if (@$encuentra <> false)
 {
 ?>
 
