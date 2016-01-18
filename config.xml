@@ -21,7 +21,9 @@
   <preference name="SplashScreen" value="foo" />
   <preference name="SplashScreenDelay" value="3000" />
   <preference name="SplashMaintainAspectRatio" value="true" />
-  <preference name="SplashShowOnlyFirstTime" value="true" />
+  <preference name="SplashShowOnlyFirstTime" value="false" />
+  <preference name="AutoHideSplashScreen" value="true" />
+  <preference name="SplashScreen" value="http://kids.trabajocreativo.com/images/splash.jpg" />
   <gap:plugin name="org.apache.cordova.device"/>
   <gap:plugin name="org.apache.cordova.device-orientation"/>
   <gap:plugin name="org.apache.cordova.dialogs"/>
@@ -71,7 +73,7 @@
     <allow-intent href="itms-apps:*"/>
   </platform>
   <platform name="browser">
-    <preference name="SplashScreen" value="http://kids.trabajocreativo.com/images/fondo_menu.jpg" /> <!-- defaults to "img/logo.png" -->
+    <preference name="SplashScreen" value="http://kids.trabajocreativo.com/images/splash.jpg" /> <!-- defaults to "img/logo.png" -->
     <preference name="SplashScreenDelay" value="3000" /> <!-- defaults to "3000" -->
     <preference name="SplashScreenBackgroundColor" value="white" /> <!-- defaults to "#464646" -->
     <preference name="ShowSplashScreen" value="false" /> <!-- defaults to "true" -->
