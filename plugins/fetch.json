@@ -46,5 +46,21 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.moust.cordova.videoplayer": {
+        "source": {
+            "type": "registry",
+            "id": "com.moust.cordova.videoplayer"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.hutchind.cordova.plugins.streamingmedia": {
+        "source": {
+            "type": "registry",
+            "id": "com.hutchind.cordova.plugins.streamingmedia"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
