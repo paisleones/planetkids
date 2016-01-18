@@ -94,6 +94,7 @@ font-size: 14px;
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
 
 <script>
 /*!
@@ -976,7 +977,7 @@ list-style-type: none;
 
 <ul class="ulMenu" style="margin-left: 24px;">
 
-<li class="visible boton" onclick="closeMenu(); mostrarmenu();">
+<li class="visible boton" onClick="closeMenu(); mostrarmenu();">
 
 <img src="images/iconos/video.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-size: 16px;">VIDEOS</font>
 
@@ -1071,14 +1072,7 @@ closeMenu();
 <script type="text/javascript" src="StreamingMedia.js"></script>
 
 
-<script>
-    document.addEventListener("deviceready", onDeviceReady, false);
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        navigator.splashscreen.show();
-    }
-</script>
+
 
 </body>
 </html>
