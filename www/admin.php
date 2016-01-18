@@ -310,7 +310,8 @@ La opción "control del tiempo" ayuda a la supervision del uso del telefono. Sol
 <label for="favcity" style="margin-top: 6px; width: 200px;">
     <select id="tipo" name="tipo" style="padding-left: 5px; border: 1px solid #c0c0c0; height: 36px;">
 
-  <option value="30">30 munutos</option>
+	<option value="15">15 minutos</option>
+  <option value="30">30 minutos</option>
   <option value="45">45 minutos</option>
   <option value="60" selected>60 minutos</option>
   <option value="75">1 hora y 15 minutos</option>
