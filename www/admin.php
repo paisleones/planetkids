@@ -242,6 +242,14 @@ include("conexion.php");
 
 @$id_usuario = "1";
 
+
+@$result = mysql_query ("SELECT * from opciones") or die("Error en la consulta SQL");
+while( $row = mysql_fetch_array ( $result ))
+{
+@$excepciones = $row['EXCEPCIONES'];
+}
+
+
 @$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
 while( $row = mysql_fetch_array ( $result ))
 {
@@ -287,6 +295,12 @@ while( $row = mysql_fetch_array ( $result ))
 
 @$cadena_buscada = @$id . ",";
 @$encuentra = strpos(@$series, @$cadena_buscada);
+
+@$encuentra_excepciones = strpos(@$excepciones, @$cadena_buscada);
+
+if ($encuentra_excepciones === false)
+{
+
 if ($encuentra === false)
 {
 @$encontrado = "";
@@ -302,6 +316,7 @@ else
 <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
 </div>
 <?php
+}
 }
 ?>
          </div>

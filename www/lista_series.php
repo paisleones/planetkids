@@ -72,6 +72,12 @@ $pos = strpos(@$excepciones, @$id);
 
 @$cadena_buscada = @$id . ",";
 @$encuentra = strpos(@$series, @$cadena_buscada);
+
+@$encuentra_excepciones = strpos(@$excepciones, @$cadena_buscada);
+
+if ($encuentra_excepciones === false)
+{
+	
 if (@$encuentra <> false)
 {
 ?>
@@ -120,6 +126,7 @@ if (@$encuentra <> false)
 <?php  
 }
 
+}
 }
 ?>
 
