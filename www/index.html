@@ -60,6 +60,21 @@ text-align: left;
 font-size: 14px;
 }
 
+.boton_verde {
+box-shadow: 0px 4px 0px 0px #899f33;
+background-color: #9db53d;
+color: #fff;
+margin: 10px 20px 10px 0px;
+border-radius: 5px;
+padding:10px;
+padding-right: 0px;
+margin: 00px;
+width: 160px;
+cursor: pointer;
+text-align: left;
+font-size: 14px;
+}
+
 
 #title {
   position: absolute;
@@ -181,6 +196,20 @@ $( "#siteloader_menu" ).html('<div style="width: 100%; text-align: center; paddi
 			  closeMenu();
 			  $( '#' + div ).html(data);
 		$("#" + div).show();
+			}
+		})
+}
+
+function actualizardatos(url,div) {
+	$.ajax({
+		  crossOrigin: true,
+		  url: "http://kids.trabajocreativo.com/" + url,
+		  //proxy: "proxy.php",
+		  proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
+		  context: {},
+		  success: function(data) {
+			  //alert(data);			  
+			  $( '#' + div ).html(data);
 			}
 		})
 }

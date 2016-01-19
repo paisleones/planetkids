@@ -17,6 +17,96 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
+
+
+<script>
+function filtrar_edad(edad)
+{
+$('.todos').hide();
+$( '.filtro_' + edad ).show();
+toggle('submenu');
+}
+
+function sin_filtro()
+{
+$('.todos').show();
+toggle('submenu');
+}
+
+function guardar()
+{
+	var checkboxValues = "";
+$('input[name="que_serie"]:checked').each(function() {
+	checkboxValues += $(this).val() + ",";
+});
+actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+}
+
+
+
+function toggle(id) {
+    var element = document.getElementById(id);
+
+    if (element) {
+        var display = element.style.display;
+
+        if (display == "none") {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
+        }
+    }
+}
+
+</script>
+
+
+
+<style>
+.dropdown {
+color: #555;
+imargin: 3px -22px 0 0;
+position: relative;
+text-align: right;
+height: 17px;
+text-align:left;
+color: #ffffff;
+}
+.submenu
+{
+padding: 10px;
+background: #ffffff;
+position: absolute;
+top: 34px;
+left: 3px;
+z-index: 99999;
+width: 200px;
+display: none;
+margin-left: 10px;
+padding: 0px 0 0px;
+border-radius: 0px;
+-webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.2);
+box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.2);
+text-align: left;
+}
+
+.pp_top {
+   height: 20px; \\ default 20
+}
+
+.opciones
+{
+padding: 14px;
+border-bottom: 1px solid #f0f0f0;
+color: #666666;
+font-size: 14px;
+}
+
+</style>
+
+
+
    <link type="text/css" rel="stylesheet" href="css/jquery.pwstabs.min.css">
 
    <script src="js/jquery.pwstabs.min.js"></script>
@@ -50,8 +140,8 @@ document.location.href="#arriba";
   height: 3em;
   cursor: pointer;
   border-radius: 1.5em;
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0)), #ddd;
-  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.4) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7);
+  background: #f0f0f0;
+  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.2) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.5);
 }
 
 .slider-v1 + label::before {
@@ -63,8 +153,8 @@ document.location.href="#arriba";
   left: 0.5em;
   border-radius: 50%;
   transition: 250ms ease-in-out;
-  background: linear-gradient(#f5f5f5 10%, #eeeeee);
-  box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0.5em 0.3em -0.1em rgba(0, 0, 0, 0.25);
+  background: #9bd7d5;
+  box-shadow: 0 0.1em 0.01em -0.01em rgba(255, 255, 255, 0.2) inset, 0 0.2em 0.2em -0.1em rgba(0, 0, 0, 0.1);
 }
 
 .slider-v1 + label::after {
@@ -208,6 +298,52 @@ label[for=favcity] select:focus {
 	color: #666666;
 }
 
+
+
+.slider {
+  width: 100%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none !important;
+  width: 100%;
+  height: 15px;
+  background: #f0f0f0;
+  border-top: 1px solid #e1e0e0;
+  border-radius: 10px;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+input[type="range"]:hover {
+  background-color: #f0f0f0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 24px;
+  height: 24px;
+  background-color: #9bd7d5;
+  border-radius: 60px;
+  box-shadow: 0 0.1em 0.01em -0.01em rgba(255, 255, 255, 0.2) inset, 0 0.2em 0.2em -0.1em rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #457d66;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  box-shadow: 0px 0px 1px #3c6d59;
+}
+
+#rangevalue {
+  text-align: center;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+  padding: 10px 0px;
+  width: 100%;
+  font-weight: 100;
+  color: #248dc1;
+}
 </style>
 
 
@@ -269,17 +405,45 @@ while( $row = mysql_fetch_array ( $result ))
       <div class="tabset2" style="padding: 0px; margin: 0px;">
          <div data-pws-tab="tab11" data-pws-tab-name="Series" style="width: 100%;">
 <hr>
-<label for="favcity" style="margin-top: 6px; width: 200px;">
-    <select id="tipo" name="tipo" style="padding-left: 5px; border: 1px solid #c0c0c0; height: 36px;">
 
-  <option value="3">Hasta 3 años</option>
-  <option value="5">De 3 a 5 años</option>
-  <option value="7" selected>De 5 a 7 años</option>
-  <option value="8">Hasta 8 años</option>
-  <option value="todas">Todas las series</option>
 
-    </select>
-  </label>
+ <div class="dropdown" style="position: relative; top: 10px; height: 40px;">
+	<a href="javascript: toggle('submenu');" class="boton" style="padding-right: 10px; color: #ffffff;">
+    FILTRO POR EDAD ▼
+	</a>
+    
+	<div id="submenu" class="submenu  sombradebajo" style="display: none; padding: 10px; margin: 0px; padding-bottom: 0px;">
+
+<aside id="recent-comments-1" class="widget widget_recent_comments">
+<ul>
+
+<li class="opciones">
+<a href="javascript: sin_filtro();"><span class="comment-author-link" style="color: #666666;"><strong>TODAS LAS SERIES</strong><span></a>
+</li>
+<li class="opciones">
+<a href="javascript: filtrar_edad('3');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>3 AÑOS</strong><span></a>
+</li>
+<li class="opciones">
+<a href="javascript: filtrar_edad('5');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>5 AÑOS</strong></span></a>
+</li>
+<li class="opciones">
+<a href="javascript: filtrar_edad('7');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>7 AÑOS</strong></span></a>
+</li>
+<li class="opciones">
+<a href="javascript: filtrar_edad('8');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>8 AÑOS</strong></span></a>
+</li>
+
+</ul>
+</aside>
+
+
+	</div>
+	</div>
+<form name="lista_de_series" id="lista_de_series">
+
+    <a href="javascript: guardar();" class="boton_verde" style="width: 90px; color: #ffffff; position: absolute; right: 20px; top: 21px;">
+    GUARDAR
+	</a>
 <hr>
 
 <?php
@@ -310,15 +474,20 @@ else
 @$encontrado = "checked";
 }
 ?>
-<div style="width: 100%; height: 60px; padding: 10px; background: #f0f0f0; margin-bottom: 10px; border-bottom: 1px solid #e1e0e0;">
+<div style="width: 100%; height: 60px; padding: 10px; background: #f0f0f0; margin-bottom: 10px; border-bottom: 1px solid #e1e0e0;" class="todos filtro_<?php echo @$edad ?>">
 <h4 style="color: #666666; font-weight: 200; font-size: 15px;">
-<input id="<?php echo $id ?>" type="checkbox" class="option-input checkbox" style="float: left;" <?php echo @$encontrado ?>/> 
+<input name="que_serie" value="<?php echo $id ?>" id="<?php echo $id ?>" type="checkbox" class="option-input checkbox" style="float: left;" <?php echo @$encontrado ?>/> 
 <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
 </div>
 <?php
 }
 }
 ?>
+</form>
+
+<div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_series">   
+</div>
+
          </div>
          <div data-pws-tab="tab22" data-pws-tab-name="Tiempo" style="text-align: justify; min-height: 400px;">
          <hr>
@@ -332,31 +501,23 @@ La opción "control del tiempo" ayuda a la supervision del uso del telefono. Sol
   <input type="checkbox" class="slider-v1" id="s2" checked="" style="display: none;" name="tiempo_activado"/>
   <label for="s2"></label>
   <br>
-  <h4>Tiempo de visionado</h4>
+  <h4>Tiempo de visionado (minutos)</h4>
 <br>
 
 
-
-<label for="favcity" style="margin-top: 6px; width: 200px;">
-    <select id="tipo" name="tipo" style="padding-left: 5px; border: 1px solid #c0c0c0; height: 36px;">
-
-	<option value="15">15 minutos</option>
-  <option value="30">30 minutos</option>
-  <option value="45">45 minutos</option>
-  <option value="60" selected>60 minutos</option>
-  <option value="75">1 hora y 15 minutos</option>
-  <option value="90">1 hora y 30 munutos</option>
-  <option value="105">1 hora y 45 muntos</option>
-  <option value="120">2 horas (maximo)</option>
-
-    </select>
-  </label>
+  
+  <div class="slider">
+  <input type = "range" min="5" max="120" onchange="rangevalue.value=value"/>
+	<output id="rangevalue" style="float: left;">60 </output>
+  </div>
   
 <hr style="padding-bottom: 6px;">
 
-<a href="javascript:menu('2');" class="boton" style="padding-left: 20px; padding-right: 20px;">
-<font style="font-weight: 200; font-size: 16px;">GUARDAR</font>
+<a href="javascript:menu('2');" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
+<font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
+
+<br><br>
 
             
          </div>
