@@ -234,14 +234,14 @@ function cargarvideo(url,div) {
 
 function guardar_local(id_usuario, clave)
 {
-        storage.setItem("id_usuario", id);
-        storage.setItem("clave", clave);	
+        localStorage.setItem("id_usuario", id);
+        localStorage.setItem("clave", clave);	
 }
 
 function recuperar_local()
 {  
-        id_usuario = storage['id_usuario'];
-        clave = storage['clave'];
+        id_usuario = localStorage.getItem('id_usuario');
+        clave = localStorage.getItem('clave');
 }
 
 function addCode(key){

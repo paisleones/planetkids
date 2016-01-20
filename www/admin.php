@@ -94,11 +94,11 @@ actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actuali
 
 function guardar_tiempo()
 {
-var tiempo_activado = $("#s2").prop("checked");
+var tiempo_activo = $("#s2").prop("checked");
 var tiempo_de_visionado = $('#tiempo_de_visionado').val();
-//storage.setItem("tiempo_de_visionado", tiempo_de_visionado);
-//storage.setItem("tiempo_activado", tiempo_activado);
-actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_series");
+localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
+localStorage.setItem("tiempo_activo", tiempo_activo);
+actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }
 
 
@@ -455,8 +455,7 @@ while( $row = mysql_fetch_array ( $result ))
 @$series = $row['SERIES'];
 @$email = $row['EMAIL'];
 @$tiempo = $row['TIEMPO'];
-@$tiempo_activo = $row['TIEMPO'];
-
+@$tiempo_activo = $row['TIEMPO_ACTIVO'];
 
 if (@$tiempo == "")
 {
@@ -469,7 +468,7 @@ if (@$tiempo_activo == "" or @$tiempo_activo == "false")
 }
 else
 {
-@$checked_tiempo = "checked=''";
+@$checked_tiempo = "checked";
 }
 
 
@@ -592,7 +591,7 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 	<output id="rangevalue" style="float: left;"><?php echo @$tiempo ?> </output>
   </div>
   
-<br>
+<br><br>
 <hr>
 <br>
 
@@ -600,6 +599,8 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 <font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
 
+<div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_tiempo">   
+</div>
 <br><br>
 
             
