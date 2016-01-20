@@ -17,7 +17,7 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<!-- Comentar este bloque antes de subir --->
+<!-- Comentar este bloque antes de subir 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/style5152.css">
 <link rel="stylesheet" type="text/css" href="css/default.css" />
