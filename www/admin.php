@@ -17,29 +17,88 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
+<!-- Comentar este bloque antes de subir --->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style5152.css">
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<!-- Has aqui --->
+
 
 
 <script>
+
+function seleccionar_edad(edad)
+{
+var marcado = $("#selectall").prop("checked");
+
+if( marcado === true )
+{
+$(".option_"+edad).each(function() { //loop through each checkbox
+$(".option_"+edad).prop("checked", true);    
+            });
+}
+else 
+{
+$('.option_'+edad).each(function() { //loop through each checkbox
+$(".option_"+edad).prop("checked", false);                     
+            });   
+}
+}
+
+function seleccionar_todas_edades()
+{
+var marcado = $("#selectall").prop("checked");
+
+if( marcado === true )
+{
+$(".todas").each(function() { //loop through each checkbox
+$(".todas").prop("checked", true);    
+            });
+}
+else 
+{
+$(".todas").each(function() { //loop through each checkbox
+$(".todas").prop("checked", false);                     
+            });   
+}
+}
+
+
 function filtrar_edad(edad)
 {
 $('.todos').hide();
+$( "#check_selectall" ).html('<h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input type="checkbox" class="option-input checkbox" onclick="seleccionar_edad(' + edad + ');" id="selectall" style="float: left;"/> <strong>Seleccionar todas las series</strong><br>Hasta ' + edad + '  años</h4>');
 $( '.filtro_' + edad ).show();
 toggle('submenu');
 }
 
+
 function sin_filtro()
 {
+$( "#check_selectall" ).html('<h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input type="checkbox" class="option-input checkbox" onclick="seleccionar_todas_edades();" id="selectall" style="float: left;"/> <strong>Seleccionar todas las series</strong><br>Todas las edades</h4>');
 $('.todos').show();
 toggle('submenu');
 }
 
-function guardar()
+
+function guardar_series()
 {
 	var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
 actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+}
+
+
+function guardar_tiempo()
+{
+var tiempo_activado = $("#s2").prop("checked");
+var tiempo_de_visionado = $('#tiempo_de_visionado').val();
+storage.setItem("tiempo_de_visionado", tiempo_de_visionado);
+storage.setItem("tiempo_activado", tiempo_activado);
+actualizardatos("actualizar_tiempo.php?lista_series=" + checkboxValues ,"actualizar_series");
 }
 
 
@@ -302,6 +361,7 @@ label[for=favcity] select:focus {
 
 .slider {
   width: 100%;
+  max-width: 320px;
 }
 
 input[type="range"] {
@@ -396,9 +456,26 @@ while( $row = mysql_fetch_array ( $result ))
 @$email = $row['EMAIL'];
 @$tiempo = $row['TIEMPO'];
 @$tiempo_activo = $row['TIEMPO'];
+
+
+if (@$tiempo == "")
+{
+@$tiempo = "60";
 }
 
-@$series = "1582,1586,1657,1696,30890,32232,32238,32239,32240,32241,32242,35350,35450,35890,38371,38372,38373,";
+if (@$tiempo_activo == "" or @$tiempo_activo == "false")
+{
+@$checked_tiempo = "";
+}
+else
+{
+@$checked_tiempo = "checked=''";
+}
+
+
+}
+
+//@$series = "1582,1586,1657,1696,30890,32232,32238,32239,32240,32241,32242,35350,35450,35890,38371,38372,38373,";
 ?>
 
 
@@ -421,7 +498,7 @@ while( $row = mysql_fetch_array ( $result ))
 <a href="javascript: sin_filtro();"><span class="comment-author-link" style="color: #666666;"><strong>TODAS LAS SERIES</strong><span></a>
 </li>
 <li class="opciones">
-<a href="javascript: filtrar_edad('3');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>3 AÑOS</strong><span></a>
+<a href="javascript: filtrar_edad('4');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>4 AÑOS</strong><span></a>
 </li>
 <li class="opciones">
 <a href="javascript: filtrar_edad('5');"><span class="comment-author-link" style="color: #666666;">HASTA <strong>5 AÑOS</strong></span></a>
@@ -441,10 +518,14 @@ while( $row = mysql_fetch_array ( $result ))
 	</div>
 <form name="lista_de_series" id="lista_de_series">
 
-    <a href="javascript: guardar();" class="boton_verde" style="width: 90px; color: #ffffff; position: absolute; right: 20px; top: 21px;">
+    <a href="javascript: guardar_series();" class="boton_verde" style="width: 90px; color: #ffffff; position: absolute; right: 20px; top: 21px;">
     GUARDAR
 	</a>
 <hr>
+
+<div style="width: 100%; height: 60px; padding: 10px; background: #e3fefd; margin-bottom: 10px; border-bottom: 1px solid #c3edec;" id="check_selectall">
+<h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input type="checkbox" class="option-input checkbox" onclick="seleccionar_todas_edades();" id="selectall" style="float: left;"/> <strong>Seleccionar todas las series</strong><br>Todas las edades</h4>
+</div>
 
 <?php
 @$result = mysql_query ("SELECT * from series where idioma='ES' order by edad asc") or die("Error en la consulta SQL1");
@@ -476,7 +557,7 @@ else
 ?>
 <div style="width: 100%; height: 60px; padding: 10px; background: #f0f0f0; margin-bottom: 10px; border-bottom: 1px solid #e1e0e0;" class="todos filtro_<?php echo @$edad ?>">
 <h4 style="color: #666666; font-weight: 200; font-size: 15px;">
-<input name="que_serie" value="<?php echo $id ?>" id="<?php echo $id ?>" type="checkbox" class="option-input checkbox" style="float: left;" <?php echo @$encontrado ?>/> 
+<input name="que_serie" value="<?php echo $id ?>" id="<?php echo $id ?>" type="checkbox" class="todas option_<?php echo @$edad ?> option-input checkbox" style="float: left;" <?php echo @$encontrado ?>/> 
 <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
 </div>
 <?php
@@ -492,13 +573,13 @@ else
          <div data-pws-tab="tab22" data-pws-tab-name="Tiempo" style="text-align: justify; min-height: 400px;">
          <hr>
 <font style="color: #666666;">         
-La opción "control del tiempo" ayuda a la supervision del uso del telefono. Solo tiene que especificar el tiempo de uso de la aplicación y automaticamente se cerrara la aplicación cuando llegue la hora ( maximo 2 horas ).
+La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso del telefono. Solo tiene que especificar el tiempo de uso de la aplicación y automaticamente se cerrara la aplicación cuando llegue la hora ( maximo 2 horas ).
             </font>
   <br><br>          
             
 <h4>Activar control de tiempo</h4>
 <br>
-  <input type="checkbox" class="slider-v1" id="s2" checked="" style="display: none;" name="tiempo_activado"/>
+  <input type="checkbox" class="slider-v1" id="s2" <?php echo @$checked_tiempo ?> style="display: none;" name="tiempo_activado"/>
   <label for="s2"></label>
   <br>
   <h4>Tiempo de visionado (minutos)</h4>
@@ -507,13 +588,15 @@ La opción "control del tiempo" ayuda a la supervision del uso del telefono. Sol
 
   
   <div class="slider">
-  <input type = "range" min="5" max="120" onchange="rangevalue.value=value"/>
-	<output id="rangevalue" style="float: left;">60 </output>
+  <input type = "range" min="5" max="120" onchange="rangevalue.value=value" name="tiempo_de_visionado" id="tiempo_de_visionado"/>
+	<output id="rangevalue" style="float: left;"><?php echo @$tiempo ?> </output>
   </div>
   
-<hr style="padding-bottom: 6px;">
+<br>
+<hr>
+<br>
 
-<a href="javascript:menu('2');" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
+<a href="javascript: guardar_tiempo();" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
 <font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
 

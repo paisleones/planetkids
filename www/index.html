@@ -156,7 +156,7 @@ function cuenta_atras()
 
 
 function mostrarmenu() {
-document.getElementById("siteloader_capitulos").style.display = "none";
+$( "#siteloader_capitulos" ).html('');
 document.location.href="#arriba";
 document.getElementById("siteloader_menu").style.display = "block";
 }
@@ -183,7 +183,7 @@ $( "#siteloader_capitulos" ).html('<div style="width: 100%; text-align: center; 
 
 function cargardatos(url,div) {
 	document.location.href="#arriba";
-$( "#siteloader_menu" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot-cargando.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="images/loading-robot.gif" style="height: 34px;"></div</div>');
+$( "#siteloader_menu" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot-cargando.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="http://kids.trabajocreativo.com/images/loading-robot.gif" style="height: 34px;"></div</div>');
  
 	$.ajax({
 		  crossOrigin: true,
@@ -235,7 +235,7 @@ function cargarvideo(url,div) {
 function guardar_local(id_usuario, clave)
 {
         storage.setItem("id_usuario", id);
-        storage.setItem("clave", clave);		
+        storage.setItem("clave", clave);	
 }
 
 function recuperar_local()
@@ -268,7 +268,13 @@ function enviar(){
 			}
 			else
 			{
-				alert("ERROR DE VALIDACION");
+				 navigator.notification.confirm(
+                ("Lo sentimos pero la contraseña es incorrecta !"), // message
+                emptyCode(), // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR' // buttonName
+        );
+
 			}
 }
 </script>
