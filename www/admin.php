@@ -98,6 +98,10 @@ var tiempo_activado = $("#s2").prop("checked");
 var tiempo_de_visionado = $('#tiempo_de_visionado').val();
 cordova.SecureLocalStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 cordova.SecureLocalStorage.setItem("tiempo_activado", tiempo_activado);
+
+//var tiempo_de_visionado = cordova.SecureLocalStorage.getItem("tiempo_de_visionado")
+//var tiempo_activado = cordova.SecureLocalStorage.getItem("tiempo_activado")
+
 actualizardatos("actualizar_tiempo.php?lista_series=" + checkboxValues ,"actualizar_series");
 }
 
