@@ -141,7 +141,6 @@ var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
 var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
 
-
 if (tiempo_activo === "true")
 {
 var toHour=0;
@@ -155,7 +154,7 @@ else
 var toHour=0;
 var toMinute= -1;
 var toSecond=0;
- document.getElementById("contador").style.display = 'block';
+ document.getElementById("contador").style.display = 'none';
  cuenta_atras();
 }
 </script>
