@@ -134,6 +134,33 @@ if (@$encuentra <> false)
 
 <br><br><br><br><br>
 
+<script>
+var id_usuario = localStorage.getItem('id_usuario');
+var clave = localStorage.getItem('clave');
+var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
+var tiempo_activo = localStorage.getItem('tiempo_activo');
+var tiempo_restante = localStorage.getItem('tiempo_restante');
+
+
+if (tiempo_activo === "true")
+{
+var toHour=0;
+var toMinute= tiempo_de_visionado;
+var toSecond=59;
+ document.getElementById("contador").style.display = 'block';
+cuenta_atras();
+}
+else
+{
+var toHour=0;
+var toMinute= -1;
+var toSecond=0;
+ document.getElementById("contador").style.display = 'block';
+ cuenta_atras();
+}
+</script>
+
+
 </div>
 
 

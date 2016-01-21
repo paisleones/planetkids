@@ -591,18 +591,23 @@ closeMenu();
 <div>
 
 <script>
-var toHour=0;
-var toMinute=120;
-var toSecond=59;
-
 recuperar_local();
 
 if (tiempo_activo === "true")
 {
+var toHour=0;
 var toMinute= tiempo_de_visionado;
 var toSecond=59;
- document.getElementById("contador").style.display = 'none';
+ document.getElementById("contador").style.display = 'block';
 cuenta_atras();
+}
+else
+{
+var toHour=0;
+var toMinute= -1;
+var toSecond=0;
+ document.getElementById("contador").style.display = 'block';
+ cuenta_atras();
 }
 </script>
 
