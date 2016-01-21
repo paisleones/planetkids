@@ -44,6 +44,7 @@ header("cache-control: no-cache");
 ignore_user_abort(true);
 set_time_limit(0);
 
+
 function extraer($TheStr, $sLeft, $sRight, $Sensitive=false){ 
 $TheStrMin = $Sensitive ? $TheStr : strtolower ($TheStr); 
 $pleft = strpos ($TheStrMin, $sLeft, 0); 
@@ -72,6 +73,7 @@ while( $row = mysql_fetch_array ( $result ))
 {
 @$edad = $row['EDAD'];
 @$nombre = $row['NOMBRE'];
+@$nombre = utf8_decode(@$nombre);
 @$thumb_error = $row['THUMB'];
 }
 
@@ -97,6 +99,7 @@ while( $row = mysql_fetch_array ( $result ))
 </div>
 </a>
 <?php echo $nombre ?>
+
 </h1>
 
 </div>
@@ -118,7 +121,7 @@ for($i=1;$i<count($cadena);$i++)
 
 @$enlace = extraer(@$elemento,"href=","title");
 @$titulo = extraer(@$elemento,"alt=","data");
-@$titulo = strip_tags($titulo);
+@$titulo = strip_tags(@$titulo);
 
 @$duracion = extraer(@$elemento,"<span class='dur'>","</span>");
 @$thumb = extraer(@$elemento,"http://img.rtve.es/i","alt");

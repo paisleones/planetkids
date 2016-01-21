@@ -102,6 +102,16 @@ font-size: 14px;
   width: 70px;
   height: 40px;
 }
+
+.form_input
+{
+background: none;
+color: #ffffff;
+border: 0px;
+text-align: right;
+width: 22px;
+text-size: 11px;
+}
 </style>
 
 
@@ -114,13 +124,11 @@ font-size: 14px;
 
 
 <script>
-toHour=0;
-toMinute=1;
-toSecond=5;
  
 //cuenta atras
 function cuenta_atras()
 {
+	
 	if (toSecond==0 && toMinute==0 && toHour==0)
 		{
 			alert("Se acabo el tiempo");
@@ -132,28 +140,27 @@ function cuenta_atras()
 		toSecond=59;
 		toMinute=toMinute-1;
 	}
-	form.second.value=toSecond;
+	form_tiempo.second.value=toSecond;
  
 	if(toMinute<0)
 	{
 		toMinute=59;
 		toHour=toHour-1;
 	}
-	form.minute.value=toMinute;
+	form_tiempo.minute.value=toMinute;
  
-	form.hour.value=toHour;
+	form_tiempo.hour.value=toHour;
 	if(toHour<0)
 	{
 		//final
-		form.second.value=0;
-		form.minute.value=0;
-		form.hour.value=0;
+		form_tiempo.second.value=0;
+		form_tiempo.minute.value=0;
+		form_tiempo.hour.value=0;
 						
 	}else{
 		setTimeout("cuenta_atras()",1000);
 	}
 }
-
 
 function mostrarmenu() {
 $( "#siteloader_capitulos" ).html('');
@@ -240,23 +247,26 @@ function guardar_local(id_usuario, clave)
 
 function recuperar_local()
 {  
-        id_usuario = localStorage.getItem('id_usuario');
-        clave = localStorage.getItem('clave');
+var id_usuario = localStorage.getItem('id_usuario');
+var clave = localStorage.getItem('clave');
+var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
+var tiempo_activo = localStorage.getItem('tiempo_activo');
+var tiempo_restante = localStorage.getItem('tiempo_restante');
 }
 
 function addCode(key){
-	var code = document.forms[0].code;
+	var code = document.keypad.code;
 	if(code.value.length < 4){
 		code.value = code.value + key;
 	}
 }
 
 function submitForm(){
-	document.forms[0].submit();
+	document.keypad.submit();
 }
 
 function emptyCode(){
-	document.forms[0].code.value = "";
+	document.keypad.code.value = "";
 }
 
 function enviar(){
@@ -309,7 +319,7 @@ $("#ventana").load(src);
 function modalbox_seguridad(ancho,alto)
 {
 closeMenu();
-$.modal('<form method="get"><div id="wrapper" style="padding: 10px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3></font><div class="dialpad compact"><div class="number" id="clave" style="margin: 0px; padding: 10px; height: 90px;"><input type="text" name="code" id="code" value="" maxlength="4" class="display seguridad" readonly /></div><div class="dials" style="margin: 0px; padding: 0px;"><ul style="margin: 0px; padding: 0px;"><li class="digits" onClick="addCode(1);"><p><strong>1</strong></p></li><li class="digits" onClick="addCode(2);"><p><strong>2</strong></p></li><li class="digits" onClick="addCode(3);"><p><strong>3</strong></p></li><li class="digits" onClick="addCode(4);"><p><strong>4</strong></p></li><li class="digits" onClick="addCode(5);"><p><strong>5</strong></p></li><li class="digits" onClick="addCode(6);"><p><strong>6</strong></p></li><li class="digits" onClick="addCode(7);"><p><strong>7</strong></p></li><li class="digits" onClick="addCode(8);"><p><strong>8</strong></p></li><li class="digits" onClick="addCode(9);"><p><strong>9</strong></p></li><li class="digits" onClick="addCode(0);"><p><strong>0</strong></p></li><li class="digits" onclick="emptyCode();"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">BORRAR</p></li><li class="digits pad-action" onclick="enviar();"><p style="font-size: 16px; color: #ffffff; padding-top: 20px; font-weight: 800">ENTRAR</p></li></ul></div></div></div></form>', {
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 10px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3></font><div class="dialpad compact"><div class="number" id="clave" style="margin: 0px; padding: 10px; height: 90px;"><input type="text" name="code" id="code" value="" maxlength="4" class="display seguridad" readonly /></div><div class="dials" style="margin: 0px; padding: 0px;"><ul style="margin: 0px; padding: 0px;"><li class="digits" onClick="addCode(1);"><p><strong>1</strong></p></li><li class="digits" onClick="addCode(2);"><p><strong>2</strong></p></li><li class="digits" onClick="addCode(3);"><p><strong>3</strong></p></li><li class="digits" onClick="addCode(4);"><p><strong>4</strong></p></li><li class="digits" onClick="addCode(5);"><p><strong>5</strong></p></li><li class="digits" onClick="addCode(6);"><p><strong>6</strong></p></li><li class="digits" onClick="addCode(7);"><p><strong>7</strong></p></li><li class="digits" onClick="addCode(8);"><p><strong>8</strong></p></li><li class="digits" onClick="addCode(9);"><p><strong>9</strong></p></li><li class="digits" onClick="addCode(0);"><p><strong>0</strong></p></li><li class="digits" onclick="emptyCode();"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">BORRAR</p></li><li class="digits pad-action" onclick="enviar();"><p style="font-size: 16px; color: #ffffff; padding-top: 20px; font-weight: 800">ENTRAR</p></li></ul></div></div></div></form>', {
 	closeClass: "modalClose",
 	containerCss:{
 		padding:0,
@@ -364,7 +374,7 @@ $.modal('<div style="width: "' + ancho + '"px; height: "' + alto + '"px; max-wid
 -webkit-border-radius: 10px 10px 10px 10px;
 border: 0px solid #000000;
 height: auto;
-margin-top: -100px;
+margin-top: 0px;
 
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
@@ -521,10 +531,14 @@ list-style-type: none;
 </div>
 </a>
 Kids Planet
+
+
 </h1>
 
 </div>
 </div>
+
+
 
 <div class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;">
 
@@ -567,7 +581,30 @@ closeMenu();
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="StreamingMedia.js"></script>
 
+<div style="border-left: 10px solid #248dc1; height: 50px; background: #248dc1; width: 100px; position: absolute; top: 0px; right: 0px; text-size: 11px; z-index: 9999999; display: none;" id="contador">
+<form name="form_tiempo" style="display: block; margin-top: 16px;" id="contador_tiempo">
+<img src="images/alarm.png" style="width: 18px; float: left; margin-right: 6px;">
+	<input type="text" size="2" class="form_input" name="hour" style="display: none;" disabled>
+	<input type="text" size="2" class="form_input" name="minute" disabled> <font style="font-size: 12px; color: #ffffff;">min.</font>
+	<input type="text" size="2" class="form_input" name="second" disabled style="display: none;">
+</form>
+<div>
 
+<script>
+var toHour=0;
+var toMinute=120;
+var toSecond=59;
+
+recuperar_local();
+
+if (tiempo_activo === "true")
+{
+var toMinute= tiempo_de_visionado;
+var toSecond=59;
+ document.getElementById("contador").style.display = 'none';
+cuenta_atras();
+}
+</script>
 
 
 </body>

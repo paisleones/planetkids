@@ -17,7 +17,9 @@ document.location.href="#arriba";
 <meta http-equiv='pragma' content='no-cache'>
 
 
+
 <?php
+
 setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
 
 ini_set("buffering ","0"); // desactivando el buffer a salida estandar
