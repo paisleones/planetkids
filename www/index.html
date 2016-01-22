@@ -22,6 +22,13 @@
 {
 font-family: 'Quicksand';
 font-weight: 100;
+width: 200px; 
+border: 1px solid #f0f0f0; 
+padding: 10px;
+text-align: center;
+font-size: 60px;
+height: 80px;
+color: #ff4b42;
 }
 </style>
 
@@ -342,7 +349,7 @@ $("#ventana").load(src);
 function modalbox_seguridad(ancho,alto)
 {
 closeMenu();
-$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 10px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3></font><div class="dialpad compact"><div class="number" id="clave" style="margin: 0px; padding: 10px; height: 90px;"><input type="text" name="code" id="code" value="" maxlength="4" class="display seguridad" readonly /></div><div class="dials" style="margin: 0px; padding: 0px;"><ul style="margin: 0px; padding: 0px;"><a href="javascript: addCode(1);"><li class="digits"><p><strong>1</strong></p></li></a><a href="javascript: addCode(2);"><li class="digits"><p><strong>2</strong></p></li></a><a href="javascript: addCode(3);"><li class="digits"><p><strong>3</strong></p></li></a><a href="javascript: addCode(4);"><li class="digits"><p><strong>4</strong></p></li></a><a href="javascript: addCode(5);"><li class="digits"><p><strong>5</strong></p></li></a><a href="javascript: addCode(6);"><li class="digits"><p><strong>6</strong></p></li></a><a href="javascript: addCode(7);"><li class="digits"><p><strong>7</strong></p></li></a><a href="javascript: addCode(8);"><li class="digits"><p><strong>8</strong></p></li></a><a href="javascript: addCode(9);"><li class="digits"><p><strong>9</strong></p></li></a><a href="javascript: addCode(0);"><li class="digits"><p><strong>0</strong></p></li></a><a href="javascript: emptyCode();"><li class="digits"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">BORRAR</p></li></a><a href="javascript: enviar();"><li class="digits pad-action"><p style="font-size: 16px; color: #ffffff; padding-top: 20px; font-weight: 800">ENTRAR</p></li></a></ul></div></div></div></form>', {
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 10px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3></font><hr><div class="dialpad compact"><div class="number" id="clave" style="margin: 0px; padding: 10px; height: 90px;"><input type="text" name="code" id="code" value="" maxlength="4" class="display seguridad" style="border: 1px solid #f0f0f0;"/></div><br><div class="dials" style="margin: 0px; padding: 0px;"><ul style="margin: 0px; padding: 0px;"><a href="javascript: $.modal.impl.close();"><li class="digits"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">CERRAR</p></li></a><a href="javascript: modalClose();"><li class="digits"><p style="font-size: 16px; color: #666666; padding-top: 20px; font-weight: 800">BORRAR</p></li></a><a href="javascript: enviar();"><li class="digits pad-action"><p style="font-size: 16px; color: #ffffff; padding-top: 20px; font-weight: 800">ENTRAR</p></li></a></ul></div></div></div></form>', {
 	closeClass: "modalClose",
 	containerCss:{
 		padding:0,
@@ -531,7 +538,7 @@ list-style-type: none;
 </li>
 
 <li class="visible boton">
-<a href="javascript:modalbox_seguridad(400,412);">
+<a href="javascript:modalbox_seguridad(400,240); document.getElementById('code').focus();">
 <img src="images/iconos/padres.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-weight: 400; font-size: 16px;">ZONA PADRES</font>
 </a>
 </li>

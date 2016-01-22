@@ -642,6 +642,8 @@ color: #ff4b42;
 </a>
 </form>   
 <br><br><br>    
+<div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_pin">   
+</div>
             
             </font>
             
