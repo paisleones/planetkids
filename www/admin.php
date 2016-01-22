@@ -17,7 +17,7 @@ document.location.href="#arriba";
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<!-- Comentar este bloque antes de subir 
+<!-- Comentar este bloque antes de subir
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/style5152.css">
 <link rel="stylesheet" type="text/css" href="css/default.css" />
@@ -88,7 +88,7 @@ function guardar_series()
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
-actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+$("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxValues);
 }
 
 
@@ -98,7 +98,16 @@ var tiempo_activo = $("#s2").prop("checked");
 var tiempo_de_visionado = $('#tiempo_de_visionado').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
-actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
+//actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+}
+
+function guardar_pin()
+{
+var nuevo_pin = $('#nuevo_pin').val();
+localStorage.setItem("clavee", nuevo_pin);
+$("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
+//actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }
 
 
@@ -471,10 +480,7 @@ else
 @$checked_tiempo = "checked";
 }
 
-
 }
-
-//@$series = "1582,1586,1657,1696,30890,32232,32238,32239,32240,32241,32242,35350,35450,35890,38371,38372,38373,";
 ?>
 
 
@@ -609,6 +615,34 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
          <hr>
          <font style="color: #666666;"> 
             Donec pellentesque placerat mi, at rutrum metus tempor posuere. Nunc ut pellentesque purus. Nam auctor, magna eget elementum maximus, ligula augue ornare massa, id varius magna mi vel diam. Cras vel pharetra risus. Suspendisse eu varius nisl, a laoreet est. Proin vitae erat metus. Curabitur dictum elit in ante feugiat cursus.
+
+<br>
+<hr>
+<style> 
+#nuevo_pin
+{
+font-family: 'Quicksand';
+font-weight: 100;
+width: 200px; 
+border: 1px solid #f0f0f0; 
+padding: 10px;
+text-align: center;
+font-size: 60px;
+height: 80px;
+color: #ff4b42;
+} 
+</style>
+ 
+<form name="cambiar_pin" id="cambiar_pin">    
+<input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel">
+<p>
+<br><br>
+ <a href="javascript: guardar_pin();" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
+<font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
+</a>
+</form>   
+<br><br><br>    
+            
             </font>
             
          </div>

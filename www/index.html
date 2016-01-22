@@ -124,6 +124,28 @@ text-size: 11px;
 
 
 <script>
+
+function mensaje_aviso()
+{
+ navigator.notification.confirm(
+                ("Se han actualizado las opciones. Ahora te llevaremos de vuelta a la pantalla principal."), // message
+                alerta_guardar, // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR' // buttonName
+        );
+
+
+	
+	 function alerta_guardar(button){
+
+        if(button=="1" || button==1)
+        {	
+$( "#siteloader_capitulos" ).html('');
+$( "#siteloader_pader" ).html('');
+cargardatos('lista_series.php','siteloader_menu');
+        }
+	 }
+}
  
 //cuenta atras
 function cuenta_atras()
@@ -164,6 +186,7 @@ function cuenta_atras()
 
 function mostrarmenu() {
 $( "#siteloader_capitulos" ).html('');
+$( "#siteloader_padres" ).html('');
 document.location.href="#arriba";
 document.getElementById("siteloader_menu").style.display = "block";
 }
@@ -177,7 +200,7 @@ $( "#siteloader_capitulos" ).html('<div style="width: 100%; text-align: center; 
 		  crossOrigin: true,
 		  url: "http://kids.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php", 
-		  proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
+		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
 		  success: function(data) {
 			  //alert(data);			  
@@ -196,7 +219,7 @@ $( "#siteloader_menu" ).html('<div style="width: 100%; text-align: center; paddi
 		  crossOrigin: true,
 		  url: "http://kids.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php",
-		  proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
+		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
 		  success: function(data) {
 			  //alert(data);			  
@@ -212,7 +235,7 @@ function actualizardatos(url,div) {
 		  crossOrigin: true,
 		  url: "http://kids.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php",
-		  proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
+		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
 		  success: function(data) {
 			  //alert(data);			  
@@ -229,7 +252,7 @@ function cargarvideo(url,div) {
 		  crossOrigin: true,
 		  url: "http://kids.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php", 
-		  proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
+		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
 		  success: function(data) {
 			  //alert(data);			  
@@ -548,10 +571,6 @@ Kids Planet
 
 
 <div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader_capitulos"> 
-</div>
-
-
-<div style="padding: 10px; margin: 0px; width: 100%; position: relative;" id="siteloader_padres"> 
 </div>
 
 
