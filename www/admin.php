@@ -84,7 +84,8 @@ toggle('submenu');
 
 function guardar_series()
 {
-	var checkboxValues = "";
+$( "#boton_series" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: absolute; right: 60px; top: 25px;">');
+var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
@@ -94,6 +95,7 @@ $("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxVal
 
 function guardar_tiempo()
 {
+$( "#boton_tiempo" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 var tiempo_activo = $("#s2").prop("checked");
 var tiempo_de_visionado = $('#tiempo_de_visionado').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
@@ -104,6 +106,7 @@ $("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.
 
 function guardar_pin()
 {
+$( "#boton_pin" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 var nuevo_pin = $('#nuevo_pin').val();
 localStorage.setItem("clavee", nuevo_pin);
 $("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
@@ -523,9 +526,12 @@ else
 	</div>
 <form name="lista_de_series" id="lista_de_series">
 
-    <a href="javascript: guardar_series();" class="boton_verde" style="width: 90px; color: #ffffff; position: absolute; right: 20px; top: 21px;">
-    GUARDAR
-	</a>
+<div id="boton_series">
+<a href="javascript: guardar_series();" class="boton_verde" style="width: 90px; color: #ffffff; position: absolute; right: 20px; top: 21px;">
+GUARDAR
+</a>
+</div>
+
 <hr>
 
 <div style="width: 100%; height: 60px; padding: 10px; background: #e3fefd; margin-bottom: 10px; border-bottom: 1px solid #c3edec;" id="check_selectall">
@@ -601,9 +607,11 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 <hr>
 <br>
 
+<div id="boton_tiempo">
 <a href="javascript: guardar_tiempo();" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
 <font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
+</div>
 
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_tiempo">   
 </div>
@@ -637,9 +645,13 @@ color: #ff4b42;
 <input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel">
 <p>
 <br><br>
+
+<div id="boton_pin">
  <a href="javascript: guardar_pin();" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
 <font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
+</div>
+
 </form>   
 <br><br><br>    
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_pin">   
