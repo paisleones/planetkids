@@ -119,6 +119,7 @@ text-align: right;
 width: 22px;
 text-size: 11px;
 }
+
 </style>
 
 
@@ -302,7 +303,7 @@ function emptyCode(){
 
 function enviar(){
 	var valor_clave=document.getElementById("code").value;
-	if (valor_clave == "1234")
+	if (valor_clave == clave)
 			{
 			$.modal.impl.close();
             cargarcapitulos('admin.php','siteloader_capitulos');
@@ -350,7 +351,7 @@ $("#ventana").load(src);
 function modalbox_seguridad(ancho,alto)
 {
 closeMenu();
-$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 10px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3><hr>EL pin de 4 digitos es impresicible para acceder a todas las opciones de la <strong>zona padres.</strong></font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="60%"><input type="tel" name="code" id="code" value="" maxlength="4" class="display seguridad" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/></td><td><a href="javascript: enviar();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENTRAR</p></a></td></tr></table></div></form>', {
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3><hr>EL pin de 4 digitos es impresicible para acceder a todas las opciones de la <strong>zona padres.</strong></font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="60%"><input type="tel" name="code" id="code" value="" maxlength="4" class="display seguridad" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/></td><td><a href="javascript: enviar();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENTRAR</p></a></td></tr></table></div></form>', {
 	closeClass: "modalClose",
 	containerCss:{
 		padding:0,
@@ -510,27 +511,21 @@ list-style-type: none;
 
 
 
+
+
 <div class="menu">
 
 <ul class="ulMenu" style="margin-left: 24px;">
 
 <li class="visible boton" onClick="closeMenu(); mostrarmenu();">
-
 <img src="images/iconos/video.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-size: 16px;">VIDEOS</font>
-
 </li>
 
-<li class="visible boton">
-<a href="javascript:menu('2');">
-<font style="font-weight: 200; font-size: 16px;">About Us</font>
-</a>
-</li>
-
-<li class="visible boton">
 <a href="javascript:menu('3');">
+<li class="visible boton">
 <font style="font-weight: 200; font-size: 16px;">IDIOMA</font>
-</a>
 </li>
+</a>
 
 <li class="visible boton">
 <a href="javascript:menu('3');">
@@ -538,11 +533,18 @@ list-style-type: none;
 </a>
 </li>
 
-<li class="visible boton">
 <a href="javascript:modalbox_seguridad(400,240); document.getElementById('code').focus();">
+<li class="visible boton">
 <img src="images/iconos/padres.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-weight: 400; font-size: 16px;">ZONA PADRES</font>
-</a>
 </li>
+</a>
+
+
+<a href="javascript: ShowExitDialog();">
+<li class="visible boton">
+<font style="font-weight: 200; font-size: 16px;">SALIR</font>
+</li>
+</a>
 
 </ul>
 
@@ -574,8 +576,15 @@ Kids Planet
 <div class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;">
 
 
+
+
+
+
+
+
 <div style="display: block; padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader_menu">   
 </div>
+
 
 
 <div style="padding: 0px; margin: 0px; width: 100%; position: relative;" id="siteloader_capitulos"> 
@@ -622,6 +631,38 @@ closeMenu();
 <div>
 
 <script>
+function ShowExitDialog() {
+        navigator.notification.confirm(
+                ("Quieres salir de la aplicacion?"), // message
+                alertexit, // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR,CANCELAR' // buttonName
+        );
+
+    }
+	
+	 function alertexit(button){
+
+        if(button=="1" || button==1)
+        {
+
+            navigator.app.exitApp();
+        }
+
+}
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("backbutton", ShowExitDialog, false); 
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        navigator.splashscreen.show();
+    }
+
+
 var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
@@ -645,6 +686,7 @@ var toSecond=0;
  cuenta_atras();
 }
 </script>
+
 
 
 </body>

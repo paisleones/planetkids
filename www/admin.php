@@ -24,8 +24,6 @@ document.location.href="#arriba";
 <script type="text/javascript" src="js/jquery.js"></script>
 <!-- Has aqui --->
 
-
-
 <script>
 
 function seleccionar_edad(edad)
@@ -89,7 +87,8 @@ var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
-$("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxValues);
+actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+//$("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxValues);
 }
 
 
@@ -97,20 +96,21 @@ function guardar_tiempo()
 {
 $( "#boton_tiempo" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 var tiempo_activo = $("#s2").prop("checked");
-var tiempo_de_visionado = $('#tiempo_de_visionado').val();
+var tiempo_de_visionado = $('#rangeslider').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
-$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
-//actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+//$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
+actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }
 
 function guardar_pin()
 {
 $( "#boton_pin" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
+var nuevo_email = $('#nuevo_email').val();
 var nuevo_pin = $('#nuevo_pin').val();
-localStorage.setItem("clavee", nuevo_pin);
-$("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
-//actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+localStorage.setItem("clave", nuevo_pin);
+//$("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
+actualizardatos("actualizar_pin.php?nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
 }
 
 
@@ -174,83 +174,68 @@ color: #666666;
 font-size: 14px;
 }
 
-</style>
+ #tabs {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
+  #tabs li {
+    float: left;
+    margin: 0 -15px 0 0;
+	height: 30px;
+  }
 
+  #tabs a {
+    float: left;
+    position: relative;
+    padding: 0 20px;
+    height: 0;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;      
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #3D3D3D;
+    border-bottom-color: #777\9;
+    opacity: .3;
+    filter: alpha(opacity=20);      
+  }
 
-   <link type="text/css" rel="stylesheet" href="css/jquery.pwstabs.min.css">
+  #tabs a:hover,
+  #tabs a:focus {
+    border-bottom-color: #2ac7e1;
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
 
-   <script src="js/jquery.pwstabs.min.js"></script>
+  #tabs a:focus {
+    outline: 0;
+  }
 
-  
+  #tabs #current {
+    z-index: 3;
+    border-bottom-color: #248dc1;
+    opacity: 1;
+    filter: alpha(opacity=100);      
+  }
 
-    <script>
-    jQuery(document).ready(function ($) {
-        $('.tabset2').pwstabs({
-            effect: 'none',
-            defaultTab: 1,
-            containerWidth: '100%'
-        });      
+  /* ----------- */
+  #contenido {
+      background: #fff;
+      border-top: 1px solid #248dc1;
+      padding: 2em;
+      /*height: 220px;*/
+  }
 
-        // Colors Demo
-        $('.pws_demo_colors a').click(function (e) {
-            e.preventDefault();
-            $('.pws_tabs_container').removeClass('pws_theme_cyan pws_theme_grey pws_theme_violet pws_theme_green pws_theme_yellow pws_theme_gold pws_theme_orange pws_theme_red pws_theme_purple pws_theme_dark_cyan pws_theme_dark_grey pws_theme_dark_violet pws_theme_dark_green pws_theme_dark_yellow pws_theme_dark_gold pws_theme_dark_orange pws_theme_dark_red pws_theme_dark_purple').addClass('pws_theme_'+$(this).attr('data-demo-color') );
-        });
-
-    });
-    </script>
-
-
-
-<style>
-.slider-v1 + label {
-  position: relative;
-  display: block;
-  width: 5.5em;
-  height: 3em;
-  cursor: pointer;
-  border-radius: 1.5em;
-  background: #f0f0f0;
-  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.2) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.5);
-}
-
-.slider-v1 + label::before {
-  position: absolute;
-  content: '';
-  width: 2em;
-  height: 2em;
-  top: 0.5em;
-  left: 0.5em;
-  border-radius: 50%;
-  transition: 250ms ease-in-out;
-  background: #9bd7d5;
-  box-shadow: 0 0.1em 0.01em -0.01em rgba(255, 255, 255, 0.2) inset, 0 0.2em 0.2em -0.1em rgba(0, 0, 0, 0.1);
-}
-
-.slider-v1 + label::after {
-  position: absolute;
-  content: '';
-  width: 1em;
-  height: 1em;
-  top: 1em;
-  left: 6em;
-  border-radius: 50%;
-  transition: 250ms ease-in;
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #ddd;
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), -7.25em 0 0 -0.25em rgba(0, 0, 0, 0.3);
-}
-
-.slider-v1:checked + label::after {
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #4c6;
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), -7.25em 0 0 -0.25em rgba(0, 0, 0, 0.12);
-}
-
-.slider-v1:checked + label::before {
-  left: 3em;
-}
-
-
+  #contenido h2,
+    #contenido h3,
+    #contenido p {
+      margin: 0 0 0px 0;
+  }  
+ 
 
 
 .option-input {
@@ -416,6 +401,281 @@ input[type="range"]::-webkit-slider-thumb:active {
   font-weight: 100;
   color: #248dc1;
 }
+
+
+
+.can-toggle {
+  position: relative;
+}
+.can-toggle *, .can-toggle *:before, .can-toggle *:after {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+.can-toggle input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.can-toggle input[type="checkbox"][disabled] ~ label {
+  pointer-events: none;
+}
+.can-toggle input[type="checkbox"][disabled] ~ label .can-toggle__switch {
+  opacity: 0.4;
+}
+.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:before {
+  content: attr(data-unchecked);
+  left: 0;
+}
+.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:after {
+  content: attr(data-checked);
+}
+.can-toggle label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.can-toggle label .can-toggle__label-text {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 32px;
+}
+.can-toggle label .can-toggle__switch {
+  position: relative;
+}
+.can-toggle label .can-toggle__switch:before {
+  content: attr(data-checked);
+  position: absolute;
+  top: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+.can-toggle label .can-toggle__switch:after {
+  content: attr(data-unchecked);
+  position: absolute;
+  z-index: 5;
+  text-transform: uppercase;
+  text-align: center;
+  background: white;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.can-toggle input[type="checkbox"][disabled] ~ label {
+  color: rgba(119, 119, 119, 0.5);
+}
+.can-toggle input[type="checkbox"]:focus ~ label .can-toggle__switch, .can-toggle input[type="checkbox"]:hover ~ label .can-toggle__switch {
+  background-color: #c0c0c0;
+}
+.can-toggle input[type="checkbox"]:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:hover ~ label .can-toggle__switch:after {
+  color: #5e5e5e;
+}
+.can-toggle input[type="checkbox"]:hover ~ label {
+  color: #6a6a6a;
+}
+.can-toggle input[type="checkbox"]:checked ~ label:hover {
+  color: #55bc49;
+}
+.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch {
+  background-color: #9db53d;
+}
+.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:after {
+  color: #4fb743;
+}
+.can-toggle input[type="checkbox"]:checked:focus ~ label .can-toggle__switch, .can-toggle input[type="checkbox"]:checked:hover ~ label .can-toggle__switch {
+  background-color: #9db53d;
+}
+.can-toggle input[type="checkbox"]:checked:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:checked:hover ~ label .can-toggle__switch:after {
+  color: #47a43d;
+}
+.can-toggle label .can-toggle__label-text {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.can-toggle label .can-toggle__switch {
+  -webkit-transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
+          transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
+  background: #c0c0c0;
+}
+.can-toggle label .can-toggle__switch:before {
+  color: rgba(255, 255, 255, 0.5);
+}
+.can-toggle label .can-toggle__switch:after {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  color: #777;
+}
+.can-toggle input[type="checkbox"]:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:hover ~ label .can-toggle__switch:after {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+}
+.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:after {
+  -webkit-transform: translate3d(65px, 0, 0);
+          transform: translate3d(65px, 0, 0);
+}
+.can-toggle input[type="checkbox"]:checked:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:checked:hover ~ label .can-toggle__switch:after {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+}
+.can-toggle label {
+  font-size: 18px;
+  font-weight: 800;
+}
+.can-toggle label .can-toggle__switch {
+  height: 32px;
+  -webkit-flex: 0 0 134px;
+      -ms-flex: 0 0 134px;
+          flex: 0 0 134px;
+  border-radius: 2px;
+}
+.can-toggle label .can-toggle__switch:before {
+  left: 67px;
+  font-size: 12px;
+  line-height: 36px;
+  width: 67px;
+  padding: 0 12px;
+}
+.can-toggle label .can-toggle__switch:after {
+  top: 2px;
+  left: 2px;
+  border-radius: 2px;
+  width: 65px;
+  line-height: 32px;
+  font-size: 12px;
+}
+.can-toggle label .can-toggle__switch:hover:after {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#input-wrapper {
+ width: 100%;
+  max-width: 320px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+#rangeslider {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  height: 5px;
+  width: 100%;
+  background: #f0f0f0;
+}
+
+#rangeslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  height: 5px;
+  width: 54px;
+  position: relative;
+
+}
+
+#rangeslider::-webkit-slider-thumb:after {
+  content: '< >';
+  word-spacing: 20px;
+  text-align: center;
+  background: #9bd7d5;
+  font-weight: 200;
+  font-size: 18px;
+  color: white;
+  width: 54px;
+  height: 25px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  color: transparent;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+  
+}
+
+#rangeslider::-webkit-slider-thumb:before {
+  content: '';
+  height: 5px;
+  width: 400px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #9bd7d5;
+  pointer-events: none;
+}
+
+#reel {
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  position: absolute;
+  top: 0; 
+  opacity: 0;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+#rn {
+  background: -webkit-linear-gradient(hsl(0, 80%, 70%), #9bd7d5));
+  background: linear-gradient(hsl(0, 80%, 70%),  #9bd7d5));
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s; 
+}
+
+
+
+#static-output {
+   word-spacing: 20px;
+  text-align: center;
+  background: #9bd7d5;
+  font-weight: 800;
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -36px;
+  pointer-events: none;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+
+.active #reel { opacity: 1; }
+
+.active #static-output { color: transparent; }
+
+.active #rangeslider::-webkit-slider-thumb:after {
+  color: white;
+}
+
+
+.bordes_cuadrados
+{
+border-radius: 0px;
+}
 </style>
 
 
@@ -485,15 +745,23 @@ else
 
 }
 ?>
+ 
 
+ <ul id="tabs" style="position: relative; top: 10px; left: 0px;z-index: 99999;">
+      <li style="height: 40px;"><a href="#" name="#tab1">Series</a></li>
+      <li><a href="#" name="#tab2">Tiempo</a></li>
+      <li><a href="#" name="#tab3">Datos</a></li>
+   
+  </ul>
 
-      <div class="tabset2" style="padding: 0px; margin: 0px;">
-         <div data-pws-tab="tab11" data-pws-tab-name="Series" style="width: 100%;">
+  <div id="contenido" style="position: relative; top: 10px; padding: 0px;">
+  
+      <div id="tab1">
+   
 <hr>
 
-
  <div class="dropdown" style="position: relative; top: 10px; height: 40px;">
-	<a href="javascript: toggle('submenu');" class="boton" style="padding-right: 10px; color: #ffffff;">
+	<a href="javascript: toggle('submenu');" class="boton bordes_cuadrados" style="padding-right: 10px; color: #ffffff;">
     FILTRO POR EDAD ▼
 	</a>
     
@@ -527,8 +795,9 @@ else
 <form name="lista_de_series" id="lista_de_series">
 
 <div id="boton_series">
-<a href="javascript: guardar_series();" class="boton_verde" style="width: 90px; color: #ffffff; position: absolute; right: 20px; top: 21px;">
-GUARDAR
+
+<a href="javascript: guardar_series();" class="boton_verde bordes_cuadrados" style="width: 117px; padding-left: 20px; padding-right: 20px; position: absolute; right: 00px; top: 21px;">
+<font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
 </div>
 
@@ -580,35 +849,96 @@ else
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_series">   
 </div>
 
-         </div>
-         <div data-pws-tab="tab22" data-pws-tab-name="Tiempo" style="text-align: justify; min-height: 400px;">
-         <hr>
+ 
+   
+   
+      </div>
+      
+      <div id="tab2">
+
+
+<hr>
 <font style="color: #666666;">         
 La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso del telefono. Solo tiene que especificar el tiempo de uso de la aplicación y automaticamente se cerrara la aplicación cuando llegue la hora ( maximo 2 horas ).
             </font>
   <br><br>          
+         
+
             
 <h4>Activar control de tiempo</h4>
 <br>
-  <input type="checkbox" class="slider-v1" id="s2" <?php echo @$checked_tiempo ?> style="display: none;" name="tiempo_activado"/>
-  <label for="s2"></label>
+<div class="can-toggle" style="width: 134px; height: 24px;">
+  <input id="s2" type="checkbox" <?php echo @$checked_tiempo ?>>
+  <label for="s2" style="cursor: pointer;">
+    <div class="can-toggle__switch" data-checked="SI" data-unchecked="NO"></div>
+  </label>
+</div>
   <br>
   <h4>Tiempo de visionado (minutos)</h4>
 <br>
 
 
   
-  <div class="slider">
-  <input type = "range" min="5" max="120" onchange="rangevalue.value=value" name="tiempo_de_visionado" id="tiempo_de_visionado"/>
-	<output id="rangevalue" style="float: left;"><?php echo @$tiempo ?> </output>
+<div id="input-wrapper">
+  <input type="range" id="rangeslider" min="15" max="120" value="<?php echo @$tiempo ?>" step="1" 
+         oninput="updateOutput(value, true)" 
+         onchange="deactivate()" 
+         onmouseup="deactivate()" 
+  >
+  <div id="reel">
+    <div id="rn"></div>
   </div>
+  <div id="static-output"></div>
+</div>
+<script>
+//lets populate reel numbers
+var min = $("#rangeslider").attr("min");
+var max = $("#rangeslider").attr("max");
+
+var rn = "";
+for(var i = min; i <= max; i++)
+	rn += "<span>"+i+"</span>";
+$("#rn").html(rn);
+
+//triggering updateOutput manually
+updateOutput($("#rangeslider").val(), false);
+
+var rfigure, h, v;
+//lets display the static output now
+function updateOutput(figure, activate) {
+	//if activate then add .active to #input-wrapper to help animate the #reel
+	if(activate)
+		$("#input-wrapper").addClass("active");
+	
+	//because of the step param the slider will return values in multiple of 0.05 so we have to round it up
+	rfigure = Math.round(figure);
+	//displaying the static output
+	$("#static-output").html(rfigure);
+	
+	//positioning #static-output and #reel
+	//horizontal positioning first
+	h = figure/max*($("#input-wrapper").width()-$("#reel").width()) + 'px';
+	//vertical positioning of #rn
+	v = rfigure*$("#reel").height()*-1 + 'px';
+	
+	//applying the positions
+	$("#static-output, #reel").css({left: h});
+	//#rn will be moved using transform+transitions for better animation performance. The false translateZ triggers GPU acceleration for better performance.
+	$("#rn").css({transform: 'translateY('+v+') translateZ(0)'});
+}
+function deactivate() {
+	//remove .active from #input-wrapper
+	$("#input-wrapper").removeClass("active");
+}
+
+</script>
   
 <br><br>
 <hr>
 <br>
 
 <div id="boton_tiempo">
-<a href="javascript: guardar_tiempo();" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
+<a href="javascript: guardar_tiempo();" class="boton_verde bordes_cuadrados" style="padding-left: 20px; padding-right: 20px;">
 <font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
 </div>
@@ -617,15 +947,18 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 </div>
 <br><br>
 
-            
-         </div>
-         <div data-pws-tab="tab33" data-pws-tab-name="Seguridad" style="text-align: justify;">
-         <hr>
-         <font style="color: #666666;"> 
-            Donec pellentesque placerat mi, at rutrum metus tempor posuere. Nunc ut pellentesque purus. Nam auctor, magna eget elementum maximus, ligula augue ornare massa, id varius magna mi vel diam. Cras vel pharetra risus. Suspendisse eu varius nisl, a laoreet est. Proin vitae erat metus. Curabitur dictum elit in ante feugiat cursus.
 
+   
+      </div>
+      
+      <div id="tab3">
+         
+         
+ <hr>
+         <font style="color: #666666;"> 
+En este apartado se puede cambiar el pin de acceso y  la cuenta de correo asociada ( utilziada en caso de olvido del pin de acceso )
+</font>
 <br>
-<hr>
 <style> 
 #nuevo_pin
 {
@@ -641,13 +974,27 @@ color: #ff4b42;
 } 
 </style>
  
-<form name="cambiar_pin" id="cambiar_pin">    
-<input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel">
+<form name="cambiar_pin" id="cambiar_pin">   
+
+ <br>
+  <h4>Introduce nuevo pin:</h4>
+<br>
+<input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;" value="<?php echo @$clave ?>">
 <p>
-<br><br>
+<br>
+
+  <h4>Correo eléctronico:</h4>
+<br>
+<input class="seguridad" id="nuevo_email" name="nuevo_email" style="width: 80%; border: 1px solid #c0c0c0; height: 52px; font-size: 18px;" value="<?php echo @$email ?>">
+<p>
+<br>
+
+<hr>
+
+<br>
 
 <div id="boton_pin">
- <a href="javascript: guardar_pin();" class="boton_verde" style="padding-left: 20px; padding-right: 20px;">
+ <a href="javascript: guardar_pin();" class="boton_verde bordes_cuadrados" style="padding-left: 20px; padding-right: 20px;">
 <font style="font-weight: 200; font-size: 16px; color: #ffffff;">GUARDAR</font>
 </a>
 </div>
@@ -658,12 +1005,50 @@ color: #ff4b42;
 </div>
             
             </font>
-            
-         </div>
-      </div><!-- tabset2 -->
+        
+    
+         
+      </div>
+      
+  </div>
+  
 
-<br><br><br>
-</div>
+  <script>
+    function resetTabs(){
+        $("#contenido > div").hide(); //Hide all content
+        $("#tabs a").attr("id",""); //Reset id's      
+    }
+
+    var myUrl = window.location.href; //get URL
+    var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+    var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabName = #tab
+
+    (function(){
+        $("#contenido > div").hide(); // Initially hide all content
+        $("#tabs li:first a").attr("id","current"); // Activate first tab
+        $("#contenido > div:first").show(); // Show first tab content
+        
+        $("#tabs a").on("click",function(e) {
+            e.preventDefault();
+            if ($(this).attr("id") == "current"){ //detection for current tab
+             return       
+            }
+            else{             
+            resetTabs();
+            $(this).attr("id","current"); // Activate this
+            $($(this).attr('name')).show(); // Show content for current tab
+            }
+        });
+
+        for (i = 1; i <= $("#tabs li").length; i++) {
+          if (myUrlTab == myUrlTabName + i) {
+              resetTabs();
+              $("a[name='"+myUrlTab+"']").attr("id","current"); // Activate url tab
+              $(myUrlTab).show(); // Show url tab content        
+          }
+        }
+    })()
+  </script>
 
 
 </body>
