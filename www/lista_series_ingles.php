@@ -58,7 +58,7 @@ while( $row = mysql_fetch_array ( $result ))
 @$tiempo_activo = $row['TIEMPO'];
 }
 
-@$result = mysql_query ("SELECT * from series where idioma='ES'") or die("Error en la consulta SQL1");
+@$result = mysql_query ("SELECT * from series where idioma='EN'") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
 {
 @$id = $row['ID'];
@@ -78,9 +78,6 @@ if ($encuentra_excepciones == false)
 {
 
 
-@$encuentra = strpos(@$series, @$cadena_buscada);
-if (@$encuentra <> false)
-{
 ?>
 
 <style>
@@ -127,7 +124,6 @@ if (@$encuentra <> false)
 <?php  
 }
 
-}
 }
 ?>
 

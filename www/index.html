@@ -518,31 +518,43 @@ list-style-type: none;
 <ul class="ulMenu" style="margin-left: 24px;">
 
 <li class="visible boton" onClick="closeMenu(); mostrarmenu();">
-<img src="images/iconos/video.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-size: 16px;">VIDEOS</font>
+<img src="images/iconos/video.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
+<font style="font-weight: 400; font-size: 16px;">VIDEOS</font>
 </li>
 
-<a href="javascript:menu('3');">
+
+<a href="javascript: closeMenu(); cargardatos('lista_series.php','siteloader_menu');">
 <li class="visible boton">
-<font style="font-weight: 200; font-size: 16px;">IDIOMA</font>
+<img src="images/iconos/idioma_espanol.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
+<font style="font-weight: 400; font-size: 16px;">ESPAÑOL</font>
 </li>
 </a>
 
+<a href="javascript: closeMenu(); cargardatos('lista_series_ingles.php','siteloader_menu');">
 <li class="visible boton">
+<img src="images/iconos/idioma_ingles.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
+<font style="font-weight: 400; font-size: 16px;">INGLÉS</font>
+</li>
+</a>
+
+<li class="visible boton" style="display: none;">
 <a href="javascript:menu('3');">
-<font style="font-weight: 200; font-size: 16px;">CONTACTAR</font>
+<img src="images/iconos/contactar.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
+<font style="font-weight: 400; font-size: 16px;">CONTACTAR</font>
 </a>
 </li>
 
 <a href="javascript:modalbox_seguridad(400,240); document.getElementById('code').focus();">
 <li class="visible boton">
-<img src="images/iconos/padres.png" style="padding: 0px; width: 18px; margin-left: 0px; margin-right: 10px; vertical-align: middle;"><font style="font-weight: 400; font-size: 16px;">ZONA PADRES</font>
+<img src="images/iconos/padres1.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
+<font style="font-weight: 400; font-size: 16px;">ZONA PADRES</font>
 </li>
 </a>
 
-
 <a href="javascript: ShowExitDialog();">
 <li class="visible boton">
-<font style="font-weight: 200; font-size: 16px;">SALIR</font>
+<img src="images/iconos/salir1.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
+<font style="font-weight: 400; font-size: 16px;">SALIR</font>
 </li>
 </a>
 
