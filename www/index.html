@@ -129,9 +129,13 @@ text-size: 11px;
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
+<script type="text/javascript">
 
+    $(document).bind("mobileinit", function() {
+        $.support.cors = true;
+        $.mobile.allowCrossDomainPages = true;
+    });
 
-<script>
 
 function mensaje_aviso()
 {
@@ -585,6 +589,12 @@ Kids Planet
 
 
 
+<div id="splash" class="cssClass" style="background: #33313b; background: radial-gradient(#113776 0%, #001834 100%); background: url(images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center">
+
+<h3 style="position: relative; top: 80px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a Kids PLANET</h3>
+</div>
+
+
 <div class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;">
 
 
@@ -671,7 +681,7 @@ function ShowExitDialog() {
     // device APIs are available
     //
     function onDeviceReady() {
-        navigator.splashscreen.show();
+setTimeout("document.getElementById('splash').style.display = 'none';",5000);
     }
 
 
