@@ -64,10 +64,7 @@ var app = {
  document.addEventListener("deviceready", onDeviceReady, false);
     // device APIs are available
     //
-    function onDeviceReady() {
-        navigator.splashscreen.show();
-    }
-
+    
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
