@@ -979,7 +979,7 @@ color: #ff4b42;
  <br>
   <h4>Introduce nuevo pin:</h4>
 <br>
-<input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;" value="<?php echo @$clave ?>">
+<input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel" style="width: 120px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;" value="<?php echo @$clave ?>">
 <p>
 <br>
 
