@@ -29,6 +29,9 @@ text-align: center;
 font-size: 60px;
 height: 80px;
 color: #ff4b42;
+border-radius: 4px 4px 4px 4px;
+-moz-border-radius: 4px 4px 4px 4px;
+-webkit-border-radius: 4px 4px 4px 4px;
 }
 </style>
 
@@ -165,7 +168,7 @@ function cuenta_atras()
 	
 	if (toSecond==0 && toMinute==0 && toHour==0)
 		{
-			alert("Ups! Los motores del cohete se han detenido y es necesario el PIN para arrancar de nuevo ... ¿Cual es?");
+			alert("Ups! Los motores del cohete se han detenido y es necesario la CLAVE para arrancar de nuevo ... ¿Cual es?");
 		}
 		
 	toSecond=toSecond-1;
@@ -315,7 +318,7 @@ function enviar(){
 			else
 			{
 				 navigator.notification.confirm(
-                ("Lo sentimos pero el pin es incorrecto !"), // message
+                ("Lo sentimos pero la clace es incorrecta !"), // message
                 emptyCode(), // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
@@ -355,7 +358,7 @@ $("#ventana").load(src);
 function modalbox_seguridad(ancho,alto)
 {
 closeMenu();
-$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>INTRODUCE EL PIN:</h3><hr>EL pin de 4 digitos es impresicible para acceder a todas las opciones de la <strong>zona padres.</strong></font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="60%"><input type="tel" name="code" id="code" value="" maxlength="4" class="display seguridad" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/></td><td><a href="javascript: enviar();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENTRAR</p></a></td></tr></table></div></form>', {
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>INTRODUCE LA CLAVE:</h3><hr>La clave de 4 digitos es impresicible para acceder a todas las opciones de la <strong>zona padres.</strong></font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="60%"><input type="tel" name="code" id="code" value="" maxlength="4" class="display seguridad" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/></td><td><a href="javascript: enviar();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENTRAR</p></a></td></tr></table></div></form>', {
 	closeClass: "modalClose",
 	containerCss:{
 		padding:0,

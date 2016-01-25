@@ -956,7 +956,7 @@ function deactivate() {
          
  <hr>
          <font style="color: #666666;"> 
-En este apartado se puede cambiar el pin de acceso y  la cuenta de correo asociada ( utilziada en caso de olvido del pin de acceso )
+En este apartado se puede cambiar la clave de acceso y  la cuenta de correo asociada (se utiliza en caso de olvido de la clave)
 </font>
 <br>
 <style> 
@@ -977,7 +977,7 @@ color: #ff4b42;
 <form name="cambiar_pin" id="cambiar_pin">   
 
  <br>
-  <h4>Introduce nuevo pin:</h4>
+  <h4>Introduce nueva clave:</h4>
 <br>
 <input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel" style="width: 120px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;" value="<?php echo @$clave ?>">
 <p>
