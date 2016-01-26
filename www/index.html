@@ -329,20 +329,25 @@ function enviar(){
 
 
 function desbloquear(){
+	var clave = "1234";
 	var valor_clave_bloqueo=document.getElementById("codigo_bloqueo").value;
 	if (valor_clave_bloqueo == clave)
 			{
 			var tiempo_de_visionado = localStorage.getItem('tiempo');
+			var tiempo_de_visionado = 45;
 			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
             document.getElementById('stop').style.display = 'none';
 			var toHour=0;
 			var toMinute= tiempo_de_visionado;
 			var toSecond=59;
+			//aparecer_contador();
+			document.getElementById('minutos').value = tiempo_de_visionado; 
+			document.getElementById('segundos').value = 59;
  			document.getElementById("contador").style.display = 'block';
-			cuenta_atras();
 			}
 			else
 			{
+				alert("ERROR");
 				 navigator.notification.confirm(
                 ("Lo sentimos pero la clave es incorrecta !"), // message
                 emptyCode(), // callback
@@ -617,7 +622,6 @@ Kids Planet
 </div>
 
 
-
 <div id="splash" class="cssClass" style="background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
 
 
@@ -627,7 +631,7 @@ Kids Planet
 </div>
 
 
-<div id="stop" class="cssClass" style="background: #09152b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center; display: none; position: absolute; top: 0px; left: 0px; padding: 20px;">
+<div id="stop" class="cssClass" style="background: #09152b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center; display: block; position: absolute; top: 0px; left: 0px; padding: 20px;">
 
 <h3 style="position: relative; top: 60px; font-size: 15px; color: #ffffff; font-weight: 200;"><strong>Ups!</strong> Se ha acabado el tiempo y los motores del cohete se han detenido. Es necesario el <strong>CÓDIGO</strong> para arrancar de nuevo ...</h3>
 
@@ -654,11 +658,6 @@ Kids Planet
 
 
 <div id="principal" class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden; display: none;">
-
-
-
-
-
 
 
 
@@ -697,18 +696,21 @@ var _0xc02a=["\x6F\x6E\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x6
 closeMenu();
 </script>
 
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="StreamingMedia.js"></script>
 
 <div style="border-left: 10px solid #248dc1; height: 50px; background: #248dc1; width: 100px; position: absolute; top: 0px; right: 0px; text-size: 11px; z-index: 9999999; display: none;" id="contador">
 <form name="form_tiempo" style="display: block; margin-top: 16px;" id="contador_tiempo">
 <img src="images/alarm.png" style="width: 18px; float: left; margin-right: 6px;">
-	<input type="text" size="2" class="form_input" name="hour" style="display: none;" disabled>
-	<input type="text" size="2" class="form_input" name="minute" disabled> <font style="font-size: 12px; color: #ffffff;">min.</font>
-	<input type="text" size="2" class="form_input" name="second" disabled style="display: none;">
+<input type="text" size="2" class="form_input" name="hour" id="horas" style="display: none;" disabled>
+<input type="text" size="2" class="form_input" name="minute" id="minutos" disabled>
+<font style="font-size: 12px; color: #ffffff;">min.</font>
+<input type="text" size="2" class="form_input" name="second" id="segundos" disabled style="display: block;">
 </form>
 <div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="StreamingMedia.js"></script>
+
 
 <script>
 function ShowExitDialog() {
@@ -760,7 +762,7 @@ cuenta_atras();
 else
 {
 var toHour=0;
-var toMinute= -1;
+var toMinute= 0;
 var toSecond=0;
  document.getElementById("contador").style.display = 'none';
  cuenta_atras();
