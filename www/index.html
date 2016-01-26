@@ -335,6 +335,11 @@ function desbloquear(){
 			var tiempo_de_visionado = localStorage.getItem('tiempo');
 			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
             document.getElementById('stop').style.display = 'none';
+			var toHour=0;
+			var toMinute= tiempo_de_visionado;
+			var toSecond=59;
+ 			document.getElementById("contador").style.display = 'block';
+			cuenta_atras();
 			}
 			else
 			{
