@@ -168,7 +168,7 @@ function cuenta_atras()
 	
 	if (toSecond==0 && toMinute==0 && toHour==0)
 		{
-			alert("Ups! Los motores del cohete se han detenido y es necesario la CLAVE para arrancar de nuevo ... ¿Cual es?");
+			document.getElementById('splash').style.display = 'block';
 		}
 		
 	toSecond=toSecond-1;
@@ -319,6 +319,27 @@ function enviar(){
 			{
 				 navigator.notification.confirm(
                 ("Lo sentimos pero la clace es incorrecta !"), // message
+                emptyCode(), // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR' // buttonName
+        );
+
+			}
+}
+
+
+function desbloquear(){
+	var valor_clave_bloqueo=document.getElementById("codigo_bloqueo").value;
+	if (valor_clave_bloqueo == clave)
+			{
+			var tiempo_de_visionado = localStorage.getItem('tiempo');
+			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
+            document.getElementById('stop').style.display = 'none';
+			}
+			else
+			{
+				 navigator.notification.confirm(
+                ("Lo sentimos pero la clave es incorrecta !"), // message
                 emptyCode(), // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
@@ -592,14 +613,16 @@ Kids Planet
 
 
 
-<div id="splash" class="cssClass" style="background: #33313b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center">
+<div id="splash" class="cssClass" style="background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
 
-<h3 style="position: relative; top: 80px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
+
+<h3 style="position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
+
 
 </div>
 
 
-<div id="stop" class="cssClass" style="background: #33313b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center; display: none; position: absolute; top: 0px; left: 0px; padding: 20px;">
+<div id="stop" class="cssClass" style="background: #09152b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center; display: block; position: absolute; top: 0px; left: 0px; padding: 20px;">
 
 <h3 style="position: relative; top: 60px; font-size: 15px; color: #ffffff; font-weight: 200;"><strong>Ups!</strong> Se ha acabado el tiempo y los motores del cohete se han detenido. Es necesario el <strong>CÓDIGO</strong> para arrancar de nuevo ...</h3>
 
@@ -614,7 +637,7 @@ Kids Planet
 <input type="tel" name="codigo_bloqueo" id="codigo_bloqueo" value="" maxlength="4" class="display seguridad" style="width: 150px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/>
 </td>
 <td style="width: 120px;">
-<a href="javascript: enviar();" class="digits pad-action">
+<a href="javascript: desbloquear();" class="digits pad-action">
 <p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ARRANCAR</p></a>
 </td>
 </tr>
