@@ -167,6 +167,8 @@ function mensaje_aviso()
         if(button=="1" || button==1)
         {	
 $( "#siteloader_capitulos" ).html('');
+$( "#siteloader_cuenta" ).html('');
+document.getElementById("siteloader_cuenta").style.display = 'none';
 cargardatos('lista_series.php','siteloader_menu');
         }
 	 }
@@ -636,7 +638,7 @@ border-radius: 0px;
 <div id="body" class="page center">
 
 
-<div class="headerBack" id="top_menu">
+<div class="headerBack" id="top_menu" style="display: block;">
 <div id="header" style="text-align: left;">
 
 <h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100;">
@@ -653,7 +655,7 @@ Kids Planet
 </div>
 
 
-<div id="splash" class="cssClass" style="background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
 
 
 <h3 style="position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
@@ -711,9 +713,18 @@ Kids Planet
 
 
 <script>
+var id_usuario = localStorage.getItem('id_usuario');
+var clave = localStorage.getItem('clave');
+
+if (id_usuario == "")
+{
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
 document.getElementById("siteloader_cuenta").style.display = 'block';
-//cargardatos('lista_series.php','siteloader_menu');
+}
+else
+{
+cargardatos('lista_series.php','siteloader_menu');
+}
 </script>
 
 

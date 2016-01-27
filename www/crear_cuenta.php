@@ -27,6 +27,8 @@ var crear_edad = $('#crear_edad').val();
 var crear_email = $('#crear_email').val();
 var crear_clave = $('#crear_clave').val();
 var numeroLetras_clave = crear_clave.length;
+var buscar1 = ".";
+var buscar2 = "@";
 
 if (crear_nombre =="")
 {
@@ -50,7 +52,7 @@ document.getElementById("crear_edad").style.borderColor = "#cccccc";
 var validar2 = 1;
 }
 
-if (crear_email =="")
+if (crear_email =="" || crear_email.indexOf("@")== -1 || crear_email.indexOf(".")== -1)
 {
 document.getElementById("crear_email").style.borderColor = "#ff4b42";
 var validar3 = 0;
