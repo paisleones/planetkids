@@ -87,7 +87,7 @@ var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
-actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+cargardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
 //$("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxValues);
 }
 
@@ -100,7 +100,7 @@ var tiempo_de_visionado = $('#rangeslider').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
 //$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
-actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+cargardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }
 
 function guardar_pin()
@@ -110,7 +110,7 @@ var nuevo_email = $('#nuevo_email').val();
 var nuevo_pin = $('#nuevo_pin').val();
 localStorage.setItem("clave", nuevo_pin);
 //$("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
-actualizardatos("actualizar_pin.php?nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
+cargardatos("actualizar_pin.php?nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
 }
 
 
@@ -880,7 +880,7 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 
   
 <div id="input-wrapper">
-  <input type="range" id="rangeslider" min="1" max="120" value="<?php echo @$tiempo ?>" step="1" 
+  <input type="range" id="rangeslider" min="15" max="120" value="<?php echo @$tiempo ?>" step="1" 
          oninput="updateOutput(value, true)" 
          onchange="deactivate()" 
          onmouseup="deactivate()" 

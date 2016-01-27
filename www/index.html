@@ -47,6 +47,13 @@ box-shadow:         0px 2px 10px rgba(0, 0, 0, 0.5);
 
 }
 
+.sombra_menu
+{
+-webkit-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.5);
+box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.5);
+}
+
 .bordes_redondeados
 {
 border-radius: 6px 6px 6px 6px;
@@ -132,6 +139,10 @@ text-size: 11px;
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
+<script>
+jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
+</script>
+
 <script type="text/javascript">
 
     $(document).bind("mobileinit", function() {
@@ -156,17 +167,39 @@ function mensaje_aviso()
         if(button=="1" || button==1)
         {	
 $( "#siteloader_capitulos" ).html('');
-$( "#siteloader_pader" ).html('');
 cargardatos('lista_series.php','siteloader_menu');
         }
 	 }
 }
+
+
+
+function mensaje_aviso_cuenta()
+{
+ navigator.notification.confirm(
+                ("Lo sentimos, pero la cuenta de correo eléctronico ya existe. Por favor, elige otra cuenta de email. Muchas gracias"), // message
+                alerta_guardar_cuenta, // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR' // buttonName
+        );
+
+
+	
+	 function alerta_guardar_cuenta(button){
+
+        if(button=="1" || button==1)
+        {	
+
+        }
+	 }
+}
+
  
 //cuenta atras
 function cuenta_atras()
 {
 	
-	if (toSecond==0 && toMinute==0 && toHour==0)
+	if (toMinute==0 && toHour==0 && tiempo_activo=="true")
 		{
 			document.getElementById('stop').style.display = 'block';
 		}
@@ -202,7 +235,6 @@ function cuenta_atras()
 
 function mostrarmenu() {
 $( "#siteloader_capitulos" ).html('');
-$( "#siteloader_padres" ).html('');
 document.location.href="#arriba";
 document.getElementById("siteloader_menu").style.display = "block";
 }
@@ -340,16 +372,14 @@ function desbloquear(){
 			var toHour=0;
 			var toMinute= tiempo_de_visionado;
 			var toSecond=59;
-			//aparecer_contador();
 			document.getElementById('minutos').value = tiempo_de_visionado; 
 			document.getElementById('segundos').value = 59;
  			document.getElementById("contador").style.display = 'block';
 			}
 			else
 			{
-				alert("ERROR");
 				 navigator.notification.confirm(
-                ("Lo sentimos pero la clave es incorrecta !"), // message
+                ("Lo sentimos pero la clace es incorrecta !"), // message
                 emptyCode(), // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
@@ -540,15 +570,17 @@ list-style-type: none;
 	text-align: center;
 	padding: 0px;
 }
+
+.bordes_cuadrados
+{
+border-radius: 0px;
+}
 </style>
 
 
 </head>
 
 <body onLoad="javascript:init()">
-
-
-
 
 
 <div class="menu">
@@ -604,17 +636,16 @@ list-style-type: none;
 <div id="body" class="page center">
 
 
-<div class="headerBack">
+<div class="headerBack" id="top_menu">
 <div id="header" style="text-align: left;">
 
-<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100">
+<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100;">
 <a class="button" href="#" id="menu">
 <div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
 <img src="images/menu.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
 </div>
 </a>
 Kids Planet
-
 
 </h1>
 
@@ -657,7 +688,13 @@ Kids Planet
 </div>
 
 
+<div style="padding: 0px; margin: 0px; width: 100%;  height: 100%; z-index: 9999999; text-align: center; position: absolute; top: 0px; left: 0px; display: none;" id="siteloader_cuenta"> 
+
+</div>
+
+
 <div id="principal" class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden; display: none;">
+
 
 
 
@@ -674,7 +711,9 @@ Kids Planet
 
 
 <script>
-cargardatos('lista_series.php','siteloader_menu');
+actualizardatos('crear_cuenta.php','siteloader_cuenta');
+document.getElementById("siteloader_cuenta").style.display = 'block';
+//cargardatos('lista_series.php','siteloader_menu');
 </script>
 
 

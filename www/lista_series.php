@@ -38,12 +38,6 @@ include("conexion.php");
 
 <?php
 
-@$result = mysql_query ("SELECT * from opciones") or die("Error en la consulta SQL");
-while( $row = mysql_fetch_array ( $result ))
-{
-@$excepciones = $row['EXCEPCIONES'];
-}
-
 @$id_usuario = "1";
 
 @$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
@@ -58,7 +52,7 @@ while( $row = mysql_fetch_array ( $result ))
 @$tiempo_activo = $row['TIEMPO'];
 }
 
-@$result = mysql_query ("SELECT * from series where idioma='ES'") or die("Error en la consulta SQL1");
+@$result = mysql_query ("SELECT * from series where idioma='ES' and activado='si'") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
 {
 @$id = $row['ID'];
@@ -72,10 +66,6 @@ while( $row = mysql_fetch_array ( $result ))
 $pos = strpos(@$excepciones, @$id);
 
 @$cadena_buscada = @$id . ",";
-
-@$encuentra_excepciones = strpos(@$excepciones, @$cadena_buscada);
-if ($encuentra_excepciones == false)
-{
 
 
 @$encuentra = strpos(@$series, @$cadena_buscada);
@@ -127,7 +117,6 @@ if (@$encuentra <> false)
 <?php  
 }
 
-}
 }
 ?>
 
