@@ -638,7 +638,7 @@ border-radius: 0px;
 <div id="body" class="page center">
 
 
-<div class="headerBack" id="top_menu" style="display: block;">
+<div class="headerBack" id="top_menu" style="display: none;">
 <div id="header" style="text-align: left;">
 
 <h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100;">
@@ -723,6 +723,7 @@ document.getElementById("siteloader_cuenta").style.display = 'block';
 }
 else
 {
+document.getElementById("top_menu").style.display = 'block';
 cargardatos('lista_series.php','siteloader_menu');
 }
 </script>
