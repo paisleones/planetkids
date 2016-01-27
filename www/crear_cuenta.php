@@ -77,6 +77,39 @@ var validar4 = 1;
 actualizardatos("crear_nueva_cuenta.php?crear_nombre=" + crear_nombre + "&crear_edad=" + crear_edad + "&crear_email=" + crear_email + "&crear_clave=" + crear_clave,"crear_nueva_cuenta");
 
 }
+
+
+
+
+function iniciar_sesion()
+{
+var email_sesion = $('#email_sesion').val();
+var clave_sesion = $('#clave_sesion').val();
+
+if (email_sesion =="")
+{
+document.getElementById("email_sesion").style.borderColor = "#ff4b42";
+var validar5 = 0;
+}
+else
+{
+document.getElementById("email_sesion").style.borderColor = "#cccccc";
+var validar5 = 1;
+}
+
+if (clave_sesion =="")
+{
+document.getElementById("clave_sesion").style.borderColor = "#ff4b42";
+var validar6 = 0;
+}
+else
+{
+document.getElementById("clave_sesion").style.borderColor = "#cccccc";
+var validar6 = 1;
+}
+
+actualizardatos("iniciar_sesion.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion,"crear_nueva_cuenta");
+}
 </script>
 
 <style>
@@ -86,11 +119,11 @@ padding: 0;
 }
 .div_completo {
 width: 100%;
-height: 500px;
+height: 100%;
 top: 0px;
 left: 0px;
 z-index: 99999;
-background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2));  background: url(http://kids.trabajocreativo.com/images/fondo_menu.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;
+background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2));  background: url(http://kids.trabajocreativo.com/images/cuenta.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;
 }
 
 /*form styles*/
@@ -104,7 +137,7 @@ top: 50px;
 #msform fieldset {
 background: white;
 border: 0 none;
-border-radius: 3px;
+border-radius: 6px;
 box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 padding: 20px 30px;
 box-sizing: border-box;
@@ -175,6 +208,21 @@ padding: 0px;
 
 <!-- fieldsets -->
 <fieldset>
+<h2 class="fs-title">Iniciar sesión</h2>
+<h3 class="fs-subtitle">Si ya tienes una cuenta creada</h3>
+<hr>
+<div style="text-align: left; color: #666666;">
+<h3 class="fs-subtitle">Correo electrónico:</h3>
+<input type="text" name="email_sesion" id="email_sesion" class="border-input" placeholder="" />
+<br>
+<h3 class="fs-subtitle">Clave (4 dígitos):</h3>
+<input type="password" name="clave_sesion" id="clave_sesion" class="border-input" placeholder="" maxlength="4"/>
+</div>
+<hr>
+<input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" />
+<input type="button" name="next" class="next action-button" value="NUEVA" />
+</fieldset>
+<fieldset>
 <h2 class="fs-title">Crear una cuenta</h2>
 <h3 class="fs-subtitle"><strong>1 de 2</strong> - Datos del niño/a</h3>
 <hr>
@@ -186,6 +234,7 @@ padding: 0px;
 <input type="text" name="crear_edad" id="crear_edad" class="border-input" placeholder="" />
 </div>
 <hr>
+<input type="button" name="previous" class="previous action-button" value="ATRAS" />
 <input type="button" name="next" class="next action-button" value="SIGUIENTE" />
 </fieldset>
 <fieldset>
@@ -290,6 +339,10 @@ $(".previous").click(function(){
 
 $(".submit").click(function(){
 	guardar_nuevos_datos();
+})
+
+$("#submit_iniciar").click(function(){
+	iniciar_sesion();
 })
 
 });

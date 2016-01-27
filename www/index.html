@@ -343,6 +343,8 @@ function emptyCode(){
 }
 
 function enviar(){
+	var clave = localStorage.getItem('clave');
+	var clave = "1234";
 	var valor_clave=document.getElementById("code").value;
 	if (valor_clave == clave)
 			{
@@ -715,6 +717,7 @@ Kids Planet
 <script>
 var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
+var email = localStorage.getItem('email');
 
 if (id_usuario == "")
 {
@@ -723,6 +726,7 @@ document.getElementById("siteloader_cuenta").style.display = 'block';
 }
 else
 {
+$( '#siteloader_cuenta' ).html('');
 document.getElementById("top_menu").style.display = 'block';
 cargardatos('lista_series.php','siteloader_menu');
 }

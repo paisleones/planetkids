@@ -87,9 +87,37 @@ var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
-cargardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
 //$("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxValues);
 }
+
+function cerrar_sesion()
+{
+$( "#boton_cerrar_sesion" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
+localStorage.clear();
+}
+
+function preguntar_cerrar_sesion()
+{
+ navigator.notification.confirm(
+                ("Realmente quieres cerrar la sesion?"), // message
+                alertexit, // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR,CANCELAR' // buttonName
+        );
+
+    }
+	
+	 function alertexit(button){
+
+        if(button=="1" || button==1)
+        {
+
+            cerrar_sesion()
+        }
+
+}
+
 
 
 function guardar_tiempo()
@@ -100,7 +128,7 @@ var tiempo_de_visionado = $('#rangeslider').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
 //$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
-cargardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }
 
 function guardar_pin()
@@ -110,7 +138,7 @@ var nuevo_email = $('#nuevo_email').val();
 var nuevo_pin = $('#nuevo_pin').val();
 localStorage.setItem("clave", nuevo_pin);
 //$("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
-cargardatos("actualizar_pin.php?nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
+actualizardatos("actualizar_pin.php?nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
 }
 
 
@@ -960,7 +988,7 @@ En este apartado se puede cambiar la clave de acceso y  la cuenta de correo asoc
 </font>
 <br>
 <style> 
-#nuevo_pin
+#nuevo_pin, #nuevo_email
 {
 font-family: 'Quicksand';
 font-weight: 100;
@@ -1000,7 +1028,22 @@ color: #ff4b42;
 </div>
 
 </form>   
-<br><br><br>    
+<br>
+<hr>
+<h4>Cerrar sesión:</h4>
+<br>
+<font style="color: #666666;"> 
+Si eliges esta opcion, se cerrara la sesión del niño/a y te llevaremos a la pantalla para que entres con otro usuario y contraseña. Esta opción es util si otro niño/a diferente va a entrar en la aplicacion.
+</font>
+<br><br><br>
+<div id="boton_cerrar_sesion">
+ <a href="javascript: preguntar_cerrar_sesion();" class="boton bordes_cuadrados" style="padding-left: 20px; padding-right: 20px;">
+<font style="font-weight: 200; font-size: 16px; color: #ffffff;">CERRAR SESION</font>
+</a>
+</div>
+<p>
+<br>
+<br><br><br><br><br>    
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_pin">   
 </div>
             
