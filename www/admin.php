@@ -902,6 +902,7 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
   </label>
 </div>
   <br>
+  <br>
   <h4>Tiempo de visionado (minutos)</h4>
 <br>
 
@@ -962,7 +963,7 @@ function deactivate() {
 </script>
   
 <br><br>
-<hr>
+
 <br>
 
 <div id="boton_tiempo">
@@ -973,7 +974,7 @@ function deactivate() {
 
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_tiempo">   
 </div>
-<br><br>
+<br><br><br><br>
 
 
    
@@ -1009,7 +1010,7 @@ color: #ff4b42;
 <br>
 <input maxlength="4" id="nuevo_pin" name="nuevo_pin" type="tel" style="width: 120px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;" value="<?php echo @$clave ?>">
 <p>
-<br>
+<br><br>
 
   <h4>Correo eléctronico:</h4>
 <br>
@@ -1017,9 +1018,8 @@ color: #ff4b42;
 <p>
 <br>
 
-<hr>
 
-<br>
+<br><br>
 
 <div id="boton_pin">
  <a href="javascript: guardar_pin();" class="boton_verde bordes_cuadrados" style="padding-left: 20px; padding-right: 20px;">

@@ -63,5 +63,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "nl-afas-cordova-plugin-securelocalstorage": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dickverweij/nl-afas-cordova-plugin-secureLocalStorage",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
