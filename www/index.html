@@ -586,6 +586,41 @@ border-radius: 0px;
 
 <body onLoad="javascript:init()" style="background: #33313b;">
 
+<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+
+<h3 style="position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
+
+</div>
+
+
+<div id="stop" class="cssClass" style="background: #09152b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center; display: none; position: absolute; top: 0px; left: 0px; padding: 20px;">
+
+<h3 style="position: relative; top: 60px; font-size: 15px; color: #ffffff; font-weight: 200;"><strong>Ups!</strong> Se ha acabado el tiempo y los motores del cohete se han detenido. Es necesario el <strong>CÓDIGO</strong> para arrancar de nuevo ...</h3>
+
+<br><br><br><br>
+
+<div style="text-align: center; max-width: 300px; padding: 0%; margin: 0 auto;">
+<form method="get" name="keypad_bloqueo" id="keypad_bloqueo">
+<div id="wrapper" style="padding: 20px;">
+<table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td style="width: 170px;">
+<input type="tel" name="codigo_bloqueo" id="codigo_bloqueo" value="" maxlength="4" class="display seguridad" style="width: 150px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/>
+</td>
+<td style="width: 120px;">
+<a href="javascript: desbloquear();" class="digits pad-action">
+<p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ARRANCAR</p></a>
+</td>
+</tr>
+</table>
+</div>
+</form>
+</div>
+</div>
+
+
+
+
 
 <div class="menu">
 
@@ -657,39 +692,6 @@ Kids Planet
 </div>
 
 
-<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
-
-
-<h3 style="position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
-
-
-</div>
-
-
-<div id="stop" class="cssClass" style="background: #09152b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 9999999; text-align: center; display: none; position: absolute; top: 0px; left: 0px; padding: 20px;">
-
-<h3 style="position: relative; top: 60px; font-size: 15px; color: #ffffff; font-weight: 200;"><strong>Ups!</strong> Se ha acabado el tiempo y los motores del cohete se han detenido. Es necesario el <strong>CÓDIGO</strong> para arrancar de nuevo ...</h3>
-
-<br><br><br><br>
-
-<div style="text-align: center; max-width: 300px; padding: 0%; margin: 0 auto;">
-<form method="get" name="keypad_bloqueo" id="keypad_bloqueo">
-<div id="wrapper" style="padding: 20px;">
-<table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td style="width: 170px;">
-<input type="tel" name="codigo_bloqueo" id="codigo_bloqueo" value="" maxlength="4" class="display seguridad" style="width: 150px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/>
-</td>
-<td style="width: 120px;">
-<a href="javascript: desbloquear();" class="digits pad-action">
-<p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ARRANCAR</p></a>
-</td>
-</tr>
-</table>
-</div>
-</form>
-</div>
-</div>
 
 
 <div style="padding: 0px; margin: 0px; width: 100%;  height: 100%; z-index: 9999999; text-align: center; position: absolute; top: 0px; left: 0px; display: none;" id="siteloader_cuenta"> 
