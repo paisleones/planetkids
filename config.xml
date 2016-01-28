@@ -40,6 +40,7 @@
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
   <platform name="android">
+  <platform name="browser">
     <allow-intent href="market:*"/>
   </platform>
   <platform name="ios">
