@@ -360,7 +360,6 @@ function emptyCode(){
 
 function enviar(){
 	var clave = localStorage.getItem('clave');
-	var clave = "1234";
 	var valor_clave=document.getElementById("code").value;
 	if (valor_clave == clave)
 			{
@@ -381,20 +380,21 @@ function enviar(){
 
 
 function desbloquear(){
+	var clave = localStorage.getItem('clave');
 	var valor_clave_bloqueo=document.getElementById("codigo_bloqueo").value;
 	if (valor_clave_bloqueo == clave)
 			{
 			var tiempo_de_visionado = localStorage.getItem('tiempo');
-			document.keypad_bloqueo.codigo_bloquei.value = "";
+			document.keypad_bloqueo.codigo_bloqueo.value = "";
 			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
             document.getElementById('stop').style.display = 'none';
 			reiniciar_cuenta_atras();
 			}
 			else
 			{
+				document.keypad_bloqueo.codigo_bloqueo.value = "";
 				 navigator.notification.confirm(
                 ("Lo sentimos pero la clace es incorrecta !"), // message
-                document.keypad_bloqueo.codigo_bloquei.value = "", // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
         );
@@ -816,19 +816,7 @@ var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
 
 
-if (tiempo_activo === "true")
-{
-var minutes= tiempo_de_visionado;
-var seconds=59;
- document.getElementById("contador").style.display = 'block';
-cuenta_atras('countdown');
-}
-else
-{
-var minutes= 0;
-var seconds=0;
- document.getElementById("contador").style.display = 'none';
-}
+
 </script>
 
 
