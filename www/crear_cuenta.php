@@ -108,7 +108,10 @@ document.getElementById("clave_sesion").style.borderColor = "#cccccc";
 var validar6 = 1;
 }
 
+if(validar5==1 && validar6 == 1)
+{
 actualizardatos("iniciar_sesion.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion,"crear_nueva_cuenta");
+}
 }
 </script>
 

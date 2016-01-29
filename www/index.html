@@ -175,6 +175,16 @@ cargardatos('lista_series.php','siteloader_menu');
 }
 
 
+function mensaje_aviso_cuenta()
+{
+ navigator.notification.confirm(
+                ("Lo sentimos, pero el correo eléctronico o contraseña son incorrectos. Por favor, revisa los datos. Muchas gracias"), // message
+                alerta_guardar_cuenta, // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR' // buttonName
+        );
+}
+
 
 function mensaje_aviso_cuenta()
 {
@@ -622,7 +632,7 @@ border-radius: 0px;
 
 
 
-<div class="menu">
+<div class="menu" id="menu_lateral" style="display: none;">
 
 <ul class="ulMenu" style="margin-left: 24px;">
 
@@ -721,7 +731,7 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
-var id_usuario = "1";
+var id_usuario = "";
 
 if (id_usuario == "")
 {
@@ -799,7 +809,7 @@ function ShowExitDialog() {
     // device APIs are available
     //
     function onDeviceReady() {
-setTimeout("document.getElementById('splash').style.display = 'none'; document.getElementById('principal').style.display = 'block'; document.getElementById('siteloader_menu').style.display = 'block'; $( '#splash' ).html('');",5000);
+setTimeout("document.getElementById('splash').style.display = 'none'; document.getElementById('menu_lateral').style.display = 'block'; document.getElementById('principal').style.display = 'block'; document.getElementById('siteloader_menu').style.display = 'block'; $( '#splash' ).html('');",5000);
 
     }
 

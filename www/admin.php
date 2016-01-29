@@ -95,6 +95,8 @@ function cerrar_sesion()
 {
 $( "#boton_cerrar_sesion" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 localStorage.clear();
+document.getElementById("siteloader_cuenta").style.display = 'block';
+actualizardatos('crear_cuenta.php','siteloader_cuenta');
 }
 
 function preguntar_cerrar_sesion()
@@ -1014,7 +1016,7 @@ color: #ff4b42;
 
   <h4>Correo eléctronico:</h4>
 <br>
-<input class="seguridad" id="nuevo_email" name="nuevo_email" style="width: 80%; border: 1px solid #c0c0c0; height: 52px; font-size: 18px;" value="<?php echo @$email ?>">
+<input id="nuevo_email" name="nuevo_email" style="width: 80%; border: 1px solid #c0c0c0; height: 52px; font-size: 20px;" value="<?php echo @$email ?>">
 <p>
 <br>
 
