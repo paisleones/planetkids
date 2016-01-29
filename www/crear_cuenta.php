@@ -74,7 +74,7 @@ document.getElementById("crear_clave").style.borderColor = "#cccccc";
 var validar4 = 1;
 }
 
-if(validar1==1 && validar2 == 1 && validar1==3 && validar4 == 1)
+if(validar1==1 && validar2 == 1 && validar3==1 && validar4 == 1)
 {
 actualizardatos("crear_nueva_cuenta.php?crear_nombre=" + crear_nombre + "&crear_edad=" + crear_edad + "&crear_email=" + crear_email + "&crear_clave=" + crear_clave,"crear_nueva_cuenta");
 }

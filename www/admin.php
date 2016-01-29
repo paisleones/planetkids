@@ -103,14 +103,14 @@ function preguntar_cerrar_sesion()
 {
  navigator.notification.confirm(
                 ("Realmente quieres cerrar la sesion?"), // message
-                alertexit, // callback
+                alert_exit, // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR,CANCELAR' // buttonName
         );
 
     }
 	
-	 function alertexit(button){
+	 function alert_exit(button){
 
         if(button=="1" || button==1)
         {
@@ -911,7 +911,7 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 
   
 <div id="input-wrapper">
-  <input type="range" id="rangeslider" min="15" max="120" value="<?php echo @$tiempo ?>" step="1" 
+  <input type="range" id="rangeslider" min="1" max="120" value="<?php echo @$tiempo ?>" step="1" 
          oninput="updateOutput(value, true)" 
          onchange="deactivate()" 
          onmouseup="deactivate()" 

@@ -217,41 +217,38 @@ function mensaje_aviso_cuenta()
 
  
 //cuenta atras
-function cuenta_atras()
-{
+var interval;
+    var minutes = localStorage.getItem('tiempo_de_visionado');
+    var seconds = 00;
+
+
+    function cuenta_atras(element) {
+        interval = setInterval(function() {
+            var el = document.getElementById(element);
+            if(seconds == 0) {
+                if(minutes == 0) {
+                    document.getElementById('stop').style.display = 'block';                   
+                    //clearInterval(interval);
+                    return;
+                } else {
+                    minutes--;
+                    seconds = 60;
+                }
+            }
+            if(minutes > 0) {
+                var minute_text = '<font style="font-size: 14px; font-weight: 400">' + minutes + (minutes > 1 ? '</font> min.' : '</font> min.');
+            } else {
+                var minute_text = '<font style="font-size: 14px; font-weight: 400">' + seconds  + '</font> seg.';
+            }
+            el.innerHTML = minute_text;
+            seconds--;
+        }, 1000);
+    }
 	
-	if (toMinute==0 && toHour==0 && tiempo_activo=="true")
-		{
-			document.getElementById('stop').style.display = 'block';
-		}
-		
-	toSecond=toSecond-1;
-	if(toSecond<0)
-	{
-		toSecond=59;
-		toMinute=toMinute-1;
-		localStorage.setItem("tiempo_restante", toMinute);
-	}
-	form_tiempo.second.value=toSecond;
- 
-	if(toMinute<0)
-	{
-		toMinute=59;
-		toHour=toHour-1;
-	}
-	form_tiempo.minute.value=toMinute;
- 
-	form_tiempo.hour.value=toHour;
-	if(toHour<0)
-	{
-		//final
-		form_tiempo.second.value=0;
-		form_tiempo.minute.value=0;
-		form_tiempo.hour.value=0;
-						
-	}else{
-		setTimeout("cuenta_atras()",1000);
-	}
+function reiniciar_cuenta_atras()
+{
+minutes = localStorage.getItem('tiempo_de_visionado');
+seconds=0;
 }
 
 function mostrarmenu() {
@@ -384,26 +381,20 @@ function enviar(){
 
 
 function desbloquear(){
-	var clave = "1234";
 	var valor_clave_bloqueo=document.getElementById("codigo_bloqueo").value;
 	if (valor_clave_bloqueo == clave)
 			{
 			var tiempo_de_visionado = localStorage.getItem('tiempo');
-			var tiempo_de_visionado = 45;
+			document.keypad_bloqueo.codigo_bloquei.value = "";
 			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
             document.getElementById('stop').style.display = 'none';
-			var toHour=0;
-			var toMinute= tiempo_de_visionado;
-			var toSecond=59;
-			document.getElementById('minutos').value = tiempo_de_visionado; 
-			document.getElementById('segundos').value = 59;
- 			document.getElementById("contador").style.display = 'block';
+			reiniciar_cuenta_atras();
 			}
 			else
 			{
 				 navigator.notification.confirm(
                 ("Lo sentimos pero la clace es incorrecta !"), // message
-                emptyCode(), // callback
+                document.keypad_bloqueo.codigo_bloquei.value = "", // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
         );
@@ -722,7 +713,6 @@ Kids Planet
 
 
 
-
 <div style="display: block; padding: 0px; margin: 0px; width: 100%; position: relative; display: none" id="siteloader_menu">   
 </div>
 
@@ -775,13 +765,10 @@ closeMenu();
 
 
 <div style="border-left: 10px solid #248dc1; height: 50px; background: #248dc1; width: 100px; position: absolute; top: 0px; right: 0px; text-size: 11px; z-index: 9999999; display: none;" id="contador">
-<form name="form_tiempo" style="display: block; margin-top: 16px;" id="contador_tiempo">
+<div style="display: block; margin-top: 16px;" id="contador_tiempo">
 <img src="images/alarm.png" style="width: 18px; float: left; margin-right: 6px;">
-<input type="text" size="2" class="form_input" name="hour" id="horas" style="display: none;" disabled>
-<input type="text" size="2" class="form_input" name="minute" id="minutos" disabled>
-<font style="font-size: 12px; color: #ffffff;">min.</font>
-<input type="text" size="2" class="form_input" name="second" id="segundos" disabled style="display: none;">
-</form>
+<div id='countdown' style="color: #ffffff; font-size: 13px;"></div>
+</div>
 <div>
 
 <script type="text/javascript" src="cordova.js"></script>
@@ -828,21 +815,19 @@ var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
 var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
 
+
 if (tiempo_activo === "true")
 {
-var toHour=0;
-var toMinute= tiempo_de_visionado;
-var toSecond=59;
+var minutes= tiempo_de_visionado;
+var seconds=59;
  document.getElementById("contador").style.display = 'block';
-cuenta_atras();
+cuenta_atras('countdown');
 }
 else
 {
-var toHour=0;
-var toMinute= 0;
-var toSecond=0;
+var minutes= 0;
+var seconds=0;
  document.getElementById("contador").style.display = 'none';
- cuenta_atras();
 }
 </script>
 

@@ -129,21 +129,19 @@ var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
 var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
 
+
 if (tiempo_activo === "true")
 {
-var toHour=0;
-var toMinute= tiempo_de_visionado;
-var toSecond=59;
+var minutes= tiempo_de_visionado;
+var seconds=59;
  document.getElementById("contador").style.display = 'block';
-cuenta_atras();
+cuenta_atras('countdown');
 }
 else
 {
-var toHour=0;
-var toMinute= -1;
-var toSecond=0;
+var minutes= 0;
+var seconds=0;
  document.getElementById("contador").style.display = 'none';
- cuenta_atras();
 }
 </script>
 
