@@ -396,8 +396,19 @@ function desbloquear(){
 				 navigator.notification.confirm(
                 ("Lo sentimos pero la clace es incorrecta !"), // message
                 'Mensaje de Kids PLANET', // title
+				clave_desbloqueo_incorrecta(),
                 'ACEPTAR' // buttonName
         );
+		function clave_desbloqueo_incorrecta(button){
+
+        if(button=="1" || button==1)
+        {	
+$( "#siteloader_capitulos" ).html('');
+$( "#siteloader_cuenta" ).html('');
+document.getElementById("siteloader_cuenta").style.display = 'none';
+cargardatos('lista_series.php','siteloader_menu');
+        }
+	 }
 
 			}
 }
