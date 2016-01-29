@@ -219,7 +219,7 @@ function mensaje_aviso_cuenta()
 //cuenta atras
 var interval;
     var minutes = localStorage.getItem('tiempo_de_visionado');
-    var seconds = 00;
+    var seconds = 0;
 
 
     function cuenta_atras(element) {
@@ -247,8 +247,8 @@ var interval;
 	
 function reiniciar_cuenta_atras()
 {
-minutes = localStorage.getItem('tiempo_de_visionado');
-seconds=0;
+var minutes = localStorage.getItem('tiempo_de_visionado');
+var seconds = 0;
 }
 
 function mostrarmenu() {
