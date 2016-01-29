@@ -175,14 +175,23 @@ cargardatos('lista_series.php','siteloader_menu');
 }
 
 
-function mensaje_aviso_cuenta()
+function mensaje_error_inicio_sesion()
 {
  navigator.notification.confirm(
                 ("Lo sentimos, pero el correo eléctronico o contraseña son incorrectos. Por favor, revisa los datos. Muchas gracias"), // message
-                alerta_guardar_cuenta, // callback
+                alerta_mensaje_error_inicio_sesion, // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
         );
+		
+		 function alerta_mensaje_error_inicio_sesion(button){
+
+        if(button=="1" || button==1)
+        {	
+
+        }
+	 }
+	 
 }
 
 
