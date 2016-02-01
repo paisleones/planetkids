@@ -128,20 +128,24 @@ var clave = localStorage.getItem('clave');
 var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
 var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
-
+alert(tiempo_restante);
 
 if (tiempo_activo === "true")
 {
-var minutes= tiempo_de_visionado;
-var seconds=59;
- document.getElementById("contador").style.display = 'block';
-cuenta_atras('countdown');
+var minutos= tiempo_de_visionado;
+
+if (tiempo_restante != "NaN")
+{
+var minutos= parseInt(tiempo_restante)+1;
+}
+
+document.getElementById("contador").style.display = 'block';
+cuenta_atras(minutos,'start');
 }
 else
 {
-var minutes= 0;
-var seconds=0;
  document.getElementById("contador").style.display = 'none';
+ cuenta_atras(60,'stop');
 }
 </script>
 

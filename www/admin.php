@@ -129,6 +129,8 @@ var tiempo_activo = $("#s2").prop("checked");
 var tiempo_de_visionado = $('#rangeslider').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
+localStorage.setItem("tiempo_restante", tiempo_de_visionado);
+localStorage.setItem("tiempo_restante", tiempo_de_visionado);
 //$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
 actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }

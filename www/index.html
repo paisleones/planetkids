@@ -139,7 +139,17 @@ text-size: 11px;
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
-<script>
+<script type="text/javascript">
+
+// Contador
+!function(a){a.backward_timer=function(b){var c={seconds:5,step:1,stop_at_zero:!0,format:"m%:s%",value_setter:void 0,on_start:function(){},on_cancel:function(){},on_exhausted:function(){},on_tick:function(){}},d=this;d.seconds_left=0,d.target=a(b),d.timeout=void 0,d.settings={},d.methods={init:function(b){d.settings=a.extend({},c,b),void 0==d.settings.value_setter&&(d.settings.value_setter=d.target.is("input")?"val":"text"),d.methods.reset()},start:function(){if(void 0==d.timeout&&!d.methods._is_exhausted()){d.settings.on_start(d);var a=d.seconds_left==d.settings.seconds?0:1e3*d.settings.step;setTimeout(d.methods._on_tick,a,a)}},cancel:function(){void 0!=d.timeout&&(clearTimeout(d.timeout),d.timeout=void 0,d.settings.on_cancel(d))},reset:function(){d.seconds_left=d.settings.seconds,d.methods._render_seconds()},_on_tick:function(a){if(0!=a&&d.settings.on_tick(d),d.methods._render_seconds(),d.methods._is_exhausted())d.timeout=void 0,d.settings.on_exhausted(d);else{if(d.seconds_left<d.settings.step&&d.settings.stop_at_zero)var b=d.seconds_left;else var b=d.settings.step;d.seconds_left-=b;var c=1e3*b;d.timeout=setTimeout(d.methods._on_tick,c,c)}},_render_seconds:function(){var a=d.methods._seconds_to_dhms(d.seconds_left),b=d.settings.format;b=-1!==b.indexOf("d%")?b.replace("d%",a.d).replace("h%",d.methods._check_leading_zero(a.h)):b.replace("h%",24*a.d+a.h),b=b.replace("m%",d.methods._check_leading_zero(a.m)).replace("s%",d.methods._check_leading_zero(a.s)),d.seconds_left<0&&(b="-"+b),d.target[d.settings.value_setter](b)},_seconds_to_dhms:function(a){var a=Math.abs(a),b=Math.floor(a/86400),a=a-3600*24*b,c=Math.floor(a/3600),a=a-3600*c,d=Math.floor(a/60),a=Math.floor(a-60*d);
+
+localStorage.setItem("tiempo_restante", d);
+
+return{d:b,h:c,m:d,s:a}},_check_leading_zero:function(a){return 10>a?"0"+a:""+a},_is_exhausted:function(){return d.seconds_left<=0&&d.settings.stop_at_zero}}},a.fn.backward_timer=function(b){var c=arguments;return this.each(function(){var d=a(this).data("backward_timer");return void 0==d&&(d=new a.backward_timer(this),a(this).data("backward_timer",d)),d.methods[b]?d.methods[b].apply(this,Array.prototype.slice.call(c,1)):"object"!=typeof b&&b?(a.error("Method "+b+" does not exist on jQuery.backward_timer"),void 0):d.methods.init.apply(this,c)})}}(jQuery);
+
+
+// Jquery easing
 jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
 </script>
 
@@ -217,39 +227,21 @@ function mensaje_aviso_cuenta()
 
  
 //cuenta atras
-var interval;
-    var minutes = localStorage.getItem('tiempo_de_visionado');
-    var seconds = 0;
+var minutos = localStorage.getItem('tiempo_de_visionado');
 
 
-    function cuenta_atras(element) {
-        interval = setInterval(function() {
-            var el = document.getElementById(element);
-            if(seconds == 0) {
-                if(minutes == 0) {
-                    document.getElementById('stop').style.display = 'block';                   
-                    //clearInterval(interval);
-                    return;
-                } else {
-                    minutes--;
-                    seconds = 60;
-                }
-            }
-            if(minutes > 0) {
-                var minute_text = '<font style="font-size: 14px; font-weight: 400">' + minutes + (minutes > 1 ? '</font> min.' : '</font> min.');
-            } else {
-                var minute_text = '<font style="font-size: 14px; font-weight: 400">' + seconds  + '</font> seg.';
-            }
-            el.innerHTML = minute_text;
-            seconds--;
-        }, 1000);
-    }
-	
-function reiniciar_cuenta_atras()
+ function cuenta_atras(minutos,accion)
 {
-var minutes = localStorage.getItem('tiempo_de_visionado');
-var seconds = 0;
+	$('#timer_output_format_1').backward_timer(accion);
+   $('#timer_output_format_1').backward_timer({
+	   seconds: minutos*60,
+	   format: 'm%:s%',
+    on_exhausted: function(timer) {
+      document.getElementById('stop').style.display = 'block'; 
+    }
+  })
 }
+	
 
 function mostrarmenu() {
 $( "#siteloader_capitulos" ).html('');
@@ -388,7 +380,8 @@ function desbloquear(){
 			document.keypad_bloqueo.codigo_bloqueo.value = "";
 			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
             document.getElementById('stop').style.display = 'none';
-			reiniciar_cuenta_atras();
+			cuenta_atras(2,'start');
+			cuenta_atras(2,'start');
 			}
 			else
 			{
@@ -711,14 +704,12 @@ Kids Planet
 
 
 
-
 <div style="padding: 0px; margin: 0px; width: 100%;  height: 100%; z-index: 9999999; text-align: center; position: absolute; top: 0px; left: 0px; display: none;" id="siteloader_cuenta"> 
 
 </div>
 
 
 <div id="principal" class="cssClass" style="background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/fondo1.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden; display: none;">
-
 
 
 <div style="display: block; padding: 0px; margin: 0px; width: 100%; position: relative; display: none" id="siteloader_menu">   
@@ -775,7 +766,7 @@ closeMenu();
 <div style="border-left: 10px solid #248dc1; height: 50px; background: #248dc1; width: 100px; position: absolute; top: 0px; right: 0px; text-size: 11px; z-index: 9999999; display: none;" id="contador">
 <div style="display: block; margin-top: 16px;" id="contador_tiempo">
 <img src="images/alarm.png" style="width: 18px; float: left; margin-right: 6px;">
-<div id='countdown' style="color: #ffffff; font-size: 13px;"></div>
+<span id='timer_output_format_1' class='timer' style="font-size: 13px; font-weight: 400; color: #ffffff;">--:--</span>
 </div>
 <div>
 
@@ -815,8 +806,7 @@ function ShowExitDialog() {
 setTimeout("document.getElementById('splash').style.display = 'none'; document.getElementById('menu_lateral').style.display = 'block'; document.getElementById('principal').style.display = 'block'; document.getElementById('siteloader_menu').style.display = 'block'; $( '#splash' ).html('');",5000);
 
     }
-
-
+	
 var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
@@ -824,6 +814,18 @@ var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
 
 
+$(document).ready(function(){
+    
+
+   $('#timer_output_format_1').backward_timer({
+	   seconds: minutos*60,
+	   format: 'm%:s%',
+    on_exhausted: function(timer) {
+      document.getElementById('stop').style.display = 'block'; 
+    }
+  })
+
+})
 
 </script>
 
