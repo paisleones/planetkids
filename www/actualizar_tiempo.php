@@ -9,5 +9,6 @@ mysql_query ("UPDATE usuarios set tiempo='".$tiempo."', tiempo_activo='".$tiempo
 ?>
 
 <script>
+localStorage.setItem("tiempo_restante", "<?php echo $tiempo ?>");
 mensaje_aviso();
 </script>

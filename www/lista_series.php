@@ -128,7 +128,6 @@ var clave = localStorage.getItem('clave');
 var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
 var tiempo_activo = localStorage.getItem('tiempo_activo');
 var tiempo_restante = localStorage.getItem('tiempo_restante');
-alert(tiempo_restante);
 
 if (tiempo_activo === "true")
 {
