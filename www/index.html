@@ -179,7 +179,7 @@ function mensaje_aviso()
 $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
-cargardatos('lista_series.php','siteloader_menu');
+cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEO');
         }
 	 }
 }
@@ -249,10 +249,10 @@ document.location.href="#arriba";
 document.getElementById("siteloader_menu").style.display = "block";
 }
 
-function cargarcapitulos(url,div) {
+function cargarcapitulos(url,div,mensaje) {
 	document.getElementById("siteloader_menu").style.display = "none";
 	document.location.href="#arriba";
-$( "#siteloader_capitulos" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot-cargando.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="images/loading-robot.gif" style="height: 34px;"></div</div>');
+$( "#siteloader_capitulos" ).html('<div style="width: 230px; margin: 0 auto; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot-solo.png" style="width: 120px; float: left;"><img src="http://kids.trabajocreativo.com/images/text.png" style="width: 110px; float: left;"><div style="width: 92px; height: 56px; padding: 0px; margin: 0px; background: none; position: relative; left: 128px; top: -187px;"><font style="font-size: 14px; color: #ff4b42; line-height: 100%; font-weight: 800">' + mensaje + '</font></div><div class="load" style="position: relative; top: -106; left: -46px; z-index: 9999;"><img src="http://kids.trabajocreativo.com/images/loading-robot.gif" style="height: 34px;"></div></div>');
  document.getElementById("siteloader_capitulos").style.display = "block";
 	$.ajax({
 		  crossOrigin: true,
@@ -269,9 +269,9 @@ $( "#siteloader_capitulos" ).html('<div style="width: 100%; text-align: center; 
 		})
 }
 
-function cargardatos(url,div) {
+function cargardatos(url,div,mensaje) {
 	document.location.href="#arriba";
-$( "#siteloader_menu" ).html('<div style="width: 100%; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot-cargando.png" style="width: 190px;"><div class="load" style="position: relative; top: -157px; left: -28px; z-index: 9999;"><img src="http://kids.trabajocreativo.com/images/loading-robot.gif" style="height: 34px;"></div</div>');
+$( "#siteloader_menu" ).html('<div style="width: 230px; margin: 0 auto; text-align: center; padding-top: 50px;"><img src="http://kids.trabajocreativo.com/images/robot-solo.png" style="width: 120px; float: left;"><img src="http://kids.trabajocreativo.com/images/text.png" style="width: 110px; float: left;"><div style="width: 92px; height: 56px; padding: 0px; margin: 0px; background: none; position: relative; left: 128px; top: -187px;"><font style="font-size: 14px; color: #ff4b42; line-height: 100%; font-weight: 800">' + mensaje + '</font></div><div class="load" style="position: relative; top: -106; left: -46px; z-index: 9999;"><img src="http://kids.trabajocreativo.com/images/loading-robot.gif" style="height: 34px;"></div></div>');
  
 	$.ajax({
 		  crossOrigin: true,
@@ -356,7 +356,7 @@ function enviar(){
 	if (valor_clave == clave)
 			{
 			$.modal.impl.close();
-            cargarcapitulos('admin.php','siteloader_capitulos');
+            cargarcapitulos('admin.php','siteloader_capitulos','CARGANDO ZONA PADRES');
 			}
 			else
 			{
@@ -643,14 +643,14 @@ border-radius: 0px;
 </li>
 
 
-<a href="javascript: closeMenu(); cargardatos('lista_series.php','siteloader_menu');">
+<a href="javascript: closeMenu(); cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEOS');">
 <li class="visible boton">
 <img src="http://kids.trabajocreativo.com/images/iconos/idioma_espanol.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
 <font style="font-weight: 400; font-size: 16px;">ESPAÑOL</font>
 </li>
 </a>
 
-<a href="javascript: closeMenu(); cargardatos('lista_series_ingles.php','siteloader_menu');">
+<a href="javascript: closeMenu(); cargardatos('lista_series_ingles.php','siteloader_menu','ESTOY CARGANDO VIDEOS');">
 <li class="visible boton">
 <img src="http://kids.trabajocreativo.com/images/iconos/idioma_ingles.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
 <font style="font-weight: 400; font-size: 16px;">INGLÉS</font>
@@ -729,7 +729,6 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
-
 if (id_usuario == "")
 {
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
@@ -739,7 +738,7 @@ else
 {
 $( '#siteloader_cuenta' ).html('');
 document.getElementById("top_menu").style.display = 'block';
-cargardatos('lista_series.php','siteloader_menu');
+cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEOS');
 }
 </script>
 

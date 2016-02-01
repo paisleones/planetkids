@@ -912,7 +912,7 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
 
   
 <div id="input-wrapper">
-  <input type="range" id="rangeslider" min="1" max="120" value="<?php echo @$tiempo ?>" step="1" 
+  <input type="range" id="rangeslider" min="15" max="120" value="<?php echo @$tiempo ?>" step="1" 
          oninput="updateOutput(value, true)" 
          onchange="deactivate()" 
          onmouseup="deactivate()" 
