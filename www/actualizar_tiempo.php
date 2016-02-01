@@ -9,6 +9,5 @@ mysql_query ("UPDATE usuarios set tiempo='".$tiempo."', tiempo_activo='".$tiempo
 ?>
 
 <script>
-//mensaje_aviso();
-cargardatos('lista_series.php','siteloader_menu');
+mensaje_aviso();
 </script>
