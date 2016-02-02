@@ -703,7 +703,7 @@ border-radius: 0px;
 <div id="body" class="page center">
 
 
-<div class="headerBack" id="top_menu" style="display: none;">
+<div class="headerBack" id="top_menu">
 <div id="header" style="text-align: left;">
 
 <h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100;">
@@ -824,10 +824,18 @@ setTimeout("document.getElementById('splash').style.display = 'none'; document.g
 	
 var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
+var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
+var tiempo_activo = localStorage.getItem('tiempo_activo');
+var tiempo_restante = localStorage.getItem('tiempo_restante');
 
+if (tiempo_restante !== "NaN")
+{
+var minutos= parseInt(tiempo_restante)+1;
+}
 
 $(document).ready(function(){
     
+	
 
    $('#timer_output_format_1').backward_timer({
 	   seconds: minutos*60,
