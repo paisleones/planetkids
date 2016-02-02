@@ -48,8 +48,6 @@ while( $row = mysql_fetch_array ( $result ))
 @$nombre = $row['NOMBRE'];
 @$series = "," . $row['SERIES'];
 @$email = $row['EMAIL'];
-@$tiempo = $row['TIEMPO'];
-@$tiempo_activo = $row['TIEMPO'];
 }
 
 @$result = mysql_query ("SELECT * from series where idioma='ES' and activado='si'") or die("Error en la consulta SQL1");
@@ -121,32 +119,6 @@ if (@$encuentra <> false)
 ?>
 
 <br><br><br><br><br>
-
-<script>
-var id_usuario = localStorage.getItem('id_usuario');
-var clave = localStorage.getItem('clave');
-var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
-var tiempo_activo = localStorage.getItem('tiempo_activo');
-var tiempo_restante = localStorage.getItem('tiempo_restante');
-
-if (tiempo_activo === "true")
-{
-var minutos= tiempo_de_visionado;
-
-if (tiempo_restante != "NaN")
-{
-var minutos= parseInt(tiempo_restante)+1;
-}
-
-document.getElementById("contador").style.display = 'block';
-cuenta_atras(minutos,'start');
-}
-else
-{
- document.getElementById("contador").style.display = 'none';
- cuenta_atras(60,'stop');
-}
-</script>
 
 
 

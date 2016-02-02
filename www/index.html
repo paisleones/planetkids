@@ -180,7 +180,7 @@ function mensaje_aviso()
 $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
-document.getElementById("siteloader_menu").style.display = 'blck';
+document.getElementById("siteloader_menu").style.display = 'block';
 cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEO');
         }
 	 }
@@ -243,7 +243,36 @@ var minutos = localStorage.getItem('tiempo_de_visionado');
     }
   })
 }
+
+
+function iniciar_contador()
+{
 	
+var id_usuario = localStorage.getItem('id_usuario');
+var clave = localStorage.getItem('clave');
+var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
+var tiempo_activo = localStorage.getItem('tiempo_activo');
+var tiempo_restante = localStorage.getItem('tiempo_restante');
+
+if (tiempo_activo === "true")
+{
+var minutos= tiempo_de_visionado;
+
+if (tiempo_restante !== "NaN")
+{
+var minutos= tiempo_restante;
+}
+
+document.getElementById("contador").style.display = 'block';
+cuenta_atras(minutos,'start');
+}
+else
+{
+ document.getElementById("contador").style.display = 'none';
+ cuenta_atras(60,'stop');
+}
+}
+
 
 function mostrarmenu() {
 $( "#siteloader_capitulos" ).html('');
@@ -322,21 +351,6 @@ function cargarvideo(url,div) {
 		})
 }
 
-function guardar_local(id_usuario, clave)
-{
-        localStorage.setItem("id_usuario", id);
-        localStorage.setItem("clave", clave);	
-}
-
-function recuperar_local()
-{  
-var id_usuario = localStorage.getItem('id_usuario');
-var clave = localStorage.getItem('clave');
-var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
-var tiempo_activo = localStorage.getItem('tiempo_activo');
-var tiempo_restante = localStorage.getItem('tiempo_restante');
-}
-
 function addCode(key){
 	var code = document.keypad.code;
 	if(code.value.length < 4){
@@ -378,12 +392,12 @@ function desbloquear(){
 	var valor_clave_bloqueo=document.getElementById("codigo_bloqueo").value;
 	if (valor_clave_bloqueo == clave)
 			{
-			var tiempo_de_visionado = localStorage.getItem('tiempo');
+			var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
 			document.keypad_bloqueo.codigo_bloqueo.value = "";
 			localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
             document.getElementById('stop').style.display = 'none';
-			cuenta_atras(2,'start');
-			cuenta_atras(2,'start');
+			cuenta_atras(tiempo_de_visionado,'start');
+			cuenta_atras(tiempo_de_visionado,'start');
 			}
 			else
 			{
@@ -599,7 +613,7 @@ border-radius: 0px;
 
 <body onLoad="javascript:init()" style="background: #33313b;">
 
-<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 9999999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); background-repeat: no-repeat; background-position: center center; background-size: cover; display: block;">
 
 <h3 style="position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
 
@@ -810,9 +824,6 @@ setTimeout("document.getElementById('splash').style.display = 'none'; document.g
 	
 var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
-var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
-var tiempo_activo = localStorage.getItem('tiempo_activo');
-var tiempo_restante = localStorage.getItem('tiempo_restante');
 
 
 $(document).ready(function(){
@@ -825,6 +836,8 @@ $(document).ready(function(){
       document.getElementById('stop').style.display = 'block'; 
     }
   })
+  
+ iniciar_contador();
 
 })
 
