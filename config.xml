@@ -42,7 +42,6 @@
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
-  <engine name="android" spec="^4.0.2" />
     <gap:platform name="android" />
     <access origin="*" subdomains="true"/>
 </widget>
