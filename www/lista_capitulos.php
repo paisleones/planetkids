@@ -167,7 +167,7 @@ if (@$resumen=='')
 
 </div>
 
-<h2 style="line-height: 22px; padding-bottom: 0px; margin: 0px; padding: 0px; padding-bottom: 0px; position: relative; top: 10px; font-size: 20px; font-weight: 100; color: #ffffff; text-align: left;">
+<h2 style="line-height: 22px; padding-bottom: 0px; margin: 0px; padding: 0px; padding-bottom: 0px; position: relative; top: 10px; font-size: 18px; font-weight: 100; color: #ffffff; text-align: left;">
 <?php echo $titulo ?>
     <br>
     <span class="date" style="font-size: 14px;"><strong><?php echo $duracion ?></strong> min.</span>
