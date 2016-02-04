@@ -27,7 +27,7 @@ localStorage.setItem("id_usuario", "<?php echo $id_usuario ?>");
 localStorage.setItem("clave", "<?php echo $crear_clave ?>");
 localStorage.setItem("email", "<?php echo $crear_email ?>");
 
-mensaje_aviso();
+mensaje_crear_cuenta();
 </script>
 
 <?php

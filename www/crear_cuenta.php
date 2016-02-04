@@ -20,6 +20,40 @@
 <!-- jQuery easing plugin --> 
 
 <script>
+jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
+</script>
+
+<script>
+function paso1()
+{
+//document.getElementById('div_iniciar_sesion').style.display = 'none'
+//document.getElementById('div_paso1').style.display = 'block'
+
+
+$( "#div_iniciar_sesion" ).fadeOut( "slow");
+$( "#div_paso1" ).fadeIn( "slow");
+
+}
+
+function atras_paso1()
+{
+$( "#div_paso1" ).fadeOut( "slow");
+$( "#div_iniciar_sesion" ).fadeIn( "slow");
+}
+
+function paso2()
+{
+$( "#div_paso1" ).fadeOut( "slow");
+$( "#div_paso2" ).fadeIn( "slow");
+}
+
+function atras_paso2()
+{
+$( "#div_paso2" ).fadeOut( "slow");
+$( "#div_paso1" ).fadeIn( "slow");
+}
+
+
 function guardar_nuevos_datos()
 {
 var crear_nombre = $('#crear_nombre').val();
@@ -184,23 +218,42 @@ font-size: 14px;
 
 .border-input
 {
+font-family: 'Quicksand';
+font-weight: 100;
 border: 1px solid #c0c0c0;
 margin-top: 6px;
+color: #ff4b42;
+font-size: 20px;
+font-weight: 400;
 }
 
 /*headings*/
 .fs-title {
-font-size: 15px;
+font-size: 17px;
+font-weight: 800;
 text-transform: uppercase;
-color: #2C3E50;
+color: #2ac7e1;
 margin-bottom: 10px;
 }
 .fs-subtitle {
-font-weight: normal;
-font-size: 13px;
+font-weight: bold;
+font-size: 14px;
 color: #666;
 margin: 0px;
 padding: 0px;
+}
+
+.formulario_input
+{
+font-family: 'Quicksand';
+font-weight: 100;
+width: 200px; 
+border: 1px solid #f0f0f0; 
+padding: 10px;
+text-align: center;
+font-size: 60px;
+height: 80px;
+color: #ff4b42;
 }
 </style>
 
@@ -213,51 +266,54 @@ padding: 0px;
 <!-- progressbar -->
 
 <!-- fieldsets -->
-<fieldset>
+<fieldset id="div_iniciar_sesion">
 <h2 class="fs-title">Iniciar sesión</h2>
 <h3 class="fs-subtitle">Si ya tienes una cuenta creada</h3>
 <hr>
 <div style="text-align: left; color: #666666;">
 <h3 class="fs-subtitle">Correo electrónico:</h3>
-<input type="text" name="email_sesion" id="email_sesion" class="border-input" placeholder="" />
+<input type="text" name="email_sesion" id="email_sesion" class="border-input" />
 <br>
 <h3 class="fs-subtitle">Clave (4 dígitos):</h3>
-<input type="password" name="clave_sesion" id="clave_sesion" class="border-input" placeholder="" maxlength="4"/>
+<input type="password" name="clave_sesion" id="clave_sesion" class="border-input" maxlength="4"/>
 </div>
 <hr>
-<input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" />
-<input type="button" name="next" class="next action-button" value="NUEVA" />
+<input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" onclick="iniciar_sesion();"/>
+<input type="button" name="next" class="next action-button" value="NUEVA" onclick="paso1();"/>
 </fieldset>
-<fieldset>
+
+<fieldset id="div_paso1">
 <h2 class="fs-title">Crear una cuenta</h2>
 <h3 class="fs-subtitle"><strong>1 de 2</strong> - Datos del niño/a</h3>
 <hr>
 <div style="text-align: left; color: #666666;">
 <h3 class="fs-subtitle">Nombre:</h3>
-<input type="text" name="crear_nombre" id="crear_nombre" class="border-input" placeholder="" />
+<input type="text" name="crear_nombre" id="crear_nombre" class="border-input" />
 <br>
 <h3 class="fs-subtitle">Edad:</h3>
-<input type="text" name="crear_edad" id="crear_edad" class="border-input" placeholder="" />
+<input type="text" name="crear_edad" id="crear_edad" class="border-input"  />
 </div>
 <hr>
-<input type="button" name="previous" class="previous action-button" value="ATRAS" />
-<input type="button" name="next" class="next action-button" value="SIGUIENTE" />
+<input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso1();"/>
+<input type="button" name="next" class="next action-button" value="SIGUIENTE" onclick="paso2();"/>
 </fieldset>
-<fieldset>
+
+
+<fieldset id="div_paso2">
 <h2 class="fs-title">Datos de seguridad</h2>
 <h3 class="fs-subtitle"><strong>2 de 2</strong> - Datos de los padres</h3>
 <hr>
 <div style="text-align: left; color: #666666;;">
 <h3 class="fs-subtitle">Correo eléctronico:</h3>
-<input type="text" name="crear_email" id="crear_email" class="border-input" placeholder="" />
+<input type="text" name="crear_email" id="crear_email" class="border-input" p/>
 <br>
 <h3 class="fs-subtitle">Clave (4 dígitos):</h3>
-<input type="password" name="crear_clave" id="crear_clave" class="border-input" placeholder="" maxlength="4"/>
+<input type="password" name="crear_clave" id="crear_clave" class="border-input" maxlength="4" style="height: 52px; font-size: 34px;"/>
 </div>
 
 <hr>
-<input type="button" name="previous" class="previous action-button" value="ATRAS" />
-<input type="button" name="submit" class="submit action-button" value="GUARDAR" />
+<input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso2();"/>
+<input type="button" name="submit" class="submit action-button" value="GUARDAR" onclick="guardar_nuevos_datos();"/>
 </fieldset>
 <fieldset>
 </form>
@@ -265,94 +321,6 @@ padding: 0px;
 </div>
 
 
-<script>
-$(function() {
-
-//jQuery time
-var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
-
-$(".next").click(function(){
-	if(animating) return false;
-	animating = true;
-	
-	current_fs = $(this).parent();
-	next_fs = $(this).parent().next();
-	
-	//activate next step on progressbar using the index of next_fs
-	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-	
-	//show the next fieldset
-	next_fs.show(); 
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale current_fs down to 80%
-			scale = 1 - (1 - now) * 0.2;
-			//2. bring next_fs from the right(50%)
-			left = (now * 50)+"%";
-			//3. increase opacity of next_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'transform': 'scale('+scale+')'});
-			next_fs.css({'left': left, 'opacity': opacity});
-		}, 
-		duration: 800, 
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});
-
-$(".previous").click(function(){
-	if(animating) return false;
-	animating = true;
-	
-	current_fs = $(this).parent();
-	previous_fs = $(this).parent().prev();
-	
-	//de-activate current step on progressbar
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-	
-	//show the previous fieldset
-	previous_fs.show(); 
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale previous_fs from 80% to 100%
-			scale = 0.8 + (1 - now) * 0.2;
-			//2. take current_fs to the right(50%) - from 0%
-			left = ((1-now) * 50)+"%";
-			//3. increase opacity of previous_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'left': left});
-			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-		}, 
-		duration: 800, 
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});
-
-$(".submit").click(function(){
-	guardar_nuevos_datos();
-})
-
-$("#submit_iniciar").click(function(){
-	iniciar_sesion();
-})
-
-});
-</script>
 
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="crear_nueva_cuenta">   
 </div>
