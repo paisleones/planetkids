@@ -852,7 +852,7 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
-if (id_usuario == "" || clave == "")
+if (id_usuario == "" || clave == "" || clave == null || id_usuario == null)
 {
 var tiempo_activo = "false";
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
