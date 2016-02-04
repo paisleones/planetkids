@@ -262,7 +262,7 @@ $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
 document.getElementById("siteloader_menu").style.display = 'block';
-cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEO');
+cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEOS');
         }
 	 }
 }
@@ -851,9 +851,9 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
-if (id_usuario == "" || clave =="")
+if (id_usuario == "" || clave == "")
 {
-var tiempo_activo = "";
+var tiempo_activo = "false";
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
 document.getElementById("siteloader_cuenta").style.display = 'block';
 }
