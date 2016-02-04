@@ -851,10 +851,9 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
-var id_usuario = "";
-
 if (id_usuario == "" || clave =="")
 {
+var tiempo_activo = "";
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
 document.getElementById("siteloader_cuenta").style.display = 'block';
 }
