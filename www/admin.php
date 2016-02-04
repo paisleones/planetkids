@@ -102,7 +102,7 @@ actualizardatos('crear_cuenta.php','siteloader_cuenta');
 function preguntar_cerrar_sesion()
 {
  navigator.notification.confirm(
-                ("Realmente quieres cerrar la sesion?"), // message
+                ("Realmente quieres cerrar la sesión?"), // message
                 alert_exit, // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR,CANCELAR' // buttonName

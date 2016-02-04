@@ -22,11 +22,6 @@ if (@$clave == @$clave_sesion)
 ?>
 
 <script>
-$( '#siteloader_cuenta' ).html('');
-document.getElementById("siteloader_cuenta").style.display = 'none';
-
-document.getElementById("top_menu").style.display = 'block';
-cargardatos('lista_series.php','siteloader_menu');
 
 localStorage.setItem("id_usuario", "<?php echo $id_usuario ?>");
 localStorage.setItem("clave", "<?php echo $clave ?>");
@@ -34,6 +29,12 @@ localStorage.setItem("email", "<?php echo $email ?>");
 localStorage.setItem("tiempo_activo", "<?php echo $tiempo_activo ?>");
 localStorage.setItem("tiempo_restante", "<?php echo $tiempo_restante ?>");
 localStorage.setItem("tiempo_de_visionado", "<?php echo $tiempo_de_visionado ?>");
+
+$( '#siteloader_cuenta' ).html('');
+document.getElementById("siteloader_cuenta").style.display = 'none';
+
+document.getElementById("top_menu").style.display = 'block';
+cargardatos('lista_series.php','siteloader_menu');
 
 </script>
 
