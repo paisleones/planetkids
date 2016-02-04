@@ -94,7 +94,14 @@ actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actuali
 function cerrar_sesion()
 {
 $( "#boton_cerrar_sesion" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
-localStorage.clear();
+
+localStorage.removeItem('id_usuario');
+localStorage.removeItem('clave');
+localStorage.removeItem('email');
+localStorage.removeItem('tiempo_de_visionado');
+localStorage.removeItem('tiempo_restante');
+localStorage.removeItem('tiempo_activo');
+
 document.getElementById("siteloader_cuenta").style.display = 'block';
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
 }
