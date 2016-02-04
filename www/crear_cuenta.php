@@ -272,47 +272,47 @@ color: #ff4b42;
 <hr>
 <div style="text-align: left; color: #666666;">
 <h3 class="fs-subtitle">Correo electrónico:</h3>
-<input type="text" name="email_sesion" id="email_sesion" class="border-input" />
+<input type="text" name="email_sesion" id="email_sesion" class="border-input" style="height: 52px; font-size: 20px; color: #ff4b42;"/>
 <br>
 <h3 class="fs-subtitle">Clave (4 dígitos):</h3>
-<input type="password" name="clave_sesion" id="clave_sesion" class="border-input" maxlength="4"/>
+<input type="tel" name="clave_sesion" id="clave_sesion" class="border-input" maxlength="4" style="height: 52px; font-size: 34px; color: #ff4b42;"/>
 </div>
 <hr>
 <input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" onclick="iniciar_sesion();"/>
-<input type="button" name="next" class="next action-button" value="NUEVA" onclick="paso1();"/>
+<input type="button" name="next" class="next action-button" value="NUEVA >" onclick="paso1();"/>
 </fieldset>
 
 <fieldset id="div_paso1">
-<h2 class="fs-title">Crear una cuenta</h2>
+<h2 class="fs-title" style="color: #ff4b42">Crear una cuenta</h2>
 <h3 class="fs-subtitle"><strong>1 de 2</strong> - Datos del niño/a</h3>
 <hr>
 <div style="text-align: left; color: #666666;">
 <h3 class="fs-subtitle">Nombre:</h3>
-<input type="text" name="crear_nombre" id="crear_nombre" class="border-input" />
+<input type="text" name="crear_nombre" id="crear_nombre" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 <br>
 <h3 class="fs-subtitle">Edad:</h3>
-<input type="text" name="crear_edad" id="crear_edad" class="border-input"  />
+<input type="tel" name="crear_edad" id="crear_edad" class="border-input"  style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 </div>
 <hr>
-<input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso1();"/>
-<input type="button" name="next" class="next action-button" value="SIGUIENTE" onclick="paso2();"/>
+<input type="button" name="previous" class="previous action-button" value="< ATRAS" onclick="atras_paso1();"/>
+<input type="button" name="next" class="next action-button" value="SIGUIENTE >" onclick="paso2();"/>
 </fieldset>
 
 
 <fieldset id="div_paso2">
-<h2 class="fs-title">Datos de seguridad</h2>
+<h2 class="fs-title" style="color: #ff4b42">Datos de seguridad</h2>
 <h3 class="fs-subtitle"><strong>2 de 2</strong> - Datos de los padres</h3>
 <hr>
 <div style="text-align: left; color: #666666;;">
 <h3 class="fs-subtitle">Correo eléctronico:</h3>
-<input type="text" name="crear_email" id="crear_email" class="border-input" p/>
+<input type="text" name="crear_email" id="crear_email" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 <br>
 <h3 class="fs-subtitle">Clave (4 dígitos):</h3>
-<input type="password" name="crear_clave" id="crear_clave" class="border-input" maxlength="4" style="height: 52px; font-size: 34px;"/>
+<input type="tel" name="crear_clave" id="crear_clave" class="border-input" maxlength="4" style="height: 52px; font-size: 34px; color: #ff4b42;"/>
 </div>
 
 <hr>
-<input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso2();"/>
+<input type="button" name="previous" class="previous action-button" value="< ATRAS" onclick="atras_paso2();"/>
 <input type="button" name="submit" class="submit action-button" value="GUARDAR" onclick="guardar_nuevos_datos();"/>
 </fieldset>
 <fieldset>

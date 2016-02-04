@@ -94,7 +94,7 @@ if ($encuentra_excepciones == false)
 </style>
 
 
-<a href="javascript: cargarcapitulos('lista_capitulos.php?id_serie=<?php echo @$id ?>','siteloader_capitulos')">
+<a href="javascript: cargarcapitulos('lista_capitulos.php?id_serie=<?php echo @$id ?>','siteloader_capitulos','ESTOY CARGANDO CAPITULOS')">
 <article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized bordes_redondeados" style="border: 0px; background: none;">
 
     <header class="entry-header">

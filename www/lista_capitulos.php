@@ -68,7 +68,7 @@ include("conexion.php");
 
 @$id_serie = $_GET["id_serie"];
 
-@$result = mysql_query ("SELECT * from series where (idioma='ES' and id='$id_serie');") or die("Error en la consulta SQL1");
+@$result = mysql_query ("SELECT * from series where id='$id_serie';") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
 {
 @$edad = $row['EDAD'];

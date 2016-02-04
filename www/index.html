@@ -282,7 +282,8 @@ function mensaje_crear_cuenta()
 	 function alerta_guardar(button){
 
         if(button=="1" || button==1)
-        {	
+        {
+localStorage.clear();				
 $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
