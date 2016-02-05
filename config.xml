@@ -9,7 +9,7 @@
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
-  <preference name="fullscreen" value="true"/>
+  <preference name="fullscreen" value="true" />
   <preference name="webviewbounce" value="true"/>
   <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="true"/>
@@ -43,4 +43,5 @@
   </platform>
     <gap:platform name="android" />
     <access origin="*" subdomains="true"/>
+    <activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" ></activity>
 </widget>
