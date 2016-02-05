@@ -43,5 +43,4 @@
   </platform>
     <gap:platform name="android" />
     <access origin="*" subdomains="true"/>
-    <activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" ></activity>
 </widget>
