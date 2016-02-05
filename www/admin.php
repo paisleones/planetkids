@@ -3,6 +3,10 @@ document.location.href="#arriba";
 </script>
 
 
+<?php
+$id_usuario = $_GET["id_usuario"];
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="es-ES">
@@ -87,7 +91,7 @@ var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
 });
-actualizardatos("actualizar_series.php?lista_series=" + checkboxValues ,"actualizar_series");
+actualizardatos("actualizar_series.php?id_usuario=<?php echo @$id_usuario ?>&lista_series=" + checkboxValues ,"actualizar_series");
 //$("#actualizar_series").load("actualizar_series.php?lista_series=" + checkboxValues);
 }
 
@@ -102,8 +106,10 @@ localStorage.removeItem('tiempo_de_visionado');
 localStorage.removeItem('tiempo_restante');
 localStorage.removeItem('tiempo_activo');
 
+actualizardatos("actualizar_tiempo_restante.php?id_usuario=<?php echo @$id_usuario ?>&tiempo_restante=" + tiempo_restante ,"actualizar_pin");
+
  document.getElementById("contador").style.display = 'none';
- cuenta_atras(60,'stop');
+ //cuenta_atras(60,'stop');
  
 document.getElementById("siteloader_cuenta").style.display = 'block';
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
@@ -142,7 +148,7 @@ localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
 localStorage.setItem("tiempo_restante", tiempo_de_visionado);
 //$("#actualizar_tiempo").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo);
-actualizardatos("actualizar_tiempo.php?tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
+actualizardatos("actualizar_tiempo.php?id_usuario=<?php echo @$id_usuario ?>&tiempo=" + tiempo_de_visionado + "&tiempo_activo=" + tiempo_activo ,"actualizar_tiempo");
 }
 
 function guardar_pin()
@@ -152,7 +158,7 @@ var nuevo_email = $('#nuevo_email').val();
 var nuevo_pin = $('#nuevo_pin').val();
 localStorage.setItem("clave", nuevo_pin);
 //$("#actualizar_pin").load("http://kids.trabajocreativo.com/actualizar_tiempo.php?nuevo_pin=" + nuevo_pin);
-actualizardatos("actualizar_pin.php?nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
+actualizardatos("actualizar_pin.php?id_usuario=<?php echo @$id_usuario ?>&nuevo_pin=" + nuevo_pin + "&nuevo_email=" + nuevo_email,"actualizar_pin");
 }
 
 
@@ -749,8 +755,7 @@ setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
 
 include("conexion.php");
 
-
-@$result = mysql_query ("SELECT * from usuarios where id_usuario='<script> document.write(id_usuario) </script>'") or die("Error en la consulta SQL");
+@$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
 while( $row = mysql_fetch_array ( $result ))
 {
 @$clave = $row['CLAVE'];

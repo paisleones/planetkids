@@ -287,7 +287,7 @@ localStorage.clear();
 $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
-cargarcapitulos('admin.php','siteloader_capitulos','CARGANDO ZONA PADRES');
+cargarcapitulos('admin.php?id_usuario=<?php echo @$id_usuario ?>','siteloader_capitulos','CARGANDO ZONA PADRES');
         }
 	 }
 }
@@ -478,7 +478,7 @@ function enviar(){
 	if (valor_clave == clave)
 			{
 			$.modal.impl.close();
-            cargarcapitulos('admin.php','siteloader_capitulos','CARGANDO ZONA PADRES');
+            cargarcapitulos('admin.php?id_usuario=' + id_usuario,'siteloader_capitulos','CARGANDO ZONA PADRES');
 			}
 			else
 			{
@@ -773,7 +773,7 @@ border-radius: 0px;
 </a>
 
 
-<a href="javascript: closeMenu(); cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEOS');">
+<a href="javascript: closeMenu(); cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY CARGANDO VIDEOS');">
 <li class="visible boton" style="margin-bottom: 20px;">
 <img src="http://kids.trabajocreativo.com/images/iconos/idioma_espanol.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
 <font style="font-weight: 400; font-size: 16px;">ESPAÑOL</font>
@@ -861,7 +861,7 @@ document.getElementById("siteloader_cuenta").style.display = 'block';
 else
 {
 $( '#siteloader_cuenta' ).html('');
-cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEOS');
+cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY CARGANDO VIDEOS');
 }
 </script>
 
