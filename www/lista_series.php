@@ -38,9 +38,8 @@ include("conexion.php");
 
 <?php
 
-@$id_usuario = "1";
 
-@$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
+@$result = mysql_query ("SELECT * from usuarios where id_usuario='<script> document.write(id_usuario) </script>'") or die("Error en la consulta SQL");
 while( $row = mysql_fetch_array ( $result ))
 {
 @$clave = $row['CLAVE'];

@@ -30,11 +30,34 @@ localStorage.setItem("tiempo_activo", "<?php echo $tiempo_activo ?>");
 localStorage.setItem("tiempo_restante", "<?php echo $tiempo_restante ?>");
 localStorage.setItem("tiempo_de_visionado", "<?php echo $tiempo_de_visionado ?>");
 
+var id_usuario = localStorage.getItem('id_usuario');
+var clave = localStorage.getItem('clave');
+var email = localStorage.getItem('email');
+var tiempo_de_visionado = localStorage.getItem('tiempo_de_visionado');
+var tiempo_activo = localStorage.getItem('tiempo_activo');
+var tiempo_restante = localStorage.getItem('tiempo_restante');
+
 $( '#siteloader_cuenta' ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
 
 document.getElementById("top_menu").style.display = 'block';
-cargardatos('lista_series.php','siteloader_menu');
+document.getElementById("siteloader_menu").style.display = 'block';
+//iniciar_contador();
+
+if (tiempo_activo === "true")
+{
+var minutos= tiempo_de_visionado;
+
+if (tiempo_restante !== "NaN" || tiempo_restante != null)
+{
+var minutos= tiempo_restante;
+}
+
+document.getElementById("contador").style.display = 'block';
+cuenta_atras(minutos,'start');
+}
+
+cargardatos('lista_series.php','siteloader_menu','ESTOY CARGANDO VIDEOS');
 
 </script>
 

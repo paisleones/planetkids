@@ -102,8 +102,12 @@ localStorage.removeItem('tiempo_de_visionado');
 localStorage.removeItem('tiempo_restante');
 localStorage.removeItem('tiempo_activo');
 
+ document.getElementById("contador").style.display = 'none';
+ cuenta_atras(60,'stop');
+ 
 document.getElementById("siteloader_cuenta").style.display = 'block';
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
+$( '#siteloader_capitulos' ).html('');
 }
 
 function preguntar_cerrar_sesion()
@@ -746,17 +750,7 @@ setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
 include("conexion.php");
 
 
-@$id_usuario = "1";
-
-
-@$result = mysql_query ("SELECT * from opciones") or die("Error en la consulta SQL");
-while( $row = mysql_fetch_array ( $result ))
-{
-@$excepciones = $row['EXCEPCIONES'];
-}
-
-
-@$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
+@$result = mysql_query ("SELECT * from usuarios where id_usuario='<script> document.write(id_usuario) </script>'") or die("Error en la consulta SQL");
 while( $row = mysql_fetch_array ( $result ))
 {
 @$clave = $row['CLAVE'];
@@ -846,7 +840,7 @@ else
 </div>
 
 <?php
-@$result = mysql_query ("SELECT * from series where idioma='ES' order by edad asc") or die("Error en la consulta SQL1");
+@$result = mysql_query ("SELECT * from series where idioma='ES' and activado='si'") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
 {
 @$id = $row['ID'];
@@ -858,11 +852,6 @@ while( $row = mysql_fetch_array ( $result ))
 
 @$cadena_buscada = @$id . ",";
 @$encuentra = strpos(@$series, @$cadena_buscada);
-
-@$encuentra_excepciones = strpos(@$excepciones, @$cadena_buscada);
-
-if ($encuentra_excepciones === false)
-{
 
 if ($encuentra === false)
 {
@@ -879,7 +868,6 @@ else
 <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
 </div>
 <?php
-}
 }
 ?>
 </form>
