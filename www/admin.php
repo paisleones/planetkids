@@ -4,7 +4,8 @@ document.location.href="#arriba";
 
 
 <?php
-$id_usuario = $_GET["id_usuario"];
+@$id_usuario = $_GET["id_usuario"];
+@$nueva = $_GET["nueva"];
 ?>
 
 <!DOCTYPE HTML>
@@ -108,8 +109,8 @@ localStorage.removeItem('tiempo_activo');
 
 actualizardatos("actualizar_tiempo_restante.php?id_usuario=<?php echo @$id_usuario ?>&tiempo_restante=" + tiempo_restante ,"actualizar_pin");
 
- document.getElementById("contador").style.display = 'none';
- //cuenta_atras(60,'stop');
+document.getElementById("contador").style.display = 'none';
+parar_cronometro();
  
 document.getElementById("siteloader_cuenta").style.display = 'block';
 actualizardatos('crear_cuenta.php','siteloader_cuenta');

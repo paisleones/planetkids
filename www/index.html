@@ -287,7 +287,7 @@ localStorage.clear();
 $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
-cargarcapitulos('admin.php?id_usuario=<?php echo @$id_usuario ?>','siteloader_capitulos','CARGANDO ZONA PADRES');
+cargarcapitulos('admin.php?id_usuario=<?php echo @$id_usuario ?>&nueva=1','siteloader_capitulos','CARGANDO ZONA PADRES');
         }
 	 }
 }
@@ -594,6 +594,12 @@ $.modal('<div style="width: "' + ancho + '"px; height: "' + alto + '"px; max-wid
 });
 
 
+}
+
+function parar_cronometro()
+{
+var tiempo_restante = localStorage.getItem('tiempo_restante');	
+cuenta_atras(tiempo_restante,'cancel');
 }
 </script>
 
