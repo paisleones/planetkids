@@ -752,6 +752,7 @@ include("conexion.php");
 while( $row = mysql_fetch_array ( $result ))
 {
 @$clave = $row['CLAVE'];
+@$edad = $row['EDAD'];
 @$filtro = $row['FILTRO'];
 @$nombre = $row['NOMBRE'];
 @$series = $row['SERIES'];
@@ -832,6 +833,21 @@ else
 </div>
 
 <hr>
+
+<?php
+if (@$nueva == 1)
+{
+?>
+<div style="width: 100%; padding: 10px; background: #f0f0f0; text-align: justify; border-bottom: 1px solid #e1e0e0;">
+<font style="color: #666666;">
+Bienvenido a la <strong>ZONA PADRES</strong>, hemos ajustado las opciones automaticamente para la edad del niño/a (<?php echo @$edad ?> años). Ahora puedes cambiar lo que consideres necesario.
+</font>
+</div>
+<hr>
+
+<?php
+}
+?>
 
 <div style="width: 100%; height: 60px; padding: 10px; background: #e3fefd; margin-bottom: 10px; border-bottom: 1px solid #c3edec;" id="check_selectall">
 <h4 style="color: #666666; font-weight: 200; font-size: 15px;"><input type="checkbox" class="option-input checkbox" onclick="seleccionar_todas_edades();" id="selectall" style="float: left;"/> <strong>Seleccionar todas las series</strong><br>Todas las edades</h4>
