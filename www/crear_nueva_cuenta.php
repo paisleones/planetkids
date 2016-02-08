@@ -13,7 +13,15 @@ if (mysql_num_rows($resultado) == 0)
 {  
 
 
-mysql_query ("INSERT INTO USUARIOS (NOMBRE, EDAD, EMAIL, CLAVE) VALUES ('$crear_nombre', '$crear_edad', '$crear_email', '$crear_clave')");
+$resultado_series=mysql_query("SELECT * from series where edad<='$crear_edad'") or die (mysql_error());  
+while( $row = mysql_fetch_array ( $resultado_series ))
+{
+@$id_serie = $row['ID'];
+@$cadena_series = @$cadena_series . @$id_serie . ",";
+}
+
+
+mysql_query ("INSERT INTO USUARIOS (NOMBRE, EDAD, EMAIL, CLAVE, SERIES) VALUES ('$crear_nombre', '$crear_edad', '$crear_email', '$crear_clave', '@$cadena_series')");
 
 @$result = mysql_query ("SELECT * from usuarios where email='$crear_email'") or die("Error en la consulta SQL");
 while( $row = mysql_fetch_array ( $result ))
