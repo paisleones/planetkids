@@ -55,6 +55,7 @@ var minutos= tiempo_restante;
 
 document.getElementById("contador").style.display = 'block';
 cuenta_atras(minutos,'start');
+cuenta_atras(minutos,'start');
 }
 
 cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY CARGANDO VIDEOS');

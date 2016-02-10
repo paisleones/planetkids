@@ -11,7 +11,7 @@
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
-<!-- jQuery 
+<!-- jQuery
 <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/style5152.css">
@@ -163,7 +163,7 @@ height: 100%;
 top: 0px;
 left: 0px;
 z-index: 99999;
-background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2));  background: url(http://kids.trabajocreativo.com/images/cuenta.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;
+background: #005395; background: url(http://kids.trabajocreativo.com/images/cielo.jpg); no-repeat center; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow-x: hidden;
 }
 
 /*form styles*/
@@ -175,11 +175,11 @@ position: relative;
 top: 50px;
 }
 #msform fieldset {
-background: white;
+background: none;
 border: 0 none;
-border-radius: 6px;
-box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-padding: 20px 30px;
+border-radius: 0px;
+box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.4);
+padding: 0px 0px;
 box-sizing: border-box;
 width: 80%;
 margin: 0 10%;
@@ -198,22 +198,23 @@ border-radius: 3px;
 margin-bottom: 10px;
 width: 100%;
 box-sizing: border-box;
-color: #2C3E50;
+color: #ffffff;
 font-size: 13px;
 }
 /*buttons*/
 #msform .action-button {
-box-shadow: 0px 4px 0px 0px #899f33;
-background-color: #9db53d;
+box-shadow: 0px 4px 0px 0px #c93028;
+background-color: #ff4b42;
 color: #fff;
-margin: 10px
-border-radius: 0px;
+margin: 10px;
+border-radius: 5px;
 border: 0px;
-padding:10px;
+padding:14px;
 width: 110px;
 cursor: pointer;
 text-align: center;
 font-size: 14px;
+font-weight: 100;
 }
 
 .border-input
@@ -238,7 +239,7 @@ margin-bottom: 10px;
 .fs-subtitle {
 font-weight: bold;
 font-size: 14px;
-color: #666;
+color: #fff;
 margin: 0px;
 padding: 0px;
 }
@@ -268,51 +269,60 @@ color: #ff4b42;
 <!-- fieldsets -->
 <fieldset id="div_iniciar_sesion">
 <h2 class="fs-title">Iniciar sesión</h2>
-<h3 class="fs-subtitle">Si ya tienes una cuenta creada</h3>
-<hr>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;"><strong>Si ya tienes una cuenta creada</strong></h3>
+
+<br><br>
+
 <div style="text-align: left; color: #666666;">
-<h3 class="fs-subtitle">Correo electrónico:</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Correo electrónico:</h3>
 <input type="text" name="email_sesion" id="email_sesion" class="border-input" style="height: 52px; font-size: 20px; color: #ff4b42;"/>
 <br>
-<h3 class="fs-subtitle">Clave (4 dígitos):</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Clave (4 dígitos):</h3>
 <input type="tel" name="clave_sesion" id="clave_sesion" class="border-input" maxlength="4" style="height: 52px; font-size: 34px; color: #ff4b42;"/>
 </div>
-<hr>
-<input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" onclick="iniciar_sesion();"/>
-<input type="button" name="next" class="next action-button" value="NUEVA >" onclick="paso1();"/>
+
+<br><br>
+
+<input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" onclick="iniciar_sesion();" style="margin-right: 10px;"/>
+<input type="button" name="next" class="next action-button" value="NUEVA" onclick="paso1();"/>
 </fieldset>
 
 <fieldset id="div_paso1">
 <h2 class="fs-title" style="color: #ff4b42">Crear una cuenta</h2>
 <h3 class="fs-subtitle"><strong>1 de 2</strong> - Datos del niño/a</h3>
-<hr>
+<br><br>
 <div style="text-align: left; color: #666666;">
-<h3 class="fs-subtitle">Nombre:</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Nombre:</h3>
 <input type="text" name="crear_nombre" id="crear_nombre" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 <br>
-<h3 class="fs-subtitle">Edad:</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Edad:</h3>
 <input type="tel" name="crear_edad" id="crear_edad" class="border-input"  style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 </div>
-<hr>
-<input type="button" name="previous" class="previous action-button" value="< ATRAS" onclick="atras_paso1();"/>
-<input type="button" name="next" class="next action-button" value="SIGUIENTE >" onclick="paso2();"/>
+
+<br><br>
+
+<input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso1();" style="margin-right: 10px;"/>
+
+<input type="button" name="next" class="next action-button" value="SIGUIENTE" onclick="paso2();"/>
 </fieldset>
 
 
 <fieldset id="div_paso2">
 <h2 class="fs-title" style="color: #ff4b42">Datos de seguridad</h2>
 <h3 class="fs-subtitle"><strong>2 de 2</strong> - Datos de los padres</h3>
-<hr>
+
+<br><br>
+
 <div style="text-align: left; color: #666666;;">
-<h3 class="fs-subtitle">Correo eléctronico:</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Correo eléctronico:</h3>
 <input type="text" name="crear_email" id="crear_email" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 <br>
-<h3 class="fs-subtitle">Clave (4 dígitos):</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Clave (4 dígitos):</h3>
 <input type="tel" name="crear_clave" id="crear_clave" class="border-input" maxlength="4" style="height: 52px; font-size: 34px; color: #ff4b42;"/>
 </div>
 
-<hr>
-<input type="button" name="previous" class="previous action-button" value="< ATRAS" onclick="atras_paso2();"/>
+<br><br>
+<input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso2();" style="margin-right: 10px;"/>
 <input type="button" name="submit" class="submit action-button" value="GUARDAR" onclick="guardar_nuevos_datos();"/>
 </fieldset>
 <fieldset>
