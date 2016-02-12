@@ -962,6 +962,12 @@ var app = {
 	     // Avisar de que se perdió la conexión.
 var networkState = navigator.connection.type;
 var networkState = networkState.toLowerCase();
+
+if (networkState == "none")
+{
+	$( "#error" ).show();
+    navigator.notification.alert("Ups! Parece que has perdido la conexión a internet. El viaje no puede continuar hasta que no la recuperes ...", null, "Mensaje de Kids PLANET", "Aceptar");
+}
    
   document.addEventListener("online", function() {
     $( "#error" ).show();
