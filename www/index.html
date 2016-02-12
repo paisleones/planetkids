@@ -926,83 +926,7 @@ closeMenu();
 
 <script type="text/javascript" src="cordova.js"></script>
 
-<script>
-
-document.addEventListener("deviceready", init, false);
- // Avisar de que se perdió la conexión.
-function sinconexion()
-{
- $( "#error" ).show();
-    navigator.notification.alert("Ups! Parece que has perdido la conexión a internet. El viaje no puede continuar hasta que no la recuperes ...", null, "Mensaje de Kids PLANET", "Aceptar");
-}
-
-function conectado()
-{
- $( "#error" ).hide();
-     navigator.notification.alert("Enhorabuena! Has recuperado lal conexión, el viaje puede continuar ...", null, "Mensaje de Kids PLANET", "Aceptar");
-}
-
-
-
-/*
- * Contenido del index.js
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-
-
-        function init() {
-  console.log('Device Ready');
-
-document.addEventListener("online", conectado, false);
-document.addEventListener("offline", sinconexion, false);
-
-    // Inicializar variablles de localstorage.
-  var storage;
-    function onDeviceReady() {
-      storage = window.localStorage;
-    }
-
-
-  
-  window.addEventListener('load', function() {
-    new FastClick(document.body);
-}, false);
-
- document.addEventListener("deviceready", onDeviceReady, false);
-    // device APIs are available
-    //
-    
-    }
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
-}};
-</script>
+<script type="text/javascript" src="index.js"></script>
 
 <script type="text/javascript" src="StreamingMedia.js"></script>
 
@@ -1068,6 +992,28 @@ $(document).ready(function(){
 })
 
 </script>
+
+<script>
+document.addEventListener("deviceready", init, false);
+
+function init() {
+document.addEventListener("online", conectado, false);
+document.addEventListener("offline", sinconexion, false);
+}
+
+ // Avisar de que se perdió la conexión.
+function sinconexion()
+{
+ $( "#error" ).show();
+    navigator.notification.alert("Ups! Parece que has perdido la conexión a internet. El viaje no puede continuar hasta que no la recuperes ...", null, "Mensaje de Kids PLANET", "Aceptar");
+}
+
+function conectado()
+{
+ $( "#error" ).hide();
+     navigator.notification.alert("Enhorabuena! Has recuperado lal conexión, el viaje puede continuar ...", null, "Mensaje de Kids PLANET", "Aceptar");
+}
+ </script>
 
 
 
