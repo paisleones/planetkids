@@ -927,6 +927,23 @@ closeMenu();
 <script type="text/javascript" src="cordova.js"></script>
 
 <script>
+
+document.addEventListener("deviceready", init, false);
+ // Avisar de que se perdió la conexión.
+function sinconexion()
+{
+ $( "#error" ).show();
+    navigator.notification.alert("Ups! Parece que has perdido la conexión a internet. El viaje no puede continuar hasta que no la recuperes ...", null, "Mensaje de Kids PLANET", "Aceptar");
+}
+
+function conectado()
+{
+ $( "#error" ).hide();
+     navigator.notification.alert("Enhorabuena! Has recuperado lal conexión, el viaje puede continuar ...", null, "Mensaje de Kids PLANET", "Aceptar");
+}
+
+
+
 /*
  * Contenido del index.js
  */
@@ -953,32 +970,13 @@ var app = {
         function init() {
   console.log('Device Ready');
 
+document.addEventListener("online", conectado, false);
+document.addEventListener("offline", sinconexion, false);
 
     // Inicializar variablles de localstorage.
   var storage;
     function onDeviceReady() {
       storage = window.localStorage;
-	  
-	     // Avisar de que se perdió la conexión.
-var networkState = navigator.connection.type;
-var networkState = networkState.toLowerCase();
-
-if (networkState == "none")
-{
-	$( "#error" ).show();
-    navigator.notification.alert("Ups! Parece que has perdido la conexión a internet. El viaje no puede continuar hasta que no la recuperes ...", null, "Mensaje de Kids PLANET", "Aceptar");
-}
-   
-  document.addEventListener("online", function() {
-    $( "#error" ).show();
-    navigator.notification.alert("Ups! Parece que has perdido la conexión a internet. El viaje no puede continuar hasta que no la recuperes ...", null, "Mensaje de Kids PLANET", "Aceptar");
-  });
-
-  document.addEventListener("online", function() {
-    $( "#error" ).hide();
-
-  });
-  
     }
 
 
