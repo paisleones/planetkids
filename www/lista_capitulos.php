@@ -183,7 +183,15 @@ if (@$resumen=='')
 if (@$contador == 0)
 {
 ?>
-<img src="http://kids.trabajocreativo.com/images/robot-roto.png" style="width: 190px; margin-top: 30px;">
+<style>
+.rotar{
+	-webkit-transform: rotateZ(15deg);
+	-moz-transform: rotateZ(15deg);
+	-o-transform: rotateZ(15deg);
+}
+</style>
+<div style="width: 270px; height: 291px; margin: 0 auto; text-align: center; margin-top: 50px; background: url(images/robot-broken.png); background-size: 270px;
+background-repeat: no-repeat;"><div style="width: 92px; height: 56px; padding: 0px; margin: 0px; background: none; position: relative; left: 150px; top: 30px;"><font style="font-size: 14px; color: #ff4b42; line-height: 100%; font-weight: 400;"><STRONG>UPS!</STRONG> ESTOS VIDEOS SE HAN ROTO ...</font></div><div class="load rotar" style="position: relative; top: 92px; left: -31px; z-index: 9999; width: 80px;"><div class="object"></div><div class="object"></div><div class="object"></div><div class="object"></div><div class="object"></div><div class="object"></div></div></div>
 <?php
 }
 ?>

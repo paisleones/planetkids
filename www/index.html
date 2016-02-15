@@ -505,7 +505,7 @@ function enviar(){
 			else
 			{
 				 navigator.notification.confirm(
-                ("Lo sentimos pero la clace es incorrecta !"), // message
+                ("Lo sentimos pero la clave es incorrecta !"), // message
                 emptyCode(), // callback
                 'Mensaje de Kids PLANET', // title
                 'ACEPTAR' // buttonName
@@ -888,6 +888,7 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
+var id_usuario = "";
 
 if (id_usuario == "" || clave == "" || clave == null || id_usuario == null)
 {
@@ -925,7 +926,7 @@ closeMenu();
 <div style="border-left: 10px solid #248dc1; height: 50px; background: #248dc1; width: 100px; position: absolute; top: 0px; right: 0px; text-size: 11px; z-index: 9999999; display: none;" id="contador">
 <div style="display: block; margin-top: 16px;" id="contador_tiempo">
 <img src="images/alarm.png" style="width: 18px; float: left; margin-right: 6px;">
-<span id='timer_output_format_1' class='timer' style="font-size: 14px; font-weight: 400; color: #ffffff;">--:--</span>
+<span id='timer_output_format_1' class='timer' style="font-size: 15px; font-weight: 800; color: #ffffff;">--:--</span>
 </div>
 <div>
 

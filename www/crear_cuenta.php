@@ -24,34 +24,79 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 </script>
 
 <script>
+
+function modalbox_olvidar_clave(ancho,alto)
+{
+closeMenu();
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>INTRODUCE TU EMAIL:</h3><hr>Introduce tu email y te enviaremos la clave por correo electrónico.</font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="100%"><input type="text" name="code_email" id="code_email" value="" class="display seguridad" style="border: 1px solid #c0c0c0; height: 46px; font-size: 20px; text-align: left; padding: 6px;"/></td></table><a href="javascript: enviar_clave();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100px; height: 46px; margin-top: 20px; margin-left: 0px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENVIAR</p></a></div></form>', {
+	closeClass: "modalClose",
+	containerCss:{
+		padding:0,
+		width:ancho,
+		height:alto
+	},
+	overlayClose:true,
+	autoResize:true,
+	autoPosition:true,
+	opacity:60,
+	maxHeight: 700
+	
+}); 
+}
+
+
 function paso1()
 {
 //document.getElementById('div_iniciar_sesion').style.display = 'none'
 //document.getElementById('div_paso1').style.display = 'block'
 
-
-$( "#div_iniciar_sesion" ).fadeOut( "slow");
-$( "#div_paso1" ).fadeIn( "slow");
+$( "#div_iniciar_sesion" ).hide();
+$( "#div_paso1" ).show();
 
 }
 
 function atras_paso1()
 {
-$( "#div_paso1" ).fadeOut( "slow");
-$( "#div_iniciar_sesion" ).fadeIn( "slow");
+$( "#div_paso1" ).hide();
+$( "#div_iniciar_sesion" ).show();
 }
 
 function paso2()
 {
-$( "#div_paso1" ).fadeOut( "slow");
-$( "#div_paso2" ).fadeIn( "slow");
+$( "#div_paso1" ).hide();
+$( "#div_paso2" ).show();
 }
 
 function atras_paso2()
 {
-$( "#div_paso2" ).fadeOut( "slow");
-$( "#div_paso1" ).fadeIn( "slow");
+$( "#div_paso2" ).hide();
+$( "#div_paso1" ).show();
 }
+
+
+function enviar_clave()
+{
+var validar_email = 0;
+var email_cuenta = $('#code_email').val();
+
+if (email_cuenta =="" || email_cuenta.indexOf("@")== -1 || email_cuenta.indexOf(".")== -1)
+{
+document.getElementById("code_email").style.borderColor = "#ff4b42";
+var validar_email = 0;
+}
+else
+{
+document.getElementById("code_email").style.borderColor = "#cccccc";
+var validar_email = 1;
+}
+
+if(validar_email == 1)
+{
+actualizardatos("recordar_clave.php?email_cuenta=" + email_cuenta,"crear_nueva_cuenta");
+}
+
+}
+
 
 
 function guardar_nuevos_datos()
@@ -180,8 +225,8 @@ margin: 0 10%;
 /*stacking fieldsets above each other*/
 position: absolute;
 top: 50%;
-height: 340px;
-margin-top: -180px;
+height: 460px;
+margin-top: -230px;
 }
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
@@ -202,6 +247,21 @@ font-size: 13px;
 #msform .action-button {
 box-shadow: 0px 4px 0px 0px #c93028;
 background-color: #ff4b42;
+color: #fff;
+margin: 10px;
+border-radius: 5px;
+border: 0px;
+padding:14px;
+width: 110px;
+cursor: pointer;
+text-align: center;
+font-size: 14px;
+font-weight: 100;
+}
+
+#msform .action-button-verde {
+box-shadow: 0px 4px 0px 0px #899f33;
+background-color: #9db53d;
 color: #fff;
 margin: 10px;
 border-radius: 5px;
@@ -258,17 +318,21 @@ color: #ff4b42;
 
 <div class="div_completo">
 
-
 <!-- multistep form -->
 <form id="msform" name="msform">
 <!-- progressbar -->
 
+
+
+
 <!-- fieldsets -->
 <fieldset id="div_iniciar_sesion">
+<img src="http://kids.trabajocreativo.com/images/logo_peque.png" style="margin-bottom: 20px; width: 200px;">
+
 <h2 class="fs-title">Iniciar sesión</h2>
 <h3 style="font-size: 15px; color: #ffffff; font-weight: 200;"><strong>Si ya tienes una cuenta creada</strong></h3>
 
-<br><br>
+<br>
 
 <div style="text-align: left; color: #666666;">
 <h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Correo electrónico:</h3>
@@ -278,16 +342,23 @@ color: #ff4b42;
 <input type="tel" name="clave_sesion" id="clave_sesion" class="border-input" maxlength="4" style="height: 52px; font-size: 34px; color: #ff4b42;"/>
 </div>
 
-<br><br>
+<br>
 
-<input type="button" id="submit_iniciar" class="action-button" value="ENTRAR" onclick="iniciar_sesion();" style="margin-right: 10px;"/>
+<input type="button" id="submit_iniciar" class="action-button-verde" value="ENTRAR" onclick="iniciar_sesion();" style="margin-right: 10px;"/>
 <input type="button" name="next" class="next action-button" value="NUEVA" onclick="paso1();"/>
+
+<br><br>
+<a href="javascript:modalbox_olvidar_clave(400,260); document.getElementById('code_email').focus();"><strong>UPS!</strong>, no recuerdo mi clave</a>
 </fieldset>
 
 <fieldset id="div_paso1">
+<img src="http://kids.trabajocreativo.com/images/logo_peque.png" style="margin-bottom: 20px; width: 200px;">
+
 <h2 class="fs-title" style="color: #ff4b42">Crear una cuenta</h2>
 <h3 class="fs-subtitle"><strong>1 de 2</strong> - Datos del niño/a</h3>
-<br><br>
+
+<br>
+
 <div style="text-align: left; color: #666666;">
 <h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Nombre:</h3>
 <input type="text" name="crear_nombre" id="crear_nombre" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
@@ -296,7 +367,7 @@ color: #ff4b42;
 <input type="tel" name="crear_edad" id="crear_edad" class="border-input"  style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 </div>
 
-<br><br>
+<br>
 
 <input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso1();" style="margin-right: 10px;"/>
 
@@ -305,10 +376,11 @@ color: #ff4b42;
 
 
 <fieldset id="div_paso2">
+<img src="http://kids.trabajocreativo.com/images/logo_peque.png" style="margin-bottom: 20px; width: 200px;">
 <h2 class="fs-title" style="color: #ff4b42">Datos de seguridad</h2>
 <h3 class="fs-subtitle"><strong>2 de 2</strong> - Datos de los padres</h3>
 
-<br><br>
+<br>
 
 <div style="text-align: left; color: #666666;;">
 <h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Correo eléctronico:</h3>
@@ -318,9 +390,10 @@ color: #ff4b42;
 <input type="tel" name="crear_clave" id="crear_clave" class="border-input" maxlength="4" style="height: 52px; font-size: 34px; color: #ff4b42;"/>
 </div>
 
-<br><br>
+<br>
+
 <input type="button" name="previous" class="previous action-button" value="ATRAS" onclick="atras_paso2();" style="margin-right: 10px;"/>
-<input type="button" name="submit" class="submit action-button" value="GUARDAR" onclick="guardar_nuevos_datos();"/>
+<input type="button" name="submit" class="submit action-button-verde" value="GUARDAR" onclick="guardar_nuevos_datos();"/>
 </fieldset>
 <fieldset>
 </form>
