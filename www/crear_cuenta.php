@@ -157,6 +157,10 @@ if(validar1==1 && validar2 == 1 && validar3==1 && validar4 == 1)
 {
 actualizardatos("crear_nueva_cuenta.php?crear_nombre=" + crear_nombre + "&crear_edad=" + crear_edad + "&crear_email=" + crear_email + "&crear_clave=" + crear_clave,"crear_nueva_cuenta");
 }
+else
+{
+navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de Kids PLANET", "Aceptar");
+}
 
 }
 
@@ -194,6 +198,11 @@ if(validar5==1 && validar6 == 1)
 {
 actualizardatos("iniciar_sesion.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion,"crear_nueva_cuenta");
 }
+else
+{
+navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de Kids PLANET", "Aceptar");
+}
+
 }
 </script>
 

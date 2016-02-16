@@ -98,13 +98,15 @@ $( "#top_menu" ).hide();
 <div class="headerBack" id="top_menu_capitulos" style="z-index: 51; position: fixed; top: 0px; left: 0px;">
 <div id="header" style="text-align: left;" class="sombra">
 
-<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 17px;">
+<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 200; font-size: 17px;">
 <a href="javascript: mostrarmenu();">
 <div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
 <img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
 </div>
 </a>
+<div style="padding-top: 4px;">
 <?php echo $nombre ?>
+</div>
 
 </h1>
 
