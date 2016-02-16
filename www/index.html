@@ -283,6 +283,9 @@ function mensaje_aviso()
 $( "#siteloader_capitulos" ).html('');
 $( "#siteloader_cuenta" ).html('');
 document.getElementById("siteloader_cuenta").style.display = 'none';
+$( "#top_menu_capitulos" ).hide();
+$( "#top_menu_zona_padres" ).hide();
+$( "#top_menu" ).show();
 document.getElementById("siteloader_menu").style.display = 'block';
 cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY CARGANDO VIDEOS');
         }
