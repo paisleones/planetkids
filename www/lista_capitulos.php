@@ -88,14 +88,20 @@ while( $row = mysql_fetch_array ( $result ))
 ?>
 
 
+<script>
+$( "#top_menu" ).hide();
+</script>
 
-<div class="headerBack" style="position: fixed; top: 0px; left: 0px; z-index: 99999;">
-<div id="header" style="text-align: left;">
 
-<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100">
+
+
+<div class="headerBack" id="top_menu_capitulos" style="z-index: 51; position: fixed; top: 0px; left: 0px;">
+<div id="header" style="text-align: left;" class="sombra">
+
+<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 17px;">
 <a href="javascript: mostrarmenu();">
-<div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
-<img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
+<div style="width: 56px; height: 50px; float: left; padding: 8px; margin-right: 20px;">
+<img src="http://kids.trabajocreativo.com/images/menu_atras.png" style="position: absolute; top: -6px; left: -10px; z-index: 99; width: 70px;">
 </div>
 </a>
 <?php echo $nombre ?>

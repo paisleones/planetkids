@@ -405,6 +405,9 @@ parar_cronometro();
 function mostrarmenu() {
 $( "#siteloader_capitulos" ).html('');
 document.location.href="#arriba";
+$( "#top_menu_capitulos" ).hide();
+$( "#top_menu_zona_padres" ).hide();
+$( "#top_menu" ).show();
 document.getElementById("siteloader_menu").style.display = "block";
 }
 
@@ -837,22 +840,6 @@ border-radius: 0px;
 <div id="body" class="page center">
 
 
-<div class="headerBack" id="top_menu" style="z-index: 50">
-<div id="header" style="text-align: left;">
-
-<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100;">
-<a class="button" href="#" id="menu">
-<div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
-<img src="images/menu.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
-</div>
-</a>
-Kids Planet
-
-</h1>
-
-</div>
-</div>
-
 
 
 <div style="padding: 0px; margin: 0px; width: 100%;  height: 100%; z-index: 80; text-align: center; position: absolute; top: 0px; left: 0px; display: none;" id="siteloader_cuenta"> 
@@ -872,6 +859,7 @@ Kids Planet
 
 
 
+
 <div style="display: none; padding: 0px; margin: 0px; width: 100%; position: fixed;  top: 50px; height: 100%; z-index: 90" class="error" id="error">
 <div style="width: 100%; text-align: left; padding: 50px; margin-top: 20px;">
 <h3 style="font-size: 15px; color: #ffffff; font-weight: 200">
@@ -888,6 +876,7 @@ var id_usuario = localStorage.getItem('id_usuario');
 var clave = localStorage.getItem('clave');
 var email = localStorage.getItem('email');
 
+//var id_usuario = "";
 
 if (id_usuario == "" || clave == "" || clave == null || id_usuario == null)
 {
@@ -904,6 +893,20 @@ cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY
 
 
 
+<div class="headerBack" id="top_menu" style="z-index: 50">
+<div id="header" style="text-align: left;" class="sombra">
+
+<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 17px;">
+<a class="button" href="#" id="menu">
+<div style="width: 56px; height: 50px; float: left; padding: 8px; margin-right: 20px;">
+<img src="http://kids.trabajocreativo.com/images/menu1.png" style="position: absolute; top: -6px; left: -10px; z-index: 99; width: 70px;">
+</div>
+</a>
+Kids Planet
+</h1>
+
+</div>
+</div>
 
 
 </div>
@@ -912,6 +915,8 @@ cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY
 
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="siteloader_video">   
 </div>
+
+
 
 <script>
 var _0xc02a=["\x6F\x6E\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x63\x6C\x69\x63\x6B","\x62\x6F\x72\x64\x65\x72\x52\x61\x64\x69\x75\x73","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x23\x68\x65\x61\x64\x65\x72","\x69\x6E\x61\x63\x74\x69\x76\x65","\x68\x61\x73\x43\x6C\x61\x73\x73","\x64\x69\x76\x2E\x63\x6F\x6E\x74\x65\x6E\x74","\x61\x64\x64\x43\x6C\x61\x73\x73","\x66\x6C\x61\x67","\x6C\x69","\x76\x69\x73\x69\x62\x6C\x65","\x65\x61\x63\x68","\x6F\x6E","\x61\x2E\x62\x75\x74\x74\x6F\x6E","\x69\x6E\x61\x63\x74\x69\x76\x65\x20\x66\x6C\x61\x67","\x6C\x69\x20\x61"];if(_0xc02a[0] in window){var click=_0xc02a[1];} else {var click=_0xc02a[2];} ;$(_0xc02a[15])[_0xc02a[14]](click,function (){$(_0xc02a[5])[_0xc02a[4]](_0xc02a[3]);if(!$(_0xc02a[8])[_0xc02a[7]](_0xc02a[6])){$(_0xc02a[8])[_0xc02a[9]](_0xc02a[6]);setTimeout(function (){$(_0xc02a[8])[_0xc02a[9]](_0xc02a[10]);} ,100);var _0x7767x2=0;$[_0xc02a[13]]($(_0xc02a[11]),function (_0x7767x3,_0x7767x4){_0x7767x2=40*_0x7767x3;setTimeout(function (){$(_0x7767x4)[_0xc02a[9]](_0xc02a[12]);} ,_0x7767x2);} );} ;} );function closeMenu(){$(_0xc02a[5])[_0xc02a[9]](_0xc02a[3]);$(_0xc02a[8])[_0xc02a[4]](_0xc02a[16]);setTimeout(function (){$(_0xc02a[11])[_0xc02a[4]](_0xc02a[12]);} ,300);} ;$(_0xc02a[8])[_0xc02a[14]](click,function (){if($(_0xc02a[8])[_0xc02a[7]](_0xc02a[10])){closeMenu();} ;} );$(_0xc02a[17])[_0xc02a[14]](click,function (_0x7767x6){closeMenu();} );

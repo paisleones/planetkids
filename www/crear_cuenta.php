@@ -28,7 +28,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 function modalbox_olvidar_clave(ancho,alto)
 {
 closeMenu();
-$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>INTRODUCE TU EMAIL:</h3><hr>Introduce tu email y te enviaremos la clave por correo electrónico.</font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="100%"><input type="text" name="code_email" id="code_email" value="" class="display seguridad" style="border: 1px solid #c0c0c0; height: 46px; font-size: 20px; text-align: left; padding: 6px;"/></td></table><a href="javascript: enviar_clave();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100px; height: 46px; margin-top: 20px; margin-left: 0px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENVIAR</p></a></div></form>', {
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>HAS OLVIDADO TU CLAVE ?</h3><hr>Introduce tu email y te enviaremos la clave por correo electrónico.</font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="100%"><input type="text" name="code_email" id="code_email" value="" class="display seguridad" style="border: 1px solid #c0c0c0; height: 46px; font-size: 20px; text-align: left; padding: 6px;"/></td></table><a href="javascript: enviar_clave();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100px; height: 46px; margin-top: 20px; margin-left: 0px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENVIAR</p></a></div></form>', {
 	closeClass: "modalClose",
 	containerCss:{
 		padding:0,
@@ -318,6 +318,9 @@ color: #ff4b42;
 
 <div class="div_completo">
 
+<a href="javascript:modalbox_olvidar_clave(400,260); document.getElementById('code_email').focus();"><img src="http://kids.trabajocreativo.com/images/help1.png" style="width: 40px; position: absolute; top: 6px; right: 6px;"></a>
+
+
 <!-- multistep form -->
 <form id="msform" name="msform">
 <!-- progressbar -->
@@ -347,8 +350,6 @@ color: #ff4b42;
 <input type="button" id="submit_iniciar" class="action-button-verde" value="ENTRAR" onclick="iniciar_sesion();" style="margin-right: 10px;"/>
 <input type="button" name="next" class="next action-button" value="NUEVA" onclick="paso1();"/>
 
-<br><br>
-<a href="javascript:modalbox_olvidar_clave(400,260); document.getElementById('code_email').focus();"><strong>UPS!</strong>, no recuerdo mi clave</a>
 </fieldset>
 
 <fieldset id="div_paso1">
