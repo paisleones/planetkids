@@ -44,17 +44,17 @@ border-radius: 4px 4px 4px 4px;
 
 .sombra
 {
--webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
--moz-box-shadow:    0px 2px 10px rgba(0, 0, 0, 0.5);
-box-shadow:         0px 2px 10px rgba(0, 0, 0, 0.5);
+-webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+-moz-box-shadow:    0px 2px 10px rgba(0, 0, 0, 0.3);
+box-shadow:         0px 2px 10px rgba(0, 0, 0, 0.3);
 
 }
 
 .sombra_menu
 {
--webkit-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.5);
--moz-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.5);
-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.5);
+-webkit-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.3);
+-moz-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.3);
+box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.3);
 }
 
 .bordes_redondeados
@@ -898,11 +898,11 @@ cargardatos('lista_series.php?id_usuario=' + id_usuario,'siteloader_menu','ESTOY
 
 <h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 17px;">
 <a class="button" href="#" id="menu">
-<div style="width: 56px; height: 50px; float: left; padding: 8px; margin-right: 20px;">
-<img src="http://kids.trabajocreativo.com/images/menu1.png" style="position: absolute; top: -6px; left: -10px; z-index: 99; width: 70px;">
+<div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
+<img src="images/menu.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
 </div>
 </a>
-Kids Planet
+Kids PLANET
 </h1>
 
 </div>
@@ -1004,6 +1004,10 @@ $(document).ready(function(){
 </script>
 
 <script>
+onDeviceReady: function() { 
+FastClick.attach(document.body); 
+}
+
 document.addEventListener("deviceready", init, false);
 
 function init() {
