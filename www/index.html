@@ -250,7 +250,7 @@ url('data:image/gif;base64,R0lGODlhIANYAvcAADg6RO7Qcn18gjg1PZWVmmupxD5IVaenq2KUq
 <script type="text/javascript">
 
 // Contador
-!function(a){a.backward_timer=function(b){var c={seconds:5,step:1,stop_at_zero:!0,format:"m%:s%",value_setter:void 0,on_start:function(){},on_cancel:function(){},on_exhausted:function(){},on_tick:function(){}},d=this;d.seconds_left=0,d.target=a(b),d.timeout=void 0,d.settings={},d.methods={init:function(b){d.settings=a.extend({},c,b),void 0==d.settings.value_setter&&(d.settings.value_setter=d.target.is("input")?"val":"text"),d.methods.reset()},start:function(){if(void 0==d.timeout&&!d.methods._is_exhausted()){d.settings.on_start(d);var a=d.seconds_left==d.settings.seconds?0:1e3*d.settings.step;setTimeout(d.methods._on_tick,a,a)}},cancel:function(){void 0!=d.timeout&&(clearTimeout(d.timeout),d.timeout=void 0,d.settings.on_cancel(d))},reset:function(){d.seconds_left=d.settings.seconds,d.methods._render_seconds()},_on_tick:function(a){if(0!=a&&d.settings.on_tick(d),d.methods._render_seconds(),d.methods._is_exhausted())d.timeout=void 0,d.settings.on_exhausted(d);else{if(d.seconds_left<d.settings.step&&d.settings.stop_at_zero)var b=d.seconds_left;else var b=d.settings.step;d.seconds_left-=b;var c=1e3*b;d.timeout=setTimeout(d.methods._on_tick,c,c)}},_render_seconds:function(){var a=d.methods._seconds_to_dhms(d.seconds_left),b=d.settings.format;b=-1!==b.indexOf("d%")?b.replace("d%",a.d).replace("h%",d.methods._check_leading_zero(a.h)):b.replace("h%",24*a.d+a.h),b=b.replace("m%",d.methods._check_leading_zero(a.m)).replace("s%",d.methods._check_leading_zero(a.s)),d.seconds_left<0&&(b="-"+b),d.target[d.settings.value_setter](b)},_seconds_to_dhms:function(a){var a=Math.abs(a),b=Math.floor(a/86400),a=a-3600*24*b,c=Math.floor(a/3600),a=a-3600*c,d=Math.floor(a/60),a=Math.floor(a-60*d);
+!function(a){a.backward_timer=function(b){var c={seconds:5,step:1,stop_at_zero:!0,format:"h%:m%:s%",value_setter:void 0,on_start:function(){},on_cancel:function(){},on_exhausted:function(){},on_tick:function(){}},d=this;d.seconds_left=0,d.target=a(b),d.timeout=void 0,d.settings={},d.methods={init:function(b){d.settings=a.extend({},c,b),void 0==d.settings.value_setter&&(d.settings.value_setter=d.target.is("input")?"val":"text"),d.methods.reset()},start:function(){if(void 0==d.timeout&&!d.methods._is_exhausted()){d.settings.on_start(d);var a=d.seconds_left==d.settings.seconds?0:1e3*d.settings.step;setTimeout(d.methods._on_tick,a,a)}},cancel:function(){void 0!=d.timeout&&(clearTimeout(d.timeout),d.timeout=void 0,d.settings.on_cancel(d))},reset:function(){d.seconds_left=d.settings.seconds,d.methods._render_seconds()},_on_tick:function(a){if(0!=a&&d.settings.on_tick(d),d.methods._render_seconds(),d.methods._is_exhausted())d.timeout=void 0,d.settings.on_exhausted(d);else{if(d.seconds_left<d.settings.step&&d.settings.stop_at_zero)var b=d.seconds_left;else var b=d.settings.step;d.seconds_left-=b;var c=1e3*b;d.timeout=setTimeout(d.methods._on_tick,c,c)}},_render_seconds:function(){var a=d.methods._seconds_to_dhms(d.seconds_left),b=d.settings.format;b=-1!==b.indexOf("d%")?b.replace("d%",a.d).replace("h%",d.methods._check_leading_zero(a.h)):b.replace("h%",24*a.d+a.h),b=b.replace("m%",d.methods._check_leading_zero(a.m)).replace("s%",d.methods._check_leading_zero(a.s)),d.seconds_left<0&&(b="-"+b),d.target[d.settings.value_setter](b)},_seconds_to_dhms:function(a){var a=Math.abs(a),b=Math.floor(a/86400),a=a-3600*24*b,c=Math.floor(a/3600),a=a-3600*c,d=Math.floor(a/60),a=Math.floor(a-60*d);
 
 localStorage.setItem("tiempo_restante", d);
 
@@ -936,7 +936,7 @@ closeMenu();
 <div style="border-left: 10px solid #248dc1; height: 50px; background: #248dc1; width: 100px; position: absolute; top: 0px; right: 0px; text-size: 11px; z-index: 9999999; display: none;" id="contador">
 <div style="display: block; margin-top: 16px;" id="contador_tiempo">
 <img src="images/alarm.png" style="width: 18px; float: left; margin-right: 6px;">
-<span id='timer_output_format_1' class='timer' style="font-size: 15px; font-weight: 800; color: #ffffff;">--:--</span>
+<span id='timer_output_format_1' class='timer' style="font-size: 15px; font-weight: 800; color: #ffffff;">--:--:--</span>
 </div>
 <div>
 
@@ -997,7 +997,7 @@ $(document).ready(function(){
 
    $('#timer_output_format_1').backward_timer({
 	   seconds: minutos*60,
-	   format: 'm%:s%',
+	   format: 'h%:m%:s%',
     on_exhausted: function(timer) {
       document.getElementById('stop').style.display = 'block'; 
     }

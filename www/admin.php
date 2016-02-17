@@ -113,6 +113,9 @@ document.getElementById("contador").style.display = 'none';
 parar_cronometro();
  
 document.getElementById("siteloader_cuenta").style.display = 'block';
+$( "#top_menu_capitulos" ).hide();
+$( "#top_menu_zona_padres" ).hide();
+$( "#top_menu" ).show();
 actualizardatos('crear_cuenta.php','siteloader_cuenta');
 $( '#siteloader_capitulos' ).html('');
 }
@@ -453,159 +456,6 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 
 
-.can-toggle {
-  position: relative;
-}
-.can-toggle *, .can-toggle *:before, .can-toggle *:after {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
-}
-.can-toggle input[type="checkbox"] {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.can-toggle input[type="checkbox"][disabled] ~ label {
-  pointer-events: none;
-}
-.can-toggle input[type="checkbox"][disabled] ~ label .can-toggle__switch {
-  opacity: 0.4;
-}
-.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:before {
-  content: attr(data-unchecked);
-  left: 0;
-}
-.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:after {
-  content: attr(data-checked);
-}
-.can-toggle label {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  position: relative;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.can-toggle label .can-toggle__label-text {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding-left: 32px;
-}
-.can-toggle label .can-toggle__switch {
-  position: relative;
-}
-.can-toggle label .can-toggle__switch:before {
-  content: attr(data-checked);
-  position: absolute;
-  top: 0;
-  text-transform: uppercase;
-  text-align: center;
-}
-.can-toggle label .can-toggle__switch:after {
-  content: attr(data-unchecked);
-  position: absolute;
-  z-index: 5;
-  text-transform: uppercase;
-  text-align: center;
-  background: white;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-.can-toggle input[type="checkbox"][disabled] ~ label {
-  color: rgba(119, 119, 119, 0.5);
-}
-.can-toggle input[type="checkbox"]:focus ~ label .can-toggle__switch, .can-toggle input[type="checkbox"]:hover ~ label .can-toggle__switch {
-  background-color: #c0c0c0;
-}
-.can-toggle input[type="checkbox"]:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:hover ~ label .can-toggle__switch:after {
-  color: #5e5e5e;
-}
-.can-toggle input[type="checkbox"]:hover ~ label {
-  color: #6a6a6a;
-}
-.can-toggle input[type="checkbox"]:checked ~ label:hover {
-  color: #55bc49;
-}
-.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch {
-  background-color: #9db53d;
-}
-.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:after {
-  color: #4fb743;
-}
-.can-toggle input[type="checkbox"]:checked:focus ~ label .can-toggle__switch, .can-toggle input[type="checkbox"]:checked:hover ~ label .can-toggle__switch {
-  background-color: #9db53d;
-}
-.can-toggle input[type="checkbox"]:checked:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:checked:hover ~ label .can-toggle__switch:after {
-  color: #47a43d;
-}
-.can-toggle label .can-toggle__label-text {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.can-toggle label .can-toggle__switch {
-  -webkit-transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
-          transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
-  background: #c0c0c0;
-}
-.can-toggle label .can-toggle__switch:before {
-  color: rgba(255, 255, 255, 0.5);
-}
-.can-toggle label .can-toggle__switch:after {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
-  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
-  color: #777;
-}
-.can-toggle input[type="checkbox"]:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:hover ~ label .can-toggle__switch:after {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-}
-.can-toggle input[type="checkbox"]:checked ~ label .can-toggle__switch:after {
-  -webkit-transform: translate3d(65px, 0, 0);
-          transform: translate3d(65px, 0, 0);
-}
-.can-toggle input[type="checkbox"]:checked:focus ~ label .can-toggle__switch:after, .can-toggle input[type="checkbox"]:checked:hover ~ label .can-toggle__switch:after {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-}
-.can-toggle label {
-  font-size: 18px;
-  font-weight: 800;
-}
-.can-toggle label .can-toggle__switch {
-  height: 32px;
-  -webkit-flex: 0 0 134px;
-      -ms-flex: 0 0 134px;
-          flex: 0 0 134px;
-  border-radius: 2px;
-}
-.can-toggle label .can-toggle__switch:before {
-  left: 67px;
-  font-size: 12px;
-  line-height: 36px;
-  width: 67px;
-  padding: 0 12px;
-}
-.can-toggle label .can-toggle__switch:after {
-  top: 2px;
-  left: 2px;
-  border-radius: 2px;
-  width: 65px;
-  line-height: 32px;
-  font-size: 12px;
-}
-.can-toggle label .can-toggle__switch:hover:after {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-}
-
-
-
-
 
 #input-wrapper {
  width: 100%;
@@ -917,14 +767,109 @@ La opción "<strong>control del tiempo</strong>" ayuda a la supervision del uso 
             
 <h4>Activar control de tiempo</h4>
 <br>
-<div class="can-toggle" style="width: 134px; height: 24px;">
-  <input id="s2" type="checkbox" <?php echo @$checked_tiempo ?>>
-  <label for="s2" style="cursor: pointer;">
-    <div class="can-toggle__switch" data-checked="SI" data-unchecked="NO"></div>
-  </label>
-</div>
+
+<style>
+section {
+  float: left;
+  min-width: 150px;
+  width: 33.33%;
+  padding: 10px 0;
+  height: 60px;
+}
+
+/*=====================*/
+.checkbox {
+  position: relative;
+  display: inline-block;
+}
+.checkbox:after, .checkbox:before {
+  font-family: FontAwesome;
+  -webkit-font-feature-settings: normal;
+          font-feature-settings: normal;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
+  -webkit-font-language-override: normal;
+          font-language-override: normal;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  text-rendering: auto;
+}
+.checkbox label {
+  width: 90px;
+  height: 42px;
+  background: #ccc;
+  position: relative;
+  display: inline-block;
+  border-radius: 46px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.checkbox label:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  left: 0;
+  top: -5px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.checkbox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkbox input:hover + label:after {
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.checkbox input:checked + label:after {
+  left: 40px;
+}
+
+
+.model-4 .checkbox label {
+  background: #bbb;
+  height: 25px;
+  width: 75px;
+}
+.model-4 .checkbox label:after {
+  background: #fff;
+  top: -8px;
+  width: 38px;
+  height: 38px;
+}
+.model-4 .checkbox input:checked + label {
+  background: #f0f0f0;
+}
+.model-4 .checkbox input:checked + label:after {
+  background: #9bd7d5;
+  left: 40px;
+}
+
+    </style>
+
+
+<section class="model-4">
+  <div class="checkbox">
+    <input type="checkbox" name="s2" value="SI" id="s2" <?php echo @$checked_tiempo ?>/>
+    <label></label>
+  </div></section>
+
   <br>
   <br>
+  <br><br>
   <h4>Tiempo de visionado (minutos)</h4>
 <br>
 
@@ -1036,7 +981,7 @@ color: #ff4b42;
 
   <h4>Correo eléctronico:</h4>
 <br>
-<input id="nuevo_email" name="nuevo_email" style="width: 80%; border: 1px solid #c0c0c0; height: 52px; font-size: 20px;" value="<?php echo @$email ?>">
+<input id="nuevo_email" name="nuevo_email" style="text-align: left; width: 80%; border: 1px solid #c0c0c0; height: 52px; font-size: 20px;" value="<?php echo @$email ?>">
 <p>
 <br>
 

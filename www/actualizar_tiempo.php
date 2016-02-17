@@ -10,6 +10,10 @@ mysql_query ("UPDATE usuarios set tiempo='".$tiempo."', tiempo_activo='".$tiempo
 ?>
 
 <script>
+localStorage.removeItem('tiempo_de_visionado');
+localStorage.removeItem('tiempo_restante');
+
+localStorage.setItem("tiempo_de_visionado", "<?php echo $tiempo ?>");
 localStorage.setItem("tiempo_restante", "<?php echo $tiempo ?>");
 mensaje_aviso();
 iniciar_contador();
