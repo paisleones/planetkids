@@ -368,7 +368,7 @@ var minutos = localStorage.getItem('tiempo_de_visionado');
 	$('#timer_output_format_1').backward_timer(accion);
    $('#timer_output_format_1').backward_timer({
 	   seconds: minutos*60,
-	   format: 'm%:s%',
+	   format: 'h%:m%:s%',
     on_exhausted: function(timer) {
       document.getElementById('stop').style.display = 'block'; 
     }
