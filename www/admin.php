@@ -8,6 +8,7 @@ document.location.href="#arriba";
 @$nueva = $_GET["nueva"];
 ?>
 
+
 <!DOCTYPE HTML>
 
 <html lang="es-ES">

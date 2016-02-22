@@ -28,7 +28,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 function modalbox_olvidar_clave(ancho,alto)
 {
 closeMenu();
-$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>HAS OLVIDADO TU CLAVE ?</h3><hr>Introduce tu email y te enviaremos la clave por correo electrónico.</font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="100%"><input type="text" name="code_email" id="code_email" value="" class="display seguridad" style="border: 1px solid #c0c0c0; height: 46px; font-size: 20px; text-align: left; padding: 6px;"/></td></table><a href="javascript: enviar_clave();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100px; height: 46px; margin-top: 20px; margin-left: 0px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENVIAR</p></a></div></form>', {
+$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>HAS OLVIDADO TU CLAVE ?</h3><hr>Introduce tu email y te enviaremos la clave por correo electrónico.</font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="100%"><input type="text" name="code_email" id="code_email" value="" class="display seguridad" style="border: 1px solid #c0c0c0; height: 46px; font-size: 20px; text-align: left; padding: 6px;"/></td></table><a href="javascript: enviar_clave();" class="digits pad-action" id="boton_recordar"><p style="position: relative; top: -1px; width: 100px; height: 46px; margin-top: 20px; margin-left: 0px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENVIAR</p></a></div></form>', {
 	closeClass: "modalClose",
 	containerCss:{
 		padding:0,
@@ -92,6 +92,7 @@ var validar_email = 1;
 
 if(validar_email == 1)
 {
+$( "#boton_recordar" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 26px;">');
 actualizardatos("recordar_clave.php?email_cuenta=" + email_cuenta,"crear_nueva_cuenta");
 }
 
@@ -203,6 +204,31 @@ else
 navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de Kids PLANET", "Aceptar");
 }
 
+}
+
+
+function mensaje_crear_nueva_cuenta()
+{
+ navigator.notification.confirm(
+                ("La cuenta de usuario ha sido creada con exito. Ahora te llevaremos a la ZONA PADRES para configurar las opciones"), // message
+                alerta_guardar_cuenta, // callback
+                'Mensaje de Kids PLANET', // title
+                'ACEPTAR' // buttonName
+        );
+
+
+	
+	 function alerta_guardar_cuenta(button){
+
+        if(button=="1" || button==1)
+        {
+var id_usuario = localStorage.getItem('id_usuario');			
+$( "#siteloader_capitulos" ).html('');
+$( "#siteloader_cuenta" ).html('');
+document.getElementById("siteloader_cuenta").style.display = 'none';
+cargarcapitulos('admin.php?id_usuario=' + id_usuario + '&nueva=1','siteloader_capitulos','CARGANDO ZONA PADRES');
+        }
+	 }
 }
 </script>
 
@@ -370,10 +396,10 @@ color: #ff4b42;
 <br>
 
 <div style="text-align: left; color: #666666;">
-<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Nombre:</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Nombre del niño/a:</h3>
 <input type="text" name="crear_nombre" id="crear_nombre" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 <br>
-<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Edad:</h3>
+<h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Edad del niño/a:</h3>
 <input type="tel" name="crear_edad" id="crear_edad" class="border-input"  style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 </div>
 
