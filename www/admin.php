@@ -1,3 +1,5 @@
+<a name="top_of_page_zona_padres" id="top_of_page_zona_padres"></a>
+
 <script>
 document.location.href="#arriba";
 </script>
@@ -29,6 +31,19 @@ document.location.href="#arriba";
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <!-- Has aqui --->
+
+<script>
+document.location.href="#arriba";
+
+function mostrarseries() {
+document.getElementById("header_abajo").style.display = 'none';
+document.getElementById("header").style.display = 'block';	
+$( "#siteloader_capitulos" ).html('');
+document.location.href="#arriba";
+$( "#siteloader_menu" ).show();
+showmenu();
+}
+</script>
 
 <script>
 
@@ -147,7 +162,7 @@ function preguntar_cerrar_sesion()
 function guardar_tiempo()
 {
 $( "#boton_tiempo" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
-var tiempo_activo = $("#s2").prop("checked");
+var tiempo_activo = $("#s2").prop("value");
 var tiempo_de_visionado = $('#rangeslider').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
 localStorage.setItem("tiempo_activo", tiempo_activo);
@@ -409,159 +424,11 @@ label[for=favcity] select:focus {
 
 
 
-.slider {
-  width: 100%;
-  max-width: 320px;
-}
-
-input[type="range"] {
-  -webkit-appearance: none !important;
-  width: 100%;
-  height: 15px;
-  background: #f0f0f0;
-  border-top: 1px solid #e1e0e0;
-  border-radius: 10px;
-  margin: auto;
-  transition: all 0.3s ease;
-}
-input[type="range"]:hover {
-  background-color: #f0f0f0;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none !important;
-  width: 24px;
-  height: 24px;
-  background-color: #9bd7d5;
-  border-radius: 60px;
-  box-shadow: 0 0.1em 0.01em -0.01em rgba(255, 255, 255, 0.2) inset, 0 0.2em 0.2em -0.1em rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
-}
-input[type="range"]::-webkit-slider-thumb:hover {
-  background-color: #457d66;
-}
-input[type="range"]::-webkit-slider-thumb:active {
-  box-shadow: 0px 0px 1px #3c6d59;
-}
-
-#rangevalue {
-  text-align: center;
-  font-size: 18px;
-  display: block;
-  margin: auto;
-  padding: 10px 0px;
-  width: 100%;
-  font-weight: 100;
-  color: #248dc1;
-}
 
 
 
 
-#input-wrapper {
- width: 100%;
-  max-width: 320px;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  overflow: hidden;
-}
 
-#rangeslider {
-  display: block;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  height: 5px;
-  width: 100%;
-  background: #f0f0f0;
-}
-
-#rangeslider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  height: 5px;
-  width: 54px;
-  position: relative;
-
-}
-
-#rangeslider::-webkit-slider-thumb:after {
-  content: '< >';
-  word-spacing: 20px;
-  text-align: center;
-  background: #9bd7d5;
-  font-weight: 200;
-  font-size: 18px;
-  color: white;
-  width: 54px;
-  height: 25px;
-  position: absolute;
-  top: -10px;
-  left: 0;
-  color: transparent;
-  -webkit-transition: color 0.25s;
-  transition: color 0.25s;
-  
-}
-
-#rangeslider::-webkit-slider-thumb:before {
-  content: '';
-  height: 5px;
-  width: 400px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #9bd7d5;
-  pointer-events: none;
-}
-
-#reel {
-  width: 0px;
-  height: 0px;
-  overflow: hidden;
-  position: absolute;
-  top: 0; 
-  opacity: 0;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
-}
-
-#rn {
-  background: -webkit-linear-gradient(hsl(0, 80%, 70%), #9bd7d5));
-  background: linear-gradient(hsl(0, 80%, 70%),  #9bd7d5));
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s; 
-}
-
-
-
-#static-output {
-   word-spacing: 20px;
-  text-align: center;
-  background: #9bd7d5;
-  font-weight: 800;
-  font-size: 18px;
-  color: white;
-  position: absolute;
-  margin-top: -10px;
-  margin-left: -36px;
-  pointer-events: none;
-  -webkit-transition: color 0.25s;
-  transition: color 0.25s;
-}
-
-.active #reel { opacity: 1; }
-
-.active #static-output { color: transparent; }
-
-.active #rangeslider::-webkit-slider-thumb:after {
-  color: white;
-}
 
 
 .bordes_cuadrados
@@ -578,11 +445,16 @@ border-radius: 0px;
 
 
 <script>
-$( "#top_menu" ).hide();
+//$( "#top_menu" ).hide();
+//document.getElementById("top_menu").style.display = "none";
+
+//$( "#header" ).html('<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 17px;"><a href="javascript: mostrarmenu();"><div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;"><img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;"></div></a><div style="padding-top: 4px;">Zona Padres</div></h1>');
 </script>
 
 
-<div class="headerBack" id="top_menu_zona_padres" style="z-index: 51; position: fixed; top: 0px; left: 0px;">
+
+
+<div id="top_menu_zona_padres" style="z-index: 51; position: fixed; top: 0px; left: 0px; display: inline; visibility: visible;">
 <div id="header" style="text-align: left;" class="sombra">
 
 <h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 17px;">
@@ -626,15 +498,6 @@ if (@$tiempo == "")
 @$tiempo = "60";
 }
 
-if (@$tiempo_activo == "" or @$tiempo_activo == "false")
-{
-@$checked_tiempo = "";
-}
-else
-{
-@$checked_tiempo = "checked";
-}
-
 }
 ?>
  
@@ -645,6 +508,13 @@ else
       <li><a href="#" name="#tab3">Datos</a></li>
    
   </ul>
+  
+  <style>
+#contenido
+{
+-webkit-overflow-scrolling: touch;
+}
+</style>
 
   <div id="contenido" style="position: relative; top: 10px; padding: 0px;">
   
@@ -715,7 +585,7 @@ Bienvenido a la <strong>ZONA PADRES</strong>, hemos ajustado las opciones automa
 </div>
 
 <?php
-@$result = mysql_query ("SELECT * from series where idioma='ES' and activado='si'") or die("Error en la consulta SQL1");
+@$result = mysql_query ("SELECT * from series where idioma='ES' and activado='si' order by destacada desc") or die("Error en la consulta SQL1");
 while( $row = mysql_fetch_array ( $result )) 
 {
 @$id = $row['ID'];
@@ -724,6 +594,7 @@ while( $row = mysql_fetch_array ( $result ))
 @$nombre = $row['NOMBRE'];
 @$enlace = $row['ENLACE'];
 @$thumb = $row['THUMB'];
+@$destacada = $row['DESTACADA'];
 
 @$cadena_buscada = @$id . ",";
 @$encuentra = strpos(@$series, @$cadena_buscada);
@@ -741,11 +612,30 @@ else
 <h4 style="color: #666666; font-weight: 200; font-size: 15px;">
 <input name="que_serie" value="<?php echo $id ?>" id="<?php echo $id ?>" type="checkbox" class="todas option_<?php echo @$edad ?> option-input checkbox" style="float: left;" <?php echo @$encontrado ?>/> 
 <strong><?php echo $nombre ?></strong><br>hasta <?php echo $edad ?> años</h4>
+
+<?php
+if (@$destacada == "si")
+{
+?>
+<img src="http://kids.trabajocreativo.com/images/destacada.png" style="position: absolute; margin-top: -30px; right: 6px; width: 32px;">
+<?php
+}
+?>
+
 </div>
 <?php
 }
 ?>
+<div style="width: 100%; height: 70px;">
+
+</div>
 </form>
+
+<div style="width: 40px; height: 40px; position: fixed; bottom: 10; right: 10px; padding: 0px; margin: 0px;">
+<a href="#top_of_page_zona_padres" >
+<img src="http://kids.trabajocreativo.com/images/up.png">
+</a>
+</div>
 
 <div style="padding: 0px; margin: 0px; width: 0px; height: 0px; position: relative;" id="actualizar_series">   
 </div>
@@ -862,73 +752,59 @@ section {
     </style>
 
 
-<section class="model-4">
-  <div class="checkbox">
-    <input type="checkbox" name="s2" value="SI" id="s2" <?php echo @$checked_tiempo ?>/>
-    <label></label>
-  </div></section>
 
-  <br>
+  
+  
+  <?php
+if (@$tiempo_activo == "" or @$tiempo_activo == "false")
+{
+@$selected_tiempo_si = "";
+@$selected_tiempo_no = "selected";
+}
+else
+{
+@$selected_tiempo_si = "selected";
+@$selected_tiempo_no = "";
+}
+?>
+  
+  <select id="s2" name="s2" style="border: 1px solid #c0c0c0; width: 70px; height: 46px; font-size: 15px; background: #ffffff; color: #666666; padding: 10px; cursor: pointer;">
+  
+  <option value="true" <?php echo @$selected_tiempo_si ?>>SI</option> 
+  <option value="false" <?php echo @$selected_tiempo_no ?>>NO</option> 
+  </select>
+  
+
   <br>
   <br><br>
   <h4>Tiempo de visionado (minutos)</h4>
 <br>
 
+<select id="rangeslider" style="border: 1px solid #c0c0c0; width: 230px; height: 46px; font-size: 15px; background: #ffffff; color: #666666; padding: 10px; cursor: pointer;">
 
+<?php
+for ($i = 3; $i <= 24; $i++) {
+	
+@$valor_tiempo = $i*5;
+
+if (@$valor_tiempo == @$tiempo)
+{
+@$selected = "selected";
+}
+else
+{
+@$selected = "";
+}
+
+
+?>
+<option value="<?php echo @$i*5 ?>" <?php echo @$selected ?>><?php echo @$i*5 ?> minutos</option> 
+<?php    
+}
+?>
+</select>
   
-<div id="input-wrapper">
-  <input type="range" id="rangeslider" min="15" max="120" value="<?php echo @$tiempo ?>" step="1" 
-         oninput="updateOutput(value, true)" 
-         onchange="deactivate()" 
-         onmouseup="deactivate()" 
-  >
-  <div id="reel">
-    <div id="rn"></div>
-  </div>
-  <div id="static-output"></div>
-</div>
-<script>
-//lets populate reel numbers
-var min = $("#rangeslider").attr("min");
-var max = $("#rangeslider").attr("max");
 
-var rn = "";
-for(var i = min; i <= max; i++)
-	rn += "<span>"+i+"</span>";
-$("#rn").html(rn);
-
-//triggering updateOutput manually
-updateOutput($("#rangeslider").val(), false);
-
-var rfigure, h, v;
-//lets display the static output now
-function updateOutput(figure, activate) {
-	//if activate then add .active to #input-wrapper to help animate the #reel
-	if(activate)
-		$("#input-wrapper").addClass("active");
-	
-	//because of the step param the slider will return values in multiple of 0.05 so we have to round it up
-	rfigure = Math.round(figure);
-	//displaying the static output
-	$("#static-output").html(rfigure);
-	
-	//positioning #static-output and #reel
-	//horizontal positioning first
-	h = figure/max*($("#input-wrapper").width()-$("#reel").width()) + 'px';
-	//vertical positioning of #rn
-	v = rfigure*$("#reel").height()*-1 + 'px';
-	
-	//applying the positions
-	$("#static-output, #reel").css({left: h});
-	//#rn will be moved using transform+transitions for better animation performance. The false translateZ triggers GPU acceleration for better performance.
-	$("#rn").css({transform: 'translateY('+v+') translateZ(0)'});
-}
-function deactivate() {
-	//remove .active from #input-wrapper
-	$("#input-wrapper").removeClass("active");
-}
-
-</script>
   
 <br><br>
 
@@ -1060,6 +936,12 @@ Si eliges esta opcion, se cerrara la sesión del niño/a y te llevaremos a la pa
         }
     })()
   </script>
+  
+  <script>
+document.getElementById("header_abajo").style.display = 'block';
+document.getElementById("header").style.display = 'none';
+$( "#header_abajo" ).html('<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 200; font-size: 17px;"><a href="javascript: mostrarseries();"><div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;"><img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;"></div></a><div style="padding-top: 4px;">Zona padres</div></h1>');
+</script>
 
 
 </body>

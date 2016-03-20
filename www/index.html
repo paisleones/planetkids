@@ -1,4 +1,4 @@
-<a name="arriba"></a>
+<a name="arriba" id="arriba"></a>
 
 <html>
 <head>
@@ -47,6 +47,12 @@ border-radius: 4px 4px 4px 4px;
 -webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 -moz-box-shadow:    0px 2px 10px rgba(0, 0, 0, 0.3);
 box-shadow:         0px 2px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.texto_sombra
+{
+text-shadow: 0px 2px 2px #000000;
 
 }
 
@@ -243,6 +249,20 @@ overflow-x: hidden;
 
 
 <script type="text/javascript">
+
+function mostrar_password()
+{
+closeMenu();
+document.keypad.code.value = "";
+document.getElementById("mostrar_zona_padres").style.display = 'block';
+}
+
+function ocultar_password()
+{
+closeMenu();
+document.keypad.code.value = "";
+document.getElementById("mostrar_zona_padres").style.display = 'none';
+}
 
 // Contador
 !function(a){a.backward_timer=function(b){var c={seconds:5,step:1,stop_at_zero:!0,format:"h%:m%:s%",value_setter:void 0,on_start:function(){},on_cancel:function(){},on_exhausted:function(){},on_tick:function(){}},d=this;d.seconds_left=0,d.target=a(b),d.timeout=void 0,d.settings={},d.methods={init:function(b){d.settings=a.extend({},c,b),void 0==d.settings.value_setter&&(d.settings.value_setter=d.target.is("input")?"val":"text"),d.methods.reset()},start:function(){if(void 0==d.timeout&&!d.methods._is_exhausted()){d.settings.on_start(d);var a=d.seconds_left==d.settings.seconds?0:1e3*d.settings.step;setTimeout(d.methods._on_tick,a,a)}},cancel:function(){void 0!=d.timeout&&(clearTimeout(d.timeout),d.timeout=void 0,d.settings.on_cancel(d))},reset:function(){d.seconds_left=d.settings.seconds,d.methods._render_seconds()},_on_tick:function(a){if(0!=a&&d.settings.on_tick(d),d.methods._render_seconds(),d.methods._is_exhausted())d.timeout=void 0,d.settings.on_exhausted(d);else{if(d.seconds_left<d.settings.step&&d.settings.stop_at_zero)var b=d.seconds_left;else var b=d.settings.step;d.seconds_left-=b;var c=1e3*b;d.timeout=setTimeout(d.methods._on_tick,c,c)}},_render_seconds:function(){var a=d.methods._seconds_to_dhms(d.seconds_left),b=d.settings.format;b=-1!==b.indexOf("d%")?b.replace("d%",a.d).replace("h%",d.methods._check_leading_zero(a.h)):b.replace("h%",24*a.d+a.h),b=b.replace("m%",d.methods._check_leading_zero(a.m)).replace("s%",d.methods._check_leading_zero(a.s)),d.seconds_left<0&&(b="-"+b),d.target[d.settings.value_setter](b)},_seconds_to_dhms:function(a){var a=Math.abs(a),b=Math.floor(a/86400),a=a-3600*24*b,c=Math.floor(a/3600),a=a-3600*c,d=Math.floor(a/60),a=Math.floor(a-60*d);
@@ -496,10 +516,13 @@ function emptyCode(){
 }
 
 function enviar(){
+
 	var clave = localStorage.getItem('clave');
 	var valor_clave=document.getElementById("code").value;
 	if (valor_clave == clave)
 			{
+				document.getElementById('mostrar_zona_padres').style.display = 'none';
+				document.keypad.code.value = "";
 			$.modal.impl.close();
             cargarcapitulos('admin.php?id_usuario=' + id_usuario,'siteloader_capitulos','CARGANDO ZONA PADRES');
 			}
@@ -574,26 +597,6 @@ $.modal('<div style="width: "' + ancho + '"px; height: "' + alto + '"px; padding
 });
 
 $("#ventana").load(src); 
-}
-
-
-function modalbox_seguridad(ancho,alto)
-{
-closeMenu();
-$.modal('<form method="get" name="keypad" id="keypad"><div id="wrapper" style="padding: 20px;"><font style="color: #666666;"><h3>INTRODUCE LA CLAVE:</h3><hr>La clave de 4 digitos es impresicible para acceder a todas las opciones de la <strong>zona padres.</strong></font><hr><table border="0" width="96%" cellspacing="0" cellpadding="0"><tr><td width="60%"><input type="tel" name="code" id="code" value="" maxlength="4" class="display seguridad" style="border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/></td><td><a href="javascript: enviar();" class="digits pad-action"><p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENTRAR</p></a></td></tr></table></div></form>', {
-	closeClass: "modalClose",
-	containerCss:{
-		padding:0,
-		width:ancho,
-		height:alto
-	},
-	overlayClose:true,
-	autoResize:true,
-	autoPosition:true,
-	opacity:60,
-	maxHeight: 700
-	
-}); 
 }
 
 
@@ -742,6 +745,18 @@ list-style-type: none;
 {
 border-radius: 0px;
 }
+
+.centrado
+{
+box-sizing: border-box;
+width: 80%;
+max-width: 400px;
+position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -35%);
+    -webkit-transform: translate(-50%, -35%);
+}
 </style>
 
 
@@ -749,7 +764,7 @@ border-radius: 0px;
 
 <body onLoad="javascript:init()" style="background: #33313b;">
 
-<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 99999; text-align: center; background: url(http://kids.trabajocreativo.com/images/rocket-animation.gif); no-repeat center; 
+<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 99999; text-align: center; background: url(http://kids.trabajocreativo.com/images/cuenta.jpg); no-repeat center; 
 background-position: center center; 
 -webkit-background-size: cover; 
 -moz-background-size: cover; 
@@ -757,8 +772,80 @@ background-position: center center;
 background-size: cover; 
 overflow-x: hidden; display: block; z-index: 99;">
 
-<h3 style="position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;">Viajando a <strong>Kids PLANET</strong></h3>
+<h3 style="text-align: center; position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;" class="texto_sombra">Viajando a <strong>Kids PLANET 2.0</strong>
+<br><br>
+  <strong><font style="font-size: 20px;"><text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">100%</text></font></strong>
+  
+<div id="mensaje_cargando" style="margin-top: 10px;"></div>
+</h3>
 
+</div>
+
+        <script>
+        var count = $(('#count'));
+$({ Counter: 0 }).animate({ Counter: count.text() }, {
+  duration: 5000,
+  easing: 'linear',
+  step: function () {
+	  var contador = Math.ceil(this.Counter);
+    count.text(Math.ceil(this.Counter)+ "%");
+	
+if (contador == '50')
+  {
+$( "#mensaje_cargando" ).html('Ya estamos llegando ...');
+  }
+  
+  if (contador == '100')
+  {
+$( "#mensaje_cargando" ).html('Ya hemos llegado !!!');
+  }
+  
+  
+  }
+  
+}
+
+
+);
+
+
+
+
+        </script>
+
+
+<div id="mostrar_zona_padres" class="cssClass" style="width: 100%; height: 100%; background: #09152b; background: radial-gradient(#113776 0%, #001834 100%); background: url(http://kids.trabajocreativo.com/images/stop.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; overflow: hidden; z-index: 99; text-align: center; display:none; position: absolute; top: 0px; left: 0px; padding: 20px;">
+<a href="javascript: ocultar_password();">
+<img src="http://kids.trabajocreativo.com/images/cerrar.png" style="position: absolute; top: 10px; right: 10px;">
+</a>
+
+
+
+<div class="centrado" style="color: #ffffff;">
+
+<h3>INTRODUCE LA CLAVE:</h3>
+<br>
+La clave de 4 digitos es impresicible para acceder a todas las opciones de la <strong>zona padres.</strong>
+
+
+<div style="text-align: center; max-width: 300px; padding: 0%; margin: 0 auto; margin-top: 20px;">
+<form method="get" name="keypad" id="keypad">
+<div id="wrapper" style="padding: 20px;">
+<table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td style="width: 170px;">
+<input type="password" name="code" id="code" value="" maxlength="4" class="display seguridad" style="width: 150px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/>
+</td>
+<td style="width: 120px;">
+<a href="javascript: enviar();" class="digits pad-action">
+<p style="position: relative; top: -1px; width: 100%; height: 46px; margin-left: 10px; font-size: 16px; color: #ffffff; padding-top: 14px; font-weight: 800;">ENTRAR</p></a>
+</td>
+</tr>
+</table>
+</div>
+</form>
+</div>
+</div>
 </div>
 
 
@@ -774,7 +861,7 @@ overflow-x: hidden; display: block; z-index: 99;">
 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td style="width: 170px;">
-<input type="tel" name="codigo_bloqueo" id="codigo_bloqueo" value="" maxlength="4" class="display seguridad" style="width: 150px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/>
+<input type="password" name="codigo_bloqueo" id="codigo_bloqueo" value="" maxlength="4" class="display seguridad" style="width: 150px; border: 1px solid #c0c0c0; height: 52px; font-size: 34px;"/>
 </td>
 <td style="width: 120px;">
 <a href="javascript: desbloquear();" class="digits pad-action">
@@ -822,7 +909,7 @@ overflow-x: hidden; display: block; z-index: 99;">
 </li>
 </a>
 
-<a href="javascript:modalbox_seguridad(400,240); document.getElementById('code').focus();">
+<a href="javascript:mostrar_password();">
 <li class="visible boton" style="margin-bottom: 20px;">
 <img src="http://kids.trabajocreativo.com/images/iconos/padres1.png" style="padding: 0px; width: 22px; margin-left: 0px; margin-right: 6px; vertical-align: middle;">
 <font style="font-weight: 400; font-size: 16px;">ZONA PADRES</font>
@@ -913,6 +1000,7 @@ Kids PLANET
 
 </div>
 </div>
+
 
 
 </div>
@@ -1033,6 +1121,8 @@ function conectado()
  $( "#error" ).hide();
 }
  </script>
+ 
+ 
 
 
 

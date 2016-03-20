@@ -8,6 +8,12 @@
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
 
+<script language="javascript" type="text/javascript">
+//document.getElementById("siteloader_video").style.width = "100%";
+//document.getElementById("siteloader_video").style.height = "100%";
+</script>
+
+
 <script>
 $.modal.impl.close();
 </script>
@@ -38,17 +44,41 @@ return '';
 
 @$enlace = $_GET["enlace"];
 @$titulo = $_GET["titulo"];
+@$origen = $_GET["origen"];
 
+if (@$origen=='clanrtve')
+{
 @$enlace="http://www.piraminetlab.com/enlaces.php?url_original=" . @$enlace;
-
 @$codigo_lista =  file_get_contents($enlace);
 @$codigo_lista = str_replace('"', "'",@$codigo_lista);
-
 @$video = extraer(@$codigo_lista,"http://mvod.lvlt.rtve.e",".mp4");
 @$video = "http://mvod.lvlt.rtve.e" . @$video . ".mp4";
 @$fotograma = extraer(@$codigo_lista,"img src=","width");
+}
 
+if (@$origen=='vimeo')
+{
+@$enlace_video = str_replace("[-]","&",@$enlace);	
+$enlace="https://savedeo.com/download?url=" . $enlace_video;
+@$codigo_lista =  file_get_contents($enlace);
+
+@$video = extraer(@$codigo_lista,"<a data-event","rel");
+@$video = explode("href=",$video);
+@$video = $video[1];
+}
+
+if (@$origen=='youtube')
+{
+@$enlace_video = str_replace("[-]","&",@$enlace);	
+$enlace="http://keepvid.com/?url=" . $enlace_video;
+@$codigo_lista =  file_get_contents($enlace);
+
+@$video = extraer(@$codigo_lista,"http://redirector.googlevideo.com",">");
+@$video = "http://redirector.googlevideo.com" . $video;
+}
 ?>
+
+
 
 <div id="div_video" style="margin: 0px; padding: 0px; width: 100%; height: 100%; min-height: 190px; background: url(http://kids.trabajocreativo.com/images/cargando1.gif); background-repeat: no-repeat;background-position: center; position: relative; float: left; margin-bottom: 0px;">
 </div>
@@ -67,3 +97,5 @@ var videoUrl = "<?php echo @$video ?>";
   };
   window.plugins.streamingMedia.playVideo(videoUrl, options);
   </script>
+ 
+  

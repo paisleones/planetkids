@@ -248,6 +248,12 @@ background: #005395; background: url('data:image/jpeg;base64,/9j/4QAYRXhpZgAASUk
 
 /*form styles*/
 
+.div_completo
+{
+text-align: center;
+justify-content:center;
+}
+
 #msform fieldset {
 background: none;
 border: 0 none;
@@ -256,12 +262,13 @@ box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.4);
 padding: 0px 0px;
 box-sizing: border-box;
 width: 80%;
-margin: 0 10%;
-/*stacking fieldsets above each other*/
+max-width: 400px;
 position: absolute;
-top: 50%;
-height: 460px;
-margin-top: -230px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+
 }
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
@@ -400,7 +407,7 @@ color: #ff4b42;
 <input type="text" name="crear_nombre" id="crear_nombre" class="border-input" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 <br>
 <h3 style="font-size: 15px; color: #ffffff; font-weight: 200;">Edad del niño/a:</h3>
-<input type="tel" name="crear_edad" id="crear_edad" class="border-input"  style="font-size: 20px; color: #ff4b42; height: 52px;"/>
+<input type="tel" name="crear_edad" id="crear_edad" class="border-input"  maxlength="2" style="font-size: 20px; color: #ff4b42; height: 52px;"/>
 </div>
 
 <br>
