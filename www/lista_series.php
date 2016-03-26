@@ -2,6 +2,7 @@
 document.location.href="#arriba";
 </script>
 
+
 <a name="top_of_page_series" id="top_of_page_series"></a>
 
 
@@ -65,8 +66,8 @@ border: 0px; margin: 0p; padding: 0px;
 
 function showmenu()
 {
-document.getElementById("header").style.display = 'block';
-document.getElementById("header_abajo").style.display = 'none';
+document.getElementById("top_menu").style.display = 'block';
+document.getElementById("top_menu1").style.display = 'none';
 }
 
 </script>
@@ -117,6 +118,47 @@ include("conexion.php");
 
 
 <?php
+@$result = mysql_query ("SELECT * from mensajes where activado='SI'") or die("Error en la consulta SQL");
+while( $row = mysql_fetch_array ( $result ))
+{
+@$mensaje = $row['MENSAJE'];
+@$fecha = $row['FECHA'];
+@$color = $row['COLOR'];
+}
+
+if (@$mensaje <> '')
+{
+?>
+
+<script>
+function modalboxmensaje(ancho,alto)
+{
+$.modal('<div style="width: "' + ancho + '"px; height: "' + alto + '"px; max-width: 90%; max-height: 300px; z-index:9999; background: #ffffff; overflow-y: scroll; text-align: center; padding: 20px;"><h4 style="padding: 30px; color: #666666; font-weight: 400"><?php echo @$mensaje ?></h4></div>', {
+	closeClass: "modalClose",
+	containerCss:{
+		padding:0,
+		width:ancho,
+		height:alto
+	},
+	overlayClose:true,
+	autoResize:true,
+	autoPosition:true,
+	opacity:60,
+	maxHeight: 500,
+	minHeight: 50
+	
+});
+}
+
+setTimeout(function(){ modalboxmensaje(500,100); }, 6500);
+
+</script>
+
+
+<?php
+}
+
+
 $id_usuario = $_GET["id_usuario"];
 
 @$result = mysql_query ("SELECT * from usuarios where id_usuario='$id_usuario'") or die("Error en la consulta SQL");
@@ -217,17 +259,9 @@ if (@$destacada == "si")
 </div>
 
 <script>
-$( "#top_menu" ).html('<div id="header" style="text-align: left; width: 100%; display: block;" class="sombra"><h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 18px;"><a class="button" href="#" id="menu"><div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;"><img src="images/menu.png" style="margin-top: 4px; height: 30px; vertical-align: middle;"></div></a><div style="padding-top: 4px;">Kids PLANET</div></h1></div><div id="header_abajo" style="text-align: left; width: 100%; display: block;" class="sombra">1234</div>');
-
-document.getElementById("header").style.display = 'block';
-document.getElementById("header_abajo").style.display = 'none';
+document.getElementById("top_menu").style.display = 'block';
+document.getElementById("top_menu1").style.display = 'none';
 </script>
-
-<script>
-var _0xc02a=["\x6F\x6E\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x63\x6C\x69\x63\x6B","\x62\x6F\x72\x64\x65\x72\x52\x61\x64\x69\x75\x73","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x23\x68\x65\x61\x64\x65\x72","\x69\x6E\x61\x63\x74\x69\x76\x65","\x68\x61\x73\x43\x6C\x61\x73\x73","\x64\x69\x76\x2E\x63\x6F\x6E\x74\x65\x6E\x74","\x61\x64\x64\x43\x6C\x61\x73\x73","\x66\x6C\x61\x67","\x6C\x69","\x76\x69\x73\x69\x62\x6C\x65","\x65\x61\x63\x68","\x6F\x6E","\x61\x2E\x62\x75\x74\x74\x6F\x6E","\x69\x6E\x61\x63\x74\x69\x76\x65\x20\x66\x6C\x61\x67","\x6C\x69\x20\x61"];if(_0xc02a[0] in window){var click=_0xc02a[1];} else {var click=_0xc02a[2];} ;$(_0xc02a[15])[_0xc02a[14]](click,function (){$(_0xc02a[5])[_0xc02a[4]](_0xc02a[3]);if(!$(_0xc02a[8])[_0xc02a[7]](_0xc02a[6])){$(_0xc02a[8])[_0xc02a[9]](_0xc02a[6]);setTimeout(function (){$(_0xc02a[8])[_0xc02a[9]](_0xc02a[10]);} ,100);var _0x7767x2=0;$[_0xc02a[13]]($(_0xc02a[11]),function (_0x7767x3,_0x7767x4){_0x7767x2=40*_0x7767x3;setTimeout(function (){$(_0x7767x4)[_0xc02a[9]](_0xc02a[12]);} ,_0x7767x2);} );} ;} );function closeMenu(){$(_0xc02a[5])[_0xc02a[9]](_0xc02a[3]);$(_0xc02a[8])[_0xc02a[4]](_0xc02a[16]);setTimeout(function (){$(_0xc02a[11])[_0xc02a[4]](_0xc02a[12]);} ,300);} ;$(_0xc02a[8])[_0xc02a[14]](click,function (){if($(_0xc02a[8])[_0xc02a[7]](_0xc02a[10])){closeMenu();} ;} );$(_0xc02a[17])[_0xc02a[14]](click,function (_0x7767x6){closeMenu();} );
-</script>
-
-
 
 
 
@@ -236,7 +270,5 @@ var _0xc02a=["\x6F\x6E\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x6
 <img src="http://kids.trabajocreativo.com/images/up.png">
 </a>
 </div>
-
-
 
 

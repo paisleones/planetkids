@@ -79,7 +79,6 @@ $enlace="http://keepvid.com/?url=" . $enlace_video;
 ?>
 
 
-
 <div id="div_video" style="margin: 0px; padding: 0px; width: 100%; height: 100%; min-height: 190px; background: url(http://kids.trabajocreativo.com/images/cargando1.gif); background-repeat: no-repeat;background-position: center; position: relative; float: left; margin-bottom: 0px;">
 </div>
 

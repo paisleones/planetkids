@@ -436,7 +436,7 @@ $( "#siteloader_capitulos" ).html('<div style="width: 270px; height: 229px; marg
  document.getElementById("siteloader_capitulos").style.display = "block";
 	$.ajax({
 		  crossOrigin: true,
-		  url: "http://kids.trabajocreativo.com/" + url,
+		  url: "http://kids2.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php", 
 		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
@@ -455,7 +455,7 @@ $( "#siteloader_menu" ).html('<div style="width: 270px; height: 229px; margin: 0
  
 	$.ajax({
 		  crossOrigin: true,
-		  url: "http://kids.trabajocreativo.com/" + url,
+		  url: "http://kids2.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php",
 		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
@@ -471,7 +471,7 @@ $( "#siteloader_menu" ).html('<div style="width: 270px; height: 229px; margin: 0
 function actualizardatos(url,div) {
 	$.ajax({
 		  crossOrigin: true,
-		  url: "http://kids.trabajocreativo.com/" + url,
+		  url: "http://kids2.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php",
 		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
@@ -488,7 +488,7 @@ function cargarvideo(url,div) {
 	
 	$.ajax({
 		  crossOrigin: true,
-		  url: "http://kids.trabajocreativo.com/" + url,
+		  url: "http://kids2.trabajocreativo.com/" + url,
 		  //proxy: "proxy.php", 
 		  //proxy: "<?php$url = (isset($_GET['url'])) ? $_GET['url'] : false;if(!$url) exit;$referer = (isset($_SERVER['HTTP_REFERER'])) ? strtolower($_SERVER['HTTP_REFERER']) : false;$is_allowed = $referer && strpos($referer, strtolower($_SERVER['SERVER_NAME'])) !== false; $string = ($is_allowed) ? utf8_encode(file_get_contents($url)) : 'You are not allowed to use this proxy!';$json = json_encode($string);$callback = (isset($_GET['callback'])) ? $_GET['callback'] : false;if($callback){$jsonp = '$callback($json)';header('Content-Type: application/javascript');echo $jsonp;exit;}echo $json;?>", 
 		  context: {},
@@ -764,13 +764,7 @@ position: absolute;
 
 <body onLoad="javascript:init()" style="background: #33313b;">
 
-<div id="splash" class="cssClass" style="position: absolute; top: 0px; left: 0px; background: #33313b; overflow: hidden; z-index: 99999; text-align: center; background: url(http://kids.trabajocreativo.com/images/cuenta.jpg); no-repeat center; 
-background-position: center center; 
--webkit-background-size: cover; 
--moz-background-size: cover; 
--o-background-size: cover; 
-background-size: cover; 
-overflow-x: hidden; display: block; z-index: 99;">
+<div id="splash" class="cssClass" style="background: url(images/splash_mini.jpg) #000525; position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: 99999; text-align: center; background: url(http://kids.trabajocreativo.com/images/splash_mini.jpg); no-repeat center; background-repeat: no-repeat; background-position: center center;  overflow-x: hidden; display: block; z-index: 99;">
 
 <h3 style="text-align: center; position: relative; top: 70px; font-size: 15px; color: #ffffff; font-weight: 200;" class="texto_sombra">Viajando a <strong>Kids PLANET 2.0</strong>
 <br><br>
@@ -1003,6 +997,26 @@ Kids PLANET
 
 
 
+<div class="headerBack" id="top_menu1" style="z-index: 50; display: none;">
+<div id="header1" style="text-align: left;" class="sombra">
+
+<h1 class="sectionTitle" style="background: #248dc1; color: #ffffff; padding-left: 0px; font-weight: 100; font-size: 18px; ">
+<a class="button" href="#" id="menu">
+<div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;">
+<img src="images/menu.png" style="margin-top: 4px; height: 30px; vertical-align: middle;">
+</div>
+</a>
+<div style="padding-top: 4px;">
+Kids PLANET
+</div>
+</h1>
+
+</div>
+</div>
+
+
+
+
 </div>
 </div>
 
@@ -1027,6 +1041,7 @@ closeMenu();
 <span id='timer_output_format_1' class='timer' style="font-size: 15px; font-weight: 800; color: #ffffff;">--:--:--</span>
 </div>
 <div>
+
 
 <script type="text/javascript" src="cordova.js"></script>
 

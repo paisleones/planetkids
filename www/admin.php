@@ -36,8 +36,8 @@ document.location.href="#arriba";
 document.location.href="#arriba";
 
 function mostrarseries() {
-document.getElementById("header_abajo").style.display = 'none';
-document.getElementById("header").style.display = 'block';	
+document.getElementById("top_menu").style.display = 'block';
+document.getElementById("top_menu1").style.display = 'none';	
 $( "#siteloader_capitulos" ).html('');
 document.location.href="#arriba";
 $( "#siteloader_menu" ).show();
@@ -938,9 +938,9 @@ Si eliges esta opcion, se cerrara la sesión del niño/a y te llevaremos a la pa
   </script>
   
   <script>
-document.getElementById("header_abajo").style.display = 'block';
-document.getElementById("header").style.display = 'none';
-$( "#header_abajo" ).html('<h1 class="sectionTitle" style="color: #ffffff; padding-left: 0px; font-weight: 200; font-size: 17px;"><a href="javascript: mostrarseries();"><div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;"><img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;"></div></a><div style="padding-top: 4px;">Zona padres</div></h1>');
+document.getElementById("top_menu").style.display = 'none';
+$( "#header1" ).html('<h1 class="sectionTitle" style="background: #248dc1; color: #ffffff; padding-left: 0px; height: 50px; font-weight: 200; font-size: 17px;"><a href="javascript: mostrarseries();"><div style="width: 50px; height: 50px; background: #ff4b42; float: left; padding: 8px; margin-right: 20px;"><img src="images/atras.png" style="margin-top: 4px; height: 30px; vertical-align: middle;"></div></a><div style="padding-top: 4px;">Zona padres</div></h1>');
+document.getElementById("top_menu1").style.display = 'block';
 </script>
 
 
