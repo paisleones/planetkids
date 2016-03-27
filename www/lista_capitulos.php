@@ -301,7 +301,7 @@ document.getElementById("top_menu1").style.display = 'block';
 
 <div style="width: 40px; height: 40px; position: fixed; bottom: 10; right: 10px; padding: 0px; margin: 0px;">
 <a href="#top_of_page_capitulos" >
-<img src="http://kids.trabajocreativo.com/images/up.png">
+<img src="http://kids2.trabajocreativo.com/images/up.png">
 </a>
 </div>
 

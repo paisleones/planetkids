@@ -103,7 +103,7 @@ toggle('submenu');
 
 function guardar_series()
 {
-$( "#boton_series" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: absolute; right: 60px; top: 25px;">');
+$( "#boton_series" ).html('<img src="http://kids2.trabajocreativo.com/images/cargando1.gif" style="position: absolute; right: 60px; top: 25px;">');
 var checkboxValues = "";
 $('input[name="que_serie"]:checked').each(function() {
 	checkboxValues += $(this).val() + ",";
@@ -114,7 +114,7 @@ actualizardatos("actualizar_series.php?id_usuario=<?php echo @$id_usuario ?>&lis
 
 function cerrar_sesion()
 {
-$( "#boton_cerrar_sesion" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
+$( "#boton_cerrar_sesion" ).html('<img src="http://kids2.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 
 localStorage.removeItem('id_usuario');
 localStorage.removeItem('clave');
@@ -161,7 +161,7 @@ function preguntar_cerrar_sesion()
 
 function guardar_tiempo()
 {
-$( "#boton_tiempo" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
+$( "#boton_tiempo" ).html('<img src="http://kids2.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 var tiempo_activo = $("#s2").prop("value");
 var tiempo_de_visionado = $('#rangeslider').val();
 localStorage.setItem("tiempo_de_visionado", tiempo_de_visionado);
@@ -173,7 +173,7 @@ actualizardatos("actualizar_tiempo.php?id_usuario=<?php echo @$id_usuario ?>&tie
 
 function guardar_pin()
 {
-$( "#boton_pin" ).html('<img src="http://kids.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
+$( "#boton_pin" ).html('<img src="http://kids2.trabajocreativo.com/images/cargando1.gif" style="position: relative; left: 40px; top: 5px;">');
 var nuevo_email = $('#nuevo_email').val();
 var nuevo_pin = $('#nuevo_pin').val();
 localStorage.setItem("clave", nuevo_pin);
@@ -617,7 +617,7 @@ else
 if (@$destacada == "si")
 {
 ?>
-<img src="http://kids.trabajocreativo.com/images/destacada.png" style="position: absolute; margin-top: -30px; right: 6px; width: 32px;">
+<img src="http://kids2.trabajocreativo.com/images/destacada.png" style="position: absolute; margin-top: -30px; right: 6px; width: 32px;">
 <?php
 }
 ?>
@@ -633,7 +633,7 @@ if (@$destacada == "si")
 
 <div style="width: 40px; height: 40px; position: fixed; bottom: 10; right: 10px; padding: 0px; margin: 0px;">
 <a href="#top_of_page_zona_padres" >
-<img src="http://kids.trabajocreativo.com/images/up.png">
+<img src="http://kids2.trabajocreativo.com/images/up.png">
 </a>
 </div>
 
